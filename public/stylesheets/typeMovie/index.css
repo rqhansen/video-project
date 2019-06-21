@@ -21,13 +21,39 @@
     -ms-webkit-display: flex;
     -moz-webkit-display: flex;
     justify-content: flex-start;
-    
+
 }
 .m-list-wp .m-list ul li{
-
+    width: 33.33333%;
 }
-@media only screen and (max-width: 767px) {
-    .m-list-wp {
+@media only screen and (min-width: 768px) {
+    .m-list-wp .m-list ul li {
+        flex: 0 0 50%;
+        -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        -moz-flex: 0 0 50%;
+        -o-flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .m-list-wp .m-list ul li {
+        flex: 0 0 50%;
+        -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        -moz-flex: 0 0 50%;
+        -o-flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
 
+@media only screen and (max-width: 766px) {
+    .m-list-wp .m-list ul li {
+        flex: 0 0 100%;
+        -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+        -moz-flex: 0 0 100%;
+        -o-flex: 0 0 100%;
+        max-width: 100%;
     }
 }
