@@ -1,6 +1,7 @@
 'use strict';
 const connection = require('../database/db');
 const {movieTypes}  =require('../config/index');
+const fs = require('fs');
 
 /**
  * 获取首页电影列表
@@ -12,7 +13,6 @@ async function getHome(ctx) {
     movies.forEach(item =>{
         item.filmType = Object.values(movieTypes.filter(type =>type[`${item.typeId}`])[0])[0];
     })
-    
     await ctx.render('index', { movies });
 }
 

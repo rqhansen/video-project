@@ -1,0 +1,38 @@
+<%- include('common/header',{isDetail:false}) %>
+<link rel="stylesheet" href="/stylesheets/index/index.css">
+<link rel="stylesheet" href="/stylesheets/typeMovie/index.css">
+<!-- 主内容 -->
+<div class="main">
+    <div class="wp">
+        <div class="container m-list-wp">
+            <div class="cur">
+                当前位置 :&nbsp;&nbsp;<a href="/">飘花电影&gt;</a>
+                <a href="<%- `/html/${result[0].typeChar}/index` %>"><%= result[0].typeName %></a>&gt;&gt;迅雷下载页面
+            </div>
+            <div class="media-list">
+                <ul>
+                    <% for(let i=0;i<result.length;i++) {%>
+                    <li>
+                        <a href="<%- `/html/${result[i].filmType}/${result[i].id}` %>" target="_self">
+                            <div>
+                                <img src="/<%= result[i].indexImgSrc %>">
+                            </div>
+                            <div>
+                                <h3><%- result[i].fullName %></h3><time><%- result[i].pubDate.toLocaleDateString() %></time>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+<!-- 底部 -->
+<%- include('common/footer.ejs') %>
+<!-- 底部结束 -->
+<script src="/javascripts/index.js"></script>
+</body>
+
+</html>

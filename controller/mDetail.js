@@ -4,6 +4,7 @@ const { query } = require('../database/db');
  * 获取电影详情
  */
 async function getMovieDetail(ctx) {
+    console.log('mDetail');
     let urlSplit = ctx.url.split('/');
     let [type,id] = [urlSplit[2],urlSplit[3]];
     let result = await query(`select * from ${type} where id=${id}`); //查询出来的是一个数组

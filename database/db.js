@@ -18,7 +18,7 @@ module.exports.query = function () {
                     if (err) {
                         reject(err);
                     } else {
-                        console.log('插入成功');
+                        // console.log('插入成功');
                         resolve(rows);
                     }
                     connection.release();

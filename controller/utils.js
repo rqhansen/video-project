@@ -17,7 +17,6 @@ module.exports.downLoadImg = function (url,prefixUrl){
     let imgName = url.lastIndexOf('.');
     let format = url.slice(imgName,imgName+4);
     let prefixName = `${prefixUrl}${preDt}${format}`;
-    console.log(prefixName);
     return new Promise(async (resolve, reject) => {
         try {
             let stream = fs.createWriteStream(`public/${prefixName}`);
@@ -57,11 +56,12 @@ module.exports.getFileInDir = function(path) {
 
 /**
  * 同步删除某目录下文件
- * @param {String} path 文件路径
+ * @param {String} path 文件路径 eg: public/images/movies/detail/20196121560337387826.jpg
  */
 module.exports.deleteFileInDirSync = function(path) {
     //判断文件是否存在
     if(!fs.statSync(path)) return;
+    // console.log(fs.statSync(path));
     fs.unlinkSync(path);
 }
 

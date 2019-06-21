@@ -10,10 +10,10 @@
     -moz-webkit-display: flex;
     -o-webkit-display: flex;
     justify-content: flex-start;
-    -webkit-display-content: flex-start;
-    -ms-webkit-display-content: flex-start;
-    -moz-webkit-display-content: flex-start;
-    -o-webkit-display-content: flex-start;
+    -webkit-justify-content: flex-start;
+    -ms-webkit-justify-content: flex-start;
+    -moz-webkit-justify-content: flex-start;
+    -o-webkit-justify-content: flex-start;
     flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-webkit-flex-wrap: wrap;
