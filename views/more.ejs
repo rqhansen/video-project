@@ -1,0 +1,34 @@
+<%- include('common/header',{isDetail:false}) %>
+<link rel="stylesheet" href="/stylesheets/index/index.css">
+<!-- 主内容 -->
+<div class="main">
+    <div class="wp">
+        <div class="container">
+            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐'});%>
+            <div class="media-list">
+                <ul>
+                    <% for(let i=0;i<movies.length;i++) {%>
+                    <li>
+                        <a href="<%- `/film/${movies[i].filmType}/${movies[i].id}` %>" target="_self">
+                            <div>
+                                <img src="/<%= movies[i].indexImgSrc %>">
+                            </div>
+                            <div>
+                                <h3><%- movies[i].fullName %></h3><time><%- movies[i].pubDate.toLocaleDateString() %></time>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+<!-- 底部 -->
+<%- include('common/footer.ejs') %>
+<!-- 底部结束 -->
+<script src="/javascripts/index.js"></script>
+</body>
+
+</html>

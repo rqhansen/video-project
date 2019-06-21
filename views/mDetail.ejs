@@ -1,0 +1,138 @@
+<%- include('common/header',{isDetail:true,movieName:fullName}) %>
+<link rel="stylesheet" href="/stylesheets/mDetail/mDetail.css">
+<!-- 主内容 -->
+<div class="main">
+    <div class="wp">
+        <div class="container">
+            <div class="divider"></div>
+            <div class="m-detail">
+                <div class="cur">
+                    当前位置 :&nbsp;&nbsp;<a href="/">飘花电影&gt;</a>
+                    <a href=""><%= typeName %></a>&gt;&gt;<%= pureName %>下载页面
+                </div>
+                <div class="m-text">
+                    <h1><%= fullName %></h1>
+                    <div class="info">
+                        <span>片名&nbsp;:</span>&nbsp;&nbsp;&nbsp;<span><%= pureName %></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>发布时间&nbsp;:</span>&nbsp;&nbsp;&nbsp;<span id="pubDate"><%= pubDate.toLocaleDateString() %></span>
+                    </div>
+                    <div id="detailContent" class="txt">
+                        <p>
+                            <%= pureName %><span>迅雷下载地址和剧情：</span>
+                        </p>
+                        <img src="/<%= detailImgSrc %>" style="width:600px;height:800px;" />
+                        <br>
+                        <p>
+                            ◎译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;<span><%= transName %></span>
+                        </p>
+                        <p>
+                            ◎片&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;<span><%= subPureName %></span>
+                        </p>
+                        <p>
+                            ◎年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代&nbsp;&nbsp;&nbsp;<span><%= year %></span>
+                        </p>
+                        <p>
+                            ◎产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地&nbsp;&nbsp;&nbsp;<span><%= country %></span>
+                        </p>
+                        <p>
+                            ◎类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;&nbsp;<span><%= types %></span>
+                        </p>
+                        <p>
+                            ◎语&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言&nbsp;&nbsp;&nbsp;<span><%= language %></span>
+                        </p>
+                        <p>
+                            ◎字&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;幕&nbsp;&nbsp;&nbsp;<span><%= caption %></span>
+                        </p>
+                        <p>
+                            ◎上映日期</span>&nbsp;&nbsp;&nbsp;<span><%= onDate %></span>
+                        </p>
+                        <p>
+                            ◎IMDb评分</span>&nbsp;&nbsp;&nbsp;<span><%= imdbScore %></span>
+                        </p>
+                        <p>
+                            ◎IMDb链接</span>&nbsp;&nbsp;&nbsp;<span><%= imdbLink %></span>
+                        </p>
+                        <p>
+                            ◎格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;式&nbsp;&nbsp;&nbsp;<span><%= format %></span>
+                        </p>
+                        <p>
+                            ◎文件大小</span>&nbsp;&nbsp;&nbsp;<span><%= fileSize %></span>
+                        </p>
+                        <p>
+                            ◎视频尺寸</span>&nbsp;&nbsp;&nbsp;<span><%= videoSize %></span>
+                        </p>
+                        <p>
+                            ◎片&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长&nbsp;&nbsp;&nbsp;<span><%= filmLength %></span>
+                        </p>
+                        <p>
+                            ◎豆瓣评分</span>&nbsp;&nbsp;&nbsp;<span><%= doubanScore %></span>
+                        </p>
+                        <p>
+                            ◎豆瓣链接</span>&nbsp;&nbsp;&nbsp;<span><%= doubanLink %></span>
+                        </p>
+                        <p>
+                            ◎导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演&nbsp;&nbsp;&nbsp;<span><%= director %></span>
+                        </p>
+                        <p>
+                            ◎编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剧&nbsp;&nbsp;&nbsp;<span><%= editor %></span>
+                        </p>
+                        <% if(actor && actor.length) { %>
+                            <% actor.forEach(function(item,idx) { %>
+                                <% if (idx === 0) {%>
+                                    <p>
+                                        ◎主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                                    </p>
+                                <% } else { %>
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                                    </p>
+                                <% } %>
+                            <% }) %>
+                        <% } %>
+                        <p class="margin label">
+                            ◎标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签&nbsp;&nbsp;&nbsp;<span><%= label %></span>
+                        </p>
+                        <% if(shortIntro) { %>
+                            <div class="margin">
+                                ◎简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <% if(shortIntro.length)  {%>
+                                <% shortIntro.forEach(function(item) { %>
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                                    </p>
+                                <% }) %>
+                            <% } %>
+                        <% } %>
+                            <!-- <p class="margin">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= shortIntro %></span>
+                            </p> -->
+                        <% if(getAward) { %>
+                            <div class="margin">
+                                ◎获&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;奖&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <% if(getAward.length) { %>
+                                <% getAward.forEach(function(item,idx) { %>
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                                    </p>
+                                <% }) %>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <div class="bot">
+                        <h3>下载地址列表:<i></i></h3>
+                        <% for(let j=0;j<downUrl.length;j++) {%>
+                        <a href="<%= downUrl[j] %>"><%= downUrl[j] %></a>
+                        <% } %>
+                    </div>
+                    <div class="tip">请把www.piaohua.com分享给你的朋友,更多人使用,速度更快 飘花电影网www.piaohua.com欢迎你每天来！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+<%- include('common/footer.ejs') %>
+<script src="/javascripts/mDetail.js"></script>
+<!-- 底部结束 -->

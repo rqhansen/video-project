@@ -1,0 +1,122 @@
+
+.container .divider{
+    margin: 20px 0 10px 0;
+    overflow: hidden;
+}
+.container .m-detail {
+    font-size:12px;
+    border: 1px #00f solid;
+    /* margin-bottom: 20px; */
+    margin: 0 0 20px 1px;
+    overflow: hidden;
+}
+.container .cur {
+    padding: 0 10px;
+    border-bottom: 1px solid #bfe4ff;
+    background-color: #f7f7f7;
+    line-height: 25px;
+    color:#333;
+}
+.container .cur a {
+    color:#106492;
+}
+.container .cur a:hover{
+    color:#be1204;
+}
+
+.container .m-text {
+    overflow: hidden;
+}
+.container .m-text h1 {
+    margin-bottom: 11px;
+    line-height: 42px;
+    color: #106492;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+.container .m-text .info {
+    text-align: center;
+    color: #333;
+    line-height: 14px;
+    margin-top: 5px;
+}
+.container .m-text .txt {
+    margin: 20px 0;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 22px;
+    color: #333;
+}
+.container .m-text .txt p.hide{
+    display:none;
+}
+.container .m-text #awardWp.hide {
+    display:none;
+}
+.container .m-text .txt .margin{
+    margin: 16px 0;
+}
+.container .m-text .txt .label{
+    margin-top:25px;
+}
+.container .txt img{
+    display:block;
+    max-width: 100%;
+}
+.container .m-text .bot {
+    padding: 0 10px;
+    margin-bottom:20px;
+}
+.container .m-text .bot h3{
+    font-size: 12px;
+    color: #f00;
+    line-height: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.container .m-text .bot i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 19px;
+    height: 17px;
+    background: url('/images/arrow.jpg') no-repeat center center;
+    margin-top: -2px;
+    margin-left: 5px;
+}
+.container .m-text .bot a {
+    display: block;
+    padding: 5px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #106492;
+    background-color: #ffb;
+    border: 1px #ff8c00 solid;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.container .m-text .bot a:hover{
+    color:#be1204;
+}
+.container .m-text .tip {
+    text-align: center;
+    line-height: 35px;
+    font-size: 13px;
+    color: #f00;
+    font-weight: bold;
+    border-top: 2px solid #d1dbe7;
+    border-bottom: 2px solid #d1dbe7;
+    margin-bottom: 10px;
+}
+@media only screen and (max-width:767px) {
+    .container .m-text h1 {
+        line-height: 20px;
+        margin-top:10px;
+    }
+}
