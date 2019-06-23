@@ -1,6 +1,7 @@
 
 const {query} = require('../database/db');
-const {movieTypes}  =require('../config/index');
+const {movieTypes,limitSeconds}  =require('../config/index');
+const {formatDate} = require('./utils');
 
 async function getTypeMovies(ctx) {
     let {url} = ctx;
@@ -17,12 +18,16 @@ async function getTypeMovies(ctx) {
     let {typeId} = result[0];
     let typeChar = Object.values(movieTypes.filter(type =>type[`${typeId}`])[0])[0];
     result = result.slice(page*14,page*14+14);
-    let firstResult = result[0];
-    firstResult.typeChar = typeChar;
-    firstResult.total = length;
-    result[0] = firstResult;
-    let obj = {result,typeChar,length};
-    await ctx.render('typeMovie',{result});
+    result.forEach(item =>{
+        let pureName = item.pureName.trim();
+        item.sharpness = item.fullName.trim().split(pureName)[1];
+        item.actor = item.actor.split('$').slice(0,1);
+        let date = formatDate(item.pubDate)
+        let dateSplit = date.split('-');
+        item.pubDate = `${dateSplit[1]}-${dateSplit[2]}`;
+        item.isNew = new Date() - new Date(date) < limitSeconds;
+    })
+    await ctx.render('typeMovie',{typeChar,result,total:length});
 }
 
 

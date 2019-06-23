@@ -1,5 +1,6 @@
 
 const { query } = require('../database/db');
+const {formatDate} = require('./utils');
 /**
  * 获取电影详情
  */
@@ -13,6 +14,7 @@ async function getMovieDetail(ctx) {
     let actor = result.actor;
     let getAward = result.getAward;
     let shortIntro = result.shortIntro;
+    let pubDate = result.pubDate;
     if (downUrl) {
         result.downUrl = downUrl.split(',');
     }
@@ -26,6 +28,9 @@ async function getMovieDetail(ctx) {
     }
     if (shortIntro) {
         result.shortIntro = shortIntro.split('$');
+    }
+    if(pubDate) {
+        result.pubDate = formatDate(pubDate);
     }
     await ctx.render('mDetail', result);
     // let keys = Object.keys(movieTypes);

@@ -1,7 +1,7 @@
 'use strict';
 const connection = require('../database/db');
 const {movieTypes}  =require('../config/index');
-const fs = require('fs');
+const {formatDate} = require('./utils');
 
 /**
  * 获取首页电影列表
@@ -12,6 +12,7 @@ async function getHome(ctx) {
     let movies = await connection.query('select * from films order by pubDate desc limit 24 offset 0');
     movies.forEach(item =>{
         item.filmType = Object.values(movieTypes.filter(type =>type[`${item.typeId}`])[0])[0];
+        item.pubDate = formatDate(item.pubDate);
     })
     await ctx.render('index', { movies });
 }

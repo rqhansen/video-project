@@ -49,6 +49,8 @@ function selectEleById(id) {
     return document.getElementById(id);
 }
 
+// function 
+
 /**
  * 为元素添加或删除类名
  * @param {DOM} el 节点 
@@ -102,19 +104,6 @@ function stopDefault(e) {
     window.event.returnValue = false;
 }
 
-/**
- * 日期转为2019-07-03格式
- * @param {String} dateStr 日期的字符串形式
- */
-function formatDate(dateStr) {
-    let dateSplit = dateStr.split('-');
-    dateSplit.forEach((item,idx) =>{
-        if(idx) {
-            if(item<10) dateSplit[idx] = `0${item}`;
-        }
-    })
-    return dateSplit.join('-');
-}
 /**
  * 获取网络请求的XMLHttp对象
  */
