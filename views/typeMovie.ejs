@@ -19,17 +19,20 @@
                             </a>
                         </div>
                         <div class="txt">
-                            <div class="title"><a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self"><b><%- result[i].pureName%></b><em><%- result[i].sharpness %></em></a></b></div>
+                            <div class="title"><a href="<%- `/html/${typeChar}/${result[i].id}` %>"
+                                    target="_self"><b><%- result[i].pureName%></b><em><%- result[i].sharpness %></em></a></b>
+                            </div>
                             <div class="short-intro">
-                                <p>@年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year.trim() %>(<%= result[i].country.trim() %>)</p>
+                                <p>@年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year.trim() %>(<%= result[i].country.trim() %>)
+                                </p>
                                 <p>@主&nbsp;&nbsp;演&nbsp;&nbsp;<%= result[i].actor[0] %></p>
                                 <p class="intro">@简&nbsp;&nbsp;介&nbsp;&nbsp;<%= result[i].shortIntro %></p>
                                 <p class="update">
                                     更新时间&nbsp;:&nbsp;&nbsp;
                                     <% if(result[i].isNew) { %>
-                                        <span class="recommend"><time><%= result[i].pubDate %></time>(今日推荐)</span>
+                                    <span class="recommend"><time><%= result[i].pubDate %></time>(今日推荐)</span>
                                     <% } else { %>
-                                        <time><%= result[i].pubDate %></time>
+                                    <time><%= result[i].pubDate %></time>
                                     <% } %>
                                     <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self">点击下载</a>
                                 </p>
@@ -39,24 +42,25 @@
                     <% } %>
                 </ul>
             </div>
-            <div class="page">
+            <div class="pages">
                 <ul id="pageIndexWp">
-                    <li class="first"><a href="" target="_self">首页</a></li>
-                    <li class="pages-pre"><a href="" target="_self">上一页</a></li>
-                    <li class=""><a href="" target="_self">1</a></li>
-                    <li class=""><a href="" target="_self">2</a></li>
-                    <li class=""><a href="" target="_self">3</a></li>
-                    <li class=""><a href="" target="_self">4</a></li>
-                    <li class=""><a href="" target="_self">5</a></li>
-                    <li class=""><a href="" target="_self">6</a></li>
-                    <li class=""><a href="" target="_self">7</a></li>
-                    <li class=""><a href="" target="_self">8</a></li>
-                    <li class=""><a href="" target="_self">9</a></li>
-                    <li class=""><a href="" target="_self">10</a></li>
-                    <li class=""><a href="" target="_self">11</a></li>
+                    <li class="first"><a href="index" target="_self">首页</a></li>
+                    <li class="page-pre"><a href="" target="_self">上一页</a></li>
+                    <li class="page"><a href="" target="_self">1</a></li>
+                    <li class="page"><a href="" target="_self">2</a></li>
+                    <li class="page"><a href="" target="_self">3</a></li>
+                    <li class="page"><a href="" target="_self">4</a></li>
+                    <li class="page"><a href="" target="_self">5</a></li>
+                    <li class="page"><a href="" target="_self">6</a></li>
+                    <li class="page"><a href="" target="_self">7</a></li>
+                    <li class="page"><a href="" target="_self">8</a></li>
+                    <li class="page"><a href="" target="_self">9</a></li>
+                    <li class="page"><a href="" target="_self">10</a></li>
+                    <li class="page"><a href="" target="_self">11</a></li>
                     <li class="pages-next"><a href="" target="_self">下一页</a></li>
                     <li class="end"><a href="" target="_self">末页</a></li>
-                    <li class="total-wp">共<span id="totalPages" class="page-pad"><%= Math.ceil(total/11) %></span>页<span id="totalItems" class="page-pad"><%= total %></span>条</li>
+                    <li class="total-wp">共<span id="totalPages" class="page-pad"><%= Math.ceil(total/11) %></span>页<span
+                            id="totalItems" class="page-pad"><%= total %></span>条</li>
                 </ul>
             </div>
         </div>

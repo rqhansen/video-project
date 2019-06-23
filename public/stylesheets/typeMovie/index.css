@@ -180,26 +180,26 @@
         max-width: 50%;
     }
 }
-.m-list-wp .page {
+.m-list-wp .pages {
     margin: 20px 0 10px;
     overflow: hidden;
     border: 1px solid #bfe4ff;
     background-color: #f7f7ff;
     text-align: center;
 }
-.m-list-wp .page ul {
+.m-list-wp .pages ul {
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 0;
 }
-.m-list-wp .page li {
+.m-list-wp .pages li {
     float: left;
     font-size: 14px;
     line-height: 30px;
     font-weight: bold;
     color: #106492;
 }
-.m-list-wp .page li a {
+.m-list-wp .pages li a {
     display: block;
     line-height: 30px;
     color: #106492;
@@ -210,20 +210,33 @@
     -o-transition: all .3s;
     transition: all .3s;
 }
-.m-list-wp .page .total-wp {
+.m-list-wp .pages .total-wp {
     padding: 0 5px;
 }
-.m-list-wp .page a {
+.m-list-wp .pages a {
     transition: all .3s;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -ms-transition: all .3s;
     -o-transition: all .3s;
 }
-.m-list-wp .page a:hover{
+.m-list-wp .pages a:hover{
     color:#be1204;
 }
-.m-list-wp .page .total-wp .page-pad {
+.m-list-wp .pages li.active a{
+    color:#be1204;
+}
+.m-list-wp .pages li.active a:hover{
+    cursor: auto;
+}
+.m-list-wp .pages .page-pad {
     padding: 0 5px;
 } 
+.m-list-wp .pages .first.disable:hover a{
+    cursor:auto;
+    color: #106492;
+}
+.m-list-wp .pages .page-pre.disable{
+    display:none;
+}
 

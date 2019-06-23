@@ -50,6 +50,11 @@ function selectEleById(id) {
 }
 
 // function 
+function selectElesByClassName(className, el) {
+    if (!className) throw new Error('className cant be empty');
+    if (!el) throw new Error('parent element cant be empty');
+    return el.getElementsByClassName(className);
+}
 
 /**
  * 为元素添加或删除类名
@@ -72,11 +77,11 @@ function toggleClassName(el, className) {
  * @param {string} className类名 
  */
 
-function addClassName(el,className) {
+function addClassName(el, className) {
     if (!el) throw new Error('dom cant be empty');
     if (!className) throw new Error('className cant be empty');
-    let {classList} = el;
-    if(!classList.contains(className)) classList.add(className);
+    let { classList } = el;
+    if (!classList.contains(className)) classList.add(className);
 }
 
 /**
@@ -89,6 +94,18 @@ function removeClassName(el, className) {
     if (!className) throw new Error('className cant be empty');
     let { classList } = el;
     if (classList.contains(className)) classList.remove(className);
+}
+
+/**
+ * 
+ * @param {DOM} el Dom节点 
+ * @param {string} className类名 
+ */
+function hasClassName(el, className) {
+    if (!el) throw new Error('dom cant be empty');
+    if (!className) throw new Error('className cant be empty');
+    let { classList } = el;
+    return classList.contains(className);
 }
 
 /**
