@@ -14,10 +14,10 @@
     color: #333;
     overflow: hidden;
 }
-.m-list-wp .cur a {
+/* .m-list-wp .cur a {
     color:inherit;
-}
-.m-list-wp .cur a:hover{
+} */
+.m-list-wp .cur span{
     color: #be1204;
 }
 .m-list-wp .m-list {
@@ -89,7 +89,7 @@
     margin-bottom: 5px;
     line-height: 30px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow:ellipsis;
     white-space: nowrap;
 }
 .m-list-wp .m-list .txt a {
@@ -171,6 +171,9 @@
         -moz-flex: 0 0 100%;
         -o-flex: 0 0 100%;
         max-width: 100%;
+    }
+    .m-list-wp .pages .page {
+        display:none;
     }
 }
 @media only screen and (min-width: 768px) {
