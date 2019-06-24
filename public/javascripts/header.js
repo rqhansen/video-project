@@ -1,6 +1,6 @@
 
-
-/**
+(function() {
+  /**
  * 显示与隐藏下拉导航
  */
 function setNavDisplay() {
@@ -25,3 +25,4 @@ windowResizeEvent(() => {
  * 监听小屏下的菜单图标点击事件
  */
 selectEleById('menuIcon').addEventListener('click', setNavDisplay, false);
+})();

@@ -25,7 +25,6 @@ async function getSomeTypeMoiveList(ctx) {
         let page = pageText.slice(startIndex + 1, endIndex); //总页数
 
         for (let j = 0; j < page; j++) {
-            // let onePageResult;
             if (j === 0) {
                 await getMovieDetail($); //返回一页的数据
             }

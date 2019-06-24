@@ -30,7 +30,6 @@ async function getTypeMovies(ctx) {
     await ctx.render('typeMovie', { typeChar, result, total: length });
 }
 
-
 module.exports = {
     getTypeMovies
 }

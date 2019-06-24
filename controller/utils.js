@@ -34,65 +34,64 @@ module.exports.downLoadImg = function (url,prefixUrl){
  * 同步获取某目录下所有文件,返回文件名称的数组
  * @param {String} path 
  */
-module.exports.getFileInDirSync = function (path) {
-    return fs.readdirSync(path);
-}
+// module.exports.getFileInDirSync = function (path) {
+//     return fs.readdirSync(path);
+// }
 
 /**
  * 异步获取文件
  * @param {String} path 文件路径
  */
-module.exports.getFileInDir = function(path) {
-    return new Promise((resolve,reject) =>{
-        fs.readFile(path,(err,files) =>{
-            if(err) {
-                reject();    
-            } else {
-                resolve(files);
-            }
-        })
-    })
-}
+// module.exports.getFileInDir = function(path) {
+//     return new Promise((resolve,reject) =>{
+//         fs.readFile(path,(err,files) =>{
+//             if(err) {
+//                 reject();    
+//             } else {
+//                 resolve(files);
+//             }
+//         })
+//     })
+// }
 
 /**
  * 同步删除某目录下文件
  * @param {String} path 文件路径 eg: public/images/movies/detail/20196121560337387826.jpg
  */
-module.exports.deleteFileInDirSync = function(path) {
-    //判断文件是否存在
-    if(!fs.statSync(path)) return;
-    // console.log(fs.statSync(path));
-    fs.unlinkSync(path);
-}
+// module.exports.deleteFileInDirSync = function(path) {
+//     //判断文件是否存在
+//     if(!fs.statSync(path)) return;
+//     fs.unlinkSync(path);
+// }
 
 /**
  * 异步删除文件
  * @param {String} path 文件路径
  */
-module.exports.deleteFileInDir = function(path) {
-    fs.stat(path,(err,info) =>{
-        if(err) {
-            console.log('文件不存在');
-            return;
-        }
-        fs.unlink(path,err =>{
-            if(err) {
-                console.log('删除文件失败');
-                return;
-            }
-            console.log('删除成功');
-        })
-    })
-}
+// module.exports.deleteFileInDir = function(path) {
+//     fs.stat(path,(err,info) =>{
+//         if(err) {
+//             console.log('文件不存在');
+//             return;
+//         }
+//         fs.unlink(path,err =>{
+//             if(err) {
+//                 console.log('删除文件失败');
+//                 return;
+//             }
+//             console.log('删除成功');
+//         })
+//     })
+// }
 
 /**
  * @param {String} path 文件路径
  */
-module.exports.condenseImg = function(path) {
-    images(path).save(path,{
-        quality:80
-    })
-}
+// module.exports.condenseImg = function(path) {
+//     images(path).save(path,{
+//         quality:80
+//     })
+// }
 
 /**
  * 日期转为2019-07-03格式

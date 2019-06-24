@@ -232,11 +232,11 @@
 .m-list-wp .pages .page-pad {
     padding: 0 5px;
 } 
-.m-list-wp .pages .first.disable:hover a{
+.m-list-wp .pages .disable:hover a{
     cursor:auto;
     color: #106492;
 }
-.m-list-wp .pages .page-pre.disable{
+.m-list-wp .pages .hide{
     display:none;
 }
 

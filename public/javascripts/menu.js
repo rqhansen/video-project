@@ -1,11 +1,9 @@
 
-
-let menuWp = selectEleById('menuWp');
-
-menuWp.addEventListener('click',(e) =>{
-    handleTypeMovie(e);
-},false);
-
+(function(){
+    let menuWp = selectEleById('menuWp');
+    menuWp.addEventListener('click',(e) =>{
+        handleTypeMovie(e);
+    },false);
 /**
  * 处理不同的电影类型事件
  */
@@ -27,22 +25,24 @@ function handleTypeMovie(e) {
         case '科幻片':
             url += '/science/index';
             break;
-        case 'drama':
+        case '剧情片':
             url += '/drama/index';
             break;
-        case 'suspense':
+        case '悬疑片':
             url += '/suspense/index';
             break;
-        case 'war':
+        case '战争片':
             url += '/war/index';
             break;
-        case 'horror':
+        case '恐怖片':
             url += '/horror/index';
             break;
-        case 'disaster':
+        case '灾难片':
             url += '/disaster/index';
         default:
             break;
     }
     window.open(url,'_self');
 }
+})();
+

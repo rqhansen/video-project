@@ -7,7 +7,7 @@
         <div class="container m-list-wp">
             <div class="cur">
                 当前位置 :&nbsp;&nbsp;<a href="/">飘花电影&gt;</a>
-                <a href="<%- `/html/${typeChar}/index` %>"><%= result[0].typeName %></a>&gt;&gt;迅雷下载页面
+                <a href="<%- `/html/${typeChar}/index` %>" target="_self"><%= result[0].typeName %></a>&gt;&gt;迅雷下载页面
             </div>
             <div class="m-list">
                 <ul>
@@ -57,9 +57,9 @@
                     <li class="page"><a href="" target="_self">9</a></li>
                     <li class="page"><a href="" target="_self">10</a></li>
                     <li class="page"><a href="" target="_self">11</a></li>
-                    <li class="pages-next"><a href="" target="_self">下一页</a></li>
+                    <li class="page-next"><a href="" target="_self">下一页</a></li>
                     <li class="end"><a href="" target="_self">末页</a></li>
-                    <li class="total-wp">共<span id="totalPages" class="page-pad"><%= Math.ceil(total/11) %></span>页<span
+                    <li class="total-wp">共<span id="totalPages" class="page-pad"><%= Math.ceil(total/14) %></span>页<span
                             id="totalItems" class="page-pad"><%= total %></span>条</li>
                 </ul>
             </div>

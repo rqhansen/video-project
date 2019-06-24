@@ -1,5 +1,6 @@
 
 const { query } = require('../database/db');
+const {movieTypes}  =require('../config/index');
 const { formatDate } = require('./utils');
 /**
  * 获取电影详情
@@ -31,6 +32,7 @@ async function getMovieDetail(ctx) {
     if (pubDate) {
         result.pubDate = formatDate(pubDate);
     }
+    result.filmType = Object.values(movieTypes.filter(type =>type[`${result.typeId}`])[0])[0];
     await ctx.render('mDetail', result);
     // let keys = Object.keys(movieTypes);
     // let movieType = keys.filter(key => movieTypes[key] === result.typeId)[0];
