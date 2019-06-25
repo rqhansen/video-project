@@ -1,28 +1,28 @@
 /* 搜索按钮区域 */
 .search input {
-    display:block;
-    height:38px;
-    line-height:38px;
-    padding:0 20px;
-    border:1px solid #d1dbe7;
-    border-right:none;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 20px;
+    border: 1px solid #d1dbe7;
+    border-right: none;
     background-color:#f7f7f7;
     color:#666;
 }
 .search button {
-    display:block;
-    width:98px;
-    height:38px;
-    line-height:38px;
-    text-align:center;
+    display: block;
+    width: 98px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
     background-color:#5193c7;
     color:#fff;
-    font-size:16px;
-    transition:opacity .3s;
-    -webkit-transition:opacity .3s;
-    -moz-transition:opacity .3s;
-    -ms-transition:opacity .3s;
-    -o-transition:opacity .3s;
+    font-size: 16px;
+    transition: opacity .3s;
+    -webkit-transition: opacity .3s;
+    -moz-transition: opacity .3s;
+    -ms-transition: opacity .3s;
+    -o-transition: opacity .3s;
 }
 .search button:hover{
     opacity: .8;

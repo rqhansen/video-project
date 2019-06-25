@@ -7,6 +7,9 @@ win7下MYSQL57启动：
 
 mysql查询字符集不匹配问题
 
+插入数据
+module.exports.movieSql = "insert into films (typeId,typeName,fullName,pureName,pubDate,indexImgSrc,detailImgSrc,transName,subPureName,year,country,types,language,caption,onDate,imdbScore,imdbLink,format,fileSize,videoSize,filmLength,doubanScore,doubanLink,director,editor,actor,label,shortIntro,getAward,downUrl) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
 mysql自增字段重新从1开始计数并且删除数据
 truncate table 表名;
 

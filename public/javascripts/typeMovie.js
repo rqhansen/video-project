@@ -63,6 +63,7 @@ function initOtherPage(){
     addClassName(prePage, 'hide');
     addClassName(first, 'disable');
     addClassName(prePage.nextElementSibling, 'active');
+    handleOtherPage();
 }
 
 /**

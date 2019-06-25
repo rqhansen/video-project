@@ -18,6 +18,10 @@ async function getTypeMovies(ctx) {
     let { typeId } = result[0];
     let typeChar = Object.values(movieTypes.filter(type => type[`${typeId}`])[0])[0];
     result = result.slice(page * 14, page * 14 + 14);
+    if(!result.length) {
+        await ctx.render('notFind',{title:'您要找的资源不存在'});
+        return;
+    }
     result.forEach(item => {
         let pureName = item.pureName.trim();
         item.sharpness = item.fullName.trim().split(pureName)[1];

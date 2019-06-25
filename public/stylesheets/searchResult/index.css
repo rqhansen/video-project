@@ -14,9 +14,6 @@
     color: #333;
     overflow: hidden;
 }
-/* .m-list-wp .cur a {
-    color:inherit;
-} */
 .m-list-wp .cur span{
     color: #be1204;
 }
@@ -73,7 +70,7 @@
     -ms-transition: all .3s;
 }
 .m-list-wp .m-list .pic a:hover{
-    border:1px solid #be1204;
+    border: 1px solid #be1204;
 }
 .m-list-wp .m-list .txt {
     position: relative;
@@ -82,15 +79,12 @@
     width: -moz-calc(100% - 150px);
     width: -ms-calc(100% - 150px);
     width: -o-calc(100% - 150px);
-    overflow:hidden;
+    overflow: hidden;
 }
 .m-list-wp .m-list .txt .title {
     font-size: 16px;
     margin-bottom: 5px;
     line-height: 30px;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
 }
 .m-list-wp .m-list .txt a {
     color:#be1204;
@@ -115,22 +109,28 @@
     width: 100%;
     font-size: 12px;
     line-height: 22px;
-    word-break:break-all;
+    word-break: break-all;
 }
 .m-list-wp .m-list .txt p:not(.intro) {
     width: 100%;
     margin: 0 ;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
 }
 .m-list-wp .m-list .intro {
     display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: pre-line;
     -webkit-line-clamp: 3;
+    -moz-line-clamp: 3;
+    -ms-line-clamp: 3;
+    -o-line-clamp: 3;
     -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    -moz-box-orient: vertical;
 }
 .m-list-wp .m-list .update{
     position: absolute;
@@ -173,7 +173,7 @@
         max-width: 100%;
     }
     .m-list-wp .pages .page {
-        display:none;
+        display: none;
     }
 }
 @media only screen and (min-width: 768px) {
@@ -239,10 +239,10 @@
     padding: 0 5px;
 } 
 .m-list-wp .pages .disable:hover a{
-    cursor:auto;
+    cursor: auto;
     color: #106492;
 }
 .m-list-wp .pages .hide{
-    display:none;
+    display: none;
 }
 

@@ -26,7 +26,7 @@
     text-align: center;
 }
 .container .media-list li a {
-    display:block;
+    display: block;
 }
 .container .media-list li  div:first-child {
     position: relative;
@@ -47,7 +47,7 @@
     border-color:#FF0000;
 }
 .container .media-list li a> div:last-child {
-    line-height:16px;
+    line-height: 16px;
 }
 .container .media-list li a> div:last-child h3 {
     color:#FF0000;
@@ -65,9 +65,6 @@
     font-size: 13px;
     line-height: 26px;
     font-weight: bold;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 .container .media-list li time {
     line-height: 16px;

@@ -2,7 +2,7 @@
 /* 导航菜单 */
 .menu li {
     color:#fff;
-    text-align:center;
+    text-align: center;
     transition: color .2s linear;
     -webkit-transition: color .2s linear;
     -o-transition: color .2s linear;
@@ -11,7 +11,7 @@
 }
   .menu li:hover {
       color:#be1204;
-      cursor:pointer;
+      cursor: pointer;
 }
   .menu li.active{
       color:#be1204;

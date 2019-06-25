@@ -4,9 +4,8 @@
     overflow: hidden;
 }
 .container .m-detail {
-    font-size:12px;
+    font-size: 12px;
     border: 1px #00f solid;
-    /* margin-bottom: 20px; */
     margin: 0 0 20px 1px;
     overflow: hidden;
 }
@@ -49,24 +48,24 @@
     color: #333;
 }
 .container .m-text .txt p.hide{
-    display:none;
+    display: none;
 }
 .container .m-text #awardWp.hide {
-    display:none;
+    display: none;
 }
 .container .m-text .txt .margin{
     margin: 16px 0;
 }
 .container .m-text .txt .label{
-    margin-top:25px;
+    margin-top: 25px;
 }
 .container .txt img{
-    display:block;
+    display: block;
     max-width: 100%;
 }
 .container .m-text .bot {
     padding: 0 10px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 .container .m-text .bot h3{
     font-size: 12px;
@@ -97,9 +96,6 @@
     -ms-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 .container .m-text .bot a:hover{
     color:#be1204;
@@ -117,6 +113,11 @@
 @media only screen and (max-width:767px) {
     .container .m-text h1 {
         line-height: 20px;
-        margin-top:10px;
+        margin-top: 10px;
+    }
+}
+@media only screen and (max-width: 1199px) {
+    .wp {
+        width: 95%;
     }
 }

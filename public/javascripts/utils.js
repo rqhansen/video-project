@@ -121,18 +121,6 @@ function stopDefault(e) {
     window.event.returnValue = false;
 }
 
-/**
- * 获取网络请求的XMLHttp对象
- */
-// function getXMLHttpObj() {
-//     let xmlHttp;
-//     if (window.XMLHttpRequest) {
-//         xmlHttp = new XMLHttpRequest();
-//     } else {
-//         xmlHttp = new ActiveXObject();
-//     }
-//     return xmlHttp;
-// }
 
 
 

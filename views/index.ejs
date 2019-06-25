@@ -1,4 +1,4 @@
-<%- include('common/header',{isDetail:false}) %>
+<%- include('common/header',{isDetail:false,programName:'',isSearch:false}) %>
 <link rel="stylesheet" href="/stylesheets/index/index.css">
 <!-- 主内容 -->
 <div class="main">
@@ -14,7 +14,7 @@
                                 <img src="/<%= movies[i].indexImgSrc %>">
                             </div>
                             <div>
-                                <h3><%- movies[i].fullName %></h3><time><%- movies[i].pubDate%></time>
+                                <h3 class="ellipsis"><%- movies[i].fullName %></h3><time><%- movies[i].pubDate%></time>
                             </div>
                         </a>
                     </li>

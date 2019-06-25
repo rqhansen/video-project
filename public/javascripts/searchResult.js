@@ -1,5 +1,8 @@
 
 (function () {
+    //总页数
+    let total = Math.ceil(+selectEleById('totalPage').innerHTML / 10);
+    if(!total) return;
     //分页容器
     let pageWp = selectEleById('pageIndexWp');
     //首页
@@ -12,8 +15,6 @@
     let next = selectElesByClassName('page-next', pageWp)[0];
     //末页
     let last = selectElesByClassName('end', pageWp)[0];
-    //总页数
-    let total = Math.ceil(+selectEleById('totalPage').innerHTML / 10);
     //获取当前页数
     let [keyword, currPage] = getCurrPage();
     //初始化
@@ -47,7 +48,7 @@
             let page = el.innerHTML;
             url = `/plus/search?keyword=${keyword}&page=${page}`;
         } else if (hasClassName(parent, 'page-next')) { //下一页
-            url = `/plus/search?keyword=${keyword}page=${currPage + 1}`;
+            url = `/plus/search?keyword=${keyword}&page=${currPage + 1}`;
         } else if (hasClassName(parent, 'end')) { //末页
             if (currPage == total) return;
             url = `/plus/search?keyword=${keyword}&page=${total}`;
