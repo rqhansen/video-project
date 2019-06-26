@@ -70,6 +70,9 @@
     line-height: 16px;
     font-size: 12px;
 }
+.container .media-list li time.new {
+    color: #be1204;
+}
 @media only screen and (max-width:1199px) {
     .container .media-list li {
         padding: 0 10px;
