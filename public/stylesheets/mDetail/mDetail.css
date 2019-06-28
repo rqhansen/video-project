@@ -79,7 +79,7 @@
     vertical-align: middle;
     width: 19px;
     height: 17px;
-    background: url('/images/arrow.jpg') no-repeat center center;
+    background: url('/public/images/arrow.jpg') no-repeat center center;
     margin-top: -2px;
     margin-left: 5px;
 }

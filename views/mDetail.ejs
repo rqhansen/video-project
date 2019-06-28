@@ -1,5 +1,5 @@
 <%- include('common/header',{isDetail:true,movieName:pureName}) %>
-<link rel="stylesheet" href="/stylesheets/mDetail/mDetail.css">
+<link rel="stylesheet" href="/public/stylesheets/mDetail/mDetail.css">
 <!-- 主内容 -->
 <div class="main">
     <div class="wp">
@@ -20,7 +20,7 @@
                         <p>
                             <%= pureName %><span>迅雷下载地址和剧情：</span>
                         </p>
-                        <img src="/<%= detailImgSrc %>" style="width:600px;height:800px;" />
+                        <img src="/public/<%= detailImgSrc %>" style="width:600px;height:800px;" />
                         <br>
                         <p>
                             ◎译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;<span><%= transName %></span>
@@ -131,5 +131,5 @@
 </div>
 <!-- 底部 -->
 <%- include('common/footer.ejs') %>
-<script src="/javascripts/mDetail.js"></script>
+<script src="/public/javascripts/mDetail.js"></script>
 <!-- 底部结束 -->
