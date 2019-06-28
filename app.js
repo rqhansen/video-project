@@ -15,7 +15,7 @@ const router = require('./routes/index')
 // error handler
 onerror(app)
 
-app.use(static(path.join(__dirname, 'public')));
+app.use(static(path.join(__dirname, '/')));
 
 app.use(async (ctx, next) => {
   await next();

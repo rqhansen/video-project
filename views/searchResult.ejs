@@ -1,6 +1,6 @@
 <%- include('common/header',{isDetail:false,programName:'',isSearch:true}) %>
-<link rel="stylesheet" href="/stylesheets/index/index.css">
-<link rel="stylesheet" href="/stylesheets/searchResult/index.css">
+<link rel="stylesheet" href="/public/stylesheets/index/index.css">
+<link rel="stylesheet" href="/public/stylesheets/searchResult/index.css">
 <!-- 主内容 -->
 <div class="main">
     <div class="wp">
@@ -14,7 +14,7 @@
                     <li>
                         <div class="pic">
                             <a href="<%- `/html/${result[i].typeChar}/${result[i].id}` %>" target="_self">
-                                <img src="/<%= result[i].indexImgSrc %>">
+                                <img src="/public/<%= result[i].indexImgSrc %>">
                             </a>
                         </div>
                         <div class="txt">
@@ -73,7 +73,7 @@
 <!-- 底部 -->
 <%- include('common/footer.ejs') %>
 <!-- 底部结束 -->
-<script src="/javascripts/searchResult.js"></script>
+<script src="/public/javascripts/searchResult.js"></script>
 </body>
 
 </html>

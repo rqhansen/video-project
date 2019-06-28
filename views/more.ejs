@@ -1,5 +1,5 @@
 <%- include('common/header',{isDetail:false,programName:'',isSearch:false}) %>
-<link rel="stylesheet" href="/stylesheets/index/index.css">
+<link rel="stylesheet" href="/public/stylesheets/index/index.css">
 <!-- 主内容 -->
 <div class="main">
     <div class="wp">
@@ -11,7 +11,7 @@
                     <li>
                         <a href="<%- `/html/${movies[i].filmType}/${movies[i].id}` %>" target="_self">
                             <div>
-                                <img src="/<%= movies[i].indexImgSrc %>">
+                                <img src="/public/<%= movies[i].indexImgSrc %>">
                             </div>
                             <div>
                                 <h3><%- movies[i].fullName %></h3><time><%- movies[i].pubDate.toLocaleDateString() %></time>
@@ -28,7 +28,7 @@
 <!-- 底部 -->
 <%- include('common/footer.ejs') %>
 <!-- 底部结束 -->
-<script src="/javascripts/index.js"></script>
+<script src="/public/javascripts/index.js"></script>
 </body>
 
 </html>

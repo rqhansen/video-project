@@ -1,6 +1,6 @@
 <%- include('common/header',{isDetail:false,programName:result[0].typeName}) %>
-<link rel="stylesheet" href="/stylesheets/index/index.css">
-<link rel="stylesheet" href="/stylesheets/typeMovie/index.css">
+<link rel="stylesheet" href="/public/stylesheets/index/index.css">
+<link rel="stylesheet" href="/public/stylesheets/typeMovie/index.css">
 <!-- 主内容 -->
 <div class="main">
     <div class="wp">
@@ -15,7 +15,7 @@
                     <li>
                         <div class="pic">
                             <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self">
-                                <img src="/<%= result[i].indexImgSrc %>">
+                                <img src="/public/<%= result[i].indexImgSrc %>">
                             </a>
                         </div>
                         <div class="txt">
@@ -70,7 +70,7 @@
 <!-- 底部 -->
 <%- include('common/footer.ejs') %>
 <!-- 底部结束 -->
-<script src="/javascripts/typeMovie.js"></script>
+<script src="/public/javascripts/typeMovie.js"></script>
 </body>
 
 </html>
