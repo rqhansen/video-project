@@ -51,6 +51,6 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-app.listen(process.env.PORT || 6666);
+app.listen(process.env.PORT || 3001);
 
 module.exports = app
