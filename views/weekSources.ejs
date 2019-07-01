@@ -4,18 +4,18 @@
 <div class="main">
     <div class="wp">
         <div class="container">
-            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐',hasMore:true});%>
+            <%- include('common/titleBar.ejs',{title:'近一周电影',hasMore:false});%>
             <div class="media-list">
                 <ul>
-                    <% for(let i=0;i<movies.length;i++) {%>
+                    <% for(let i=0;i<results.length;i++) {%>
                     <li>
-                        <a href="<%- `/html/${movies[i].filmType}/${movies[i].id}` %>" target="_self">
+                        <a href="<%- `/html/${results[i].filmType}/${results[i].id}` %>" target="_self">
                             <div>
-                                <img src="/public/<%= movies[i].indexImgSrc %>">
+                                <img src="/public/<%= results[i].indexImgSrc %>">
                             </div>
                             <div>
-                                <h3 class="ellipsis"><%- movies[i].fullName %></h3>
-                                <time class=<%= movies[i].isNew ?'new':'' %>><%- movies[i].pubDate%></time>
+                                <h3 class="ellipsis"><%- results[i].fullName %></h3>
+                                <time class=<%= results[i].isNew ?'new':'' %>><%- results[i].pubDate%></time>
                             </div>
                         </a>
                     </li>
