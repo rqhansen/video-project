@@ -1,14 +1,14 @@
 
 module.exports.limitSeconds = 259200000;
 module.exports.connectConfig = { //数据库连接池的配置
-    // host: '127.0.0.1',
-    // user: 'root',
-    // password: 'admin',
-    // database: 'movie'
-    host: '154.92.17.228',
-    user: 'movie',
+    host: '127.0.0.1',
+    user: 'root',
     password: 'admin',
     database: 'movie'
+    // host: '154.92.17.228',
+    // user: 'movie',
+    // password: 'admin',
+    // database: 'movie'
 }
 module.exports.movieTypes = [ //电影类型
     { '1' : 'action'},
