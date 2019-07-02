@@ -14,7 +14,7 @@
                                 <img src="/public/<%= movies[i].indexImgSrc %>">
                             </div>
                             <div>
-                                <h3 class="ellipsis"><%- movies[i].fullName %></h3><time><%- movies[i].pubDate%></time>
+                                <h3 class="ellipsis"><%- movies[i].fullName %></h3><time class="<%- movies[i].isNew?'new':'' %>"><%- movies[i].pubDate%></time>
                             </div>
                         </a>
                     </li>
