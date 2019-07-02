@@ -4,7 +4,7 @@
 <div class="main">
     <div class="wp">
         <div class="container">
-            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐'});%>
+            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐',hasMore:false});%>
             <div class="media-list">
                 <ul>
                     <% for(let i=0;i<movies.length;i++) {%>
