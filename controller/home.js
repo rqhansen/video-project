@@ -18,8 +18,6 @@ async function getHome(ctx) {
     await ctx.render('index', { movies });
 }
 
-
-
 module.exports = {
     getHome
 }

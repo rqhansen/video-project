@@ -1,7 +1,6 @@
 
 const { query } = require('../database/db');
 const { movieTypes, limitSeconds } = require('../config/index');
-// const { formatDate } = require('./utils');
 
 async function getTypeMovies(ctx) {
     let { url } = ctx;
@@ -14,7 +13,7 @@ async function getTypeMovies(ctx) {
         page = index.split('_')[1] - 1;
     }
 
-    let result = await query(`select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,80) from ${type} order by pubDate desc`);
+    let result = await query(`select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
     let { length } = result;
     let { typeId } = result[0];
     let typeChar = Object.values(movieTypes.filter(type => type[`${typeId}`])[0])[0];
@@ -28,14 +27,10 @@ async function getTypeMovies(ctx) {
         item.country = item['trim(country)'];
         item.pureName = item['trim(pureName)'];
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
-        item.shortIntro = item['left(shortIntro,80)'];
+        item.shortIntro = item['left(shortIntro,90)'];
         let fullName = item['trim(fullName)'];
-        // let pureName = item.pureName.trim();
         item.sharpness = fullName.split(item.pureName)[1];
         item.actor = item.actor.split('$').slice(0, 1);
-        // let date = formatDate(item.pubDate)
-        // let dateSplit = date.split('-');
-        // item.pubDate = `${dateSplit[1]}-${dateSplit[2]}`;
         item.isNew = new Date() - new Date(item.pubDate) < limitSeconds;
         delete item.typeId;
         delete item['trim(country)'];
