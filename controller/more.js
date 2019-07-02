@@ -8,7 +8,9 @@ async function getMore(ctx) {
         item.filmType = Object.values(movieTypes.filter(type => type[`${item.typeId}`])[0])[0];
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.isNew = new Date() - new Date(item.pubDate) <= limitSeconds;
+        delete item['date_format(pubDate,"%Y-%m-%d")']
     })
+    // console.log(movies);
     await ctx.render('more', { movies });
 }
 
