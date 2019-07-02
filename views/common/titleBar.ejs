@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="/public/stylesheets/componentsheets/titleBar.css">
 <div class="title-bar">
     <h2><%= title %></h2>
+    <% if(hasMore) { %>
     <a href="/html/more">更多...</a>
+    <% } %>
 </div>

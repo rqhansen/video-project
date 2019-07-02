@@ -5,16 +5,14 @@ const { formatDate } = require('./utils');
 
 async function getSearchResult(ctx) {
     let { keyword, page } = ctx.query;
-    let actionPart = await connection.query(`select * from action where fullName like "%${keyword}%"`);
-    let comedyPart = await connection.query(`select * from comedy where fullName like "%${keyword}%"`);
-    let disasterPart = await connection.query(`select * from disaster where fullName like "%${keyword}%"`);
-    let dramaPart = await connection.query(`select * from drama where fullName like "%${keyword}%"`);
-    let horrorPart = await connection.query(`select * from horror where fullName like "%${keyword}%"`);
-    let romancePart = await connection.query(`select * from romance where fullName like "%${keyword}%"`);
-    let sciencePart = await connection.query(`select * from science where fullName like "%${keyword}%"`);
-    let suspensePart = await connection.query(`select * from suspense where fullName like "%${keyword}%"`);
-    let warPart = await connection.query(`select * from war where fullName like "%${keyword}%"`);
-    let result = [].concat(actionPart, comedyPart, disasterPart, dramaPart, horrorPart, romancePart, sciencePart, suspensePart, warPart);
+    let result = await connection.query(`select * from action where fullName like "%${keyword}%" 
+                                        union select * from comedy where fullName like "%${keyword}%"
+                                        union select * from drama where fullName like "%${keyword}%"
+                                        union select * from horror where fullName like "%${keyword}%"
+                                        union select * from romance where fullName like "%${keyword}%"
+                                        union select * from science where fullName like "%${keyword}%"
+                                        union select * from suspense where fullName like "%${keyword}%"
+                                        union select * from war where fullName like "%${keyword}%"`);
     let { length } = result;
     result = result.slice((page - 1) * 10, (page - 1) * 10 + 10);
     result.forEach(item => {
