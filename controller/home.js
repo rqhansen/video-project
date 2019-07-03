@@ -31,7 +31,7 @@ async function getHome(ctx) {
                                         union select id,typeId,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d"),pubDate from romance where date_sub(curdate(),interval 30 day) <= date(pubDate)
                                         union select id,typeId,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d"),pubDate from science where date_sub(curdate(),interval 30 day) <= date(pubDate)
                                         union select id,typeId,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d"),pubDate from suspense where date_sub(curdate(),interval 30 day) <= date(pubDate)
-                                        union select id,typeId,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d"),pubDate from war where date_sub(curdate(),interval 30 day) <= date(pubDate) order by pubDate desc`);
+                                        union select id,typeId,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d"),pubDate from war where date_sub(curdate(),interval 30 day) <= date(pubDate) order by pubDate desc limit 24 offset 0`);
     movies.forEach(item => {
         item.filmType = Object.values(movieTypes.filter(type => type[`${item.typeId}`])[0])[0];
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
