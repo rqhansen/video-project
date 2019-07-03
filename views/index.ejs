@@ -9,9 +9,10 @@
                 <ul>
                     <% for(let i=0;i<movies.length;i++) {%>
                     <li>
-                        <a href="<%- `/html/${movies[i].filmType}/${movies[i].id}` %>" target="_self">
+                        <a href="<%- `/html/${movies[i].filmType}/${movies[i].id}` %>" target="_self"
+                            title="<%= movies[i].pureName %>">
                             <div>
-                                <img src="/public/<%= movies[i].indexImgSrc %>">
+                                <img src="/public/<%= movies[i].indexImgSrc %>" alt="<%= movies[i].pureName %>">
                             </div>
                             <div>
                                 <h3 class="ellipsis"><%- movies[i].fullName %></h3>

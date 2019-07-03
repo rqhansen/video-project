@@ -14,8 +14,9 @@
                     <% for(let i=0;i<result.length;i++) {%>
                     <li>
                         <div class="pic">
-                            <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self">
-                                <img src="/public/<%= result[i].indexImgSrc %>">
+                            <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self"
+                                title="<%= result[i].pureName %>">
+                                <img src="/public/<%= result[i].indexImgSrc %>" alt="<%= result[i].pureName %>">
                             </a>
                         </div>
                         <div class="txt">
@@ -23,7 +24,8 @@
                                     target="_self"><b><%- result[i].pureName%></b><em><%- result[i].sharpness %></em></a></b>
                             </div>
                             <div class="short-intro">
-                                <p class="ellipsis">@年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year %>(<%= result[i].country %>)
+                                <p class="ellipsis">
+                                    @年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year %>(<%= result[i].country %>)
                                 </p>
                                 <p class="ellipsis">@主&nbsp;&nbsp;演&nbsp;&nbsp;<%= result[i].actor[0] %></p>
                                 <p class="intro">@简&nbsp;&nbsp;介&nbsp;&nbsp;<%= result[i].shortIntro %></p>

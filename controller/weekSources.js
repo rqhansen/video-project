@@ -4,15 +4,15 @@ const { handleMovieList } = require('./utils');
 
 async function getWeekSources(ctx) {
     let results = [];
-    let action = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from action where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let comedy = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from comedy where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let romance = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from romance where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let science = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from science where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let drama = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from drama where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let suspense = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from suspense where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let war = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from war where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let horror = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from horror where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    let disaster = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName, date_format(pubDate,"%Y-%m-%d") from disaster where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let action = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from action where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let comedy = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from comedy where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let romance = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from romance where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let science = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from science where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let drama = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from drama where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let suspense = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from suspense where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let war = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from war where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let horror = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from horror where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let disaster = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from disaster where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     console.log(action);
     if (action.length) {
         results.push(handleMovieList(action));

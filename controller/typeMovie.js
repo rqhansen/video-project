@@ -13,13 +13,13 @@ async function getTypeMovies(ctx) {
         page = index.split('_')[1] - 1;
     }
 
-    let result = await query(`select id,typeId,typeName,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
+    let result = await query(`select id,typeId,typeName,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),pureName,actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
     let { length } = result;
     let { typeId } = result[0];
     let typeChar = Object.values(movieTypes.filter(type => type[`${typeId}`])[0])[0];
     result = result.slice(page * 14, page * 14 + 14);
-    if(!result.length) {
-        await ctx.render('notFind',{title:'您找的资源不存在'});
+    if (!result.length) {
+        await ctx.render('notFind', { title: '您找的资源不存在' });
         return;
     }
     result.forEach(item => {

@@ -13,8 +13,9 @@
                     <% for(let i=0;i<result.length;i++) {%>
                     <li>
                         <div class="pic">
-                            <a href="<%- `/html/${result[i].typeChar}/${result[i].id}` %>" target="_self">
-                                <img src="/public/<%= result[i].indexImgSrc %>">
+                            <a href="<%- `/html/${result[i].typeChar}/${result[i].id}` %>" target="_self"
+                                title="<%= result[i].pureName %>">
+                                <img src="/public/<%= result[i].indexImgSrc %>" alt="<%= result[i].pureName %>">
                             </a>
                         </div>
                         <div class="txt">
@@ -22,7 +23,8 @@
                                     target="_self"><b><%- result[i].pureName%></b><em><%- result[i].sharpness %></em></a></b>
                             </div>
                             <div class="short-intro">
-                                <p class="ellipsis">@年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year.trim() %>(<%= result[i].country.trim() %>)
+                                <p class="ellipsis">
+                                    @年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year.trim() %>(<%= result[i].country.trim() %>)
                                 </p>
                                 <p class="ellipsis">@主&nbsp;&nbsp;演&nbsp;&nbsp;<%= result[i].actor[0] %></p>
                                 <p class="intro">@简&nbsp;&nbsp;介&nbsp;&nbsp;<%= result[i].shortIntro %></p>
@@ -44,26 +46,28 @@
             </div>
             <div class="pages">
                 <% if(result.length) {%>
-                    <ul id="pageIndexWp">
-                        <li class="first"><a href="index" target="_self">首页</a></li>
-                        <li class="page-pre"><a href="" target="_self">上一页</a></li>
-                        <li class="page"><a href="" target="_self">1</a></li>
-                        <li class="page"><a href="" target="_self">2</a></li>
-                        <li class="page"><a href="" target="_self">3</a></li>
-                        <li class="page"><a href="" target="_self">4</a></li>
-                        <li class="page"><a href="" target="_self">5</a></li>
-                        <li class="page"><a href="" target="_self">6</a></li>
-                        <li class="page"><a href="" target="_self">7</a></li>
-                        <li class="page"><a href="" target="_self">8</a></li>
-                        <li class="page"><a href="" target="_self">9</a></li>
-                        <li class="page"><a href="" target="_self">10</a></li>
-                        <li class="page"><a href="" target="_self">11</a></li>
-                        <li class="page-next"><a href="" target="_self">下一页</a></li>
-                        <li class="end"><a href="" target="_self">末页</a></li>
-                        <li class="total-wp">共找到<span id="totalPage" class="page-pad"><%= total %></span>条记录</li>
-                        </ul>
+                <ul id="pageIndexWp">
+                    <li class="first"><a href="index" target="_self">首页</a></li>
+                    <li class="page-pre"><a href="" target="_self">上一页</a></li>
+                    <li class="page"><a href="" target="_self">1</a></li>
+                    <li class="page"><a href="" target="_self">2</a></li>
+                    <li class="page"><a href="" target="_self">3</a></li>
+                    <li class="page"><a href="" target="_self">4</a></li>
+                    <li class="page"><a href="" target="_self">5</a></li>
+                    <li class="page"><a href="" target="_self">6</a></li>
+                    <li class="page"><a href="" target="_self">7</a></li>
+                    <li class="page"><a href="" target="_self">8</a></li>
+                    <li class="page"><a href="" target="_self">9</a></li>
+                    <li class="page"><a href="" target="_self">10</a></li>
+                    <li class="page"><a href="" target="_self">11</a></li>
+                    <li class="page-next"><a href="" target="_self">下一页</a></li>
+                    <li class="end"><a href="" target="_self">末页</a></li>
+                    <li class="total-wp">共找到<span id="totalPage" class="page-pad"><%= total %></span>条记录</li>
+                </ul>
                 <% } else {%>
-                    <ul><li class="total-wp">共找到<span id="totalPage" class="page-pad"><%= total %></span>条记录</li></ul>
+                <ul>
+                    <li class="total-wp">共找到<span id="totalPage" class="page-pad"><%= total %></span>条记录</li>
+                </ul>
                 <% } %>
             </div>
         </div>
