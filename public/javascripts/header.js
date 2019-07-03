@@ -10,6 +10,17 @@ function setNavDisplay() {
   toggleClassName(menuIcon, 'active');
 }
 
+
+/**
+ * 添加收藏
+ */
+selectEleById('addSave').addEventListener('click', addSave, false);
+
+ function addSave(e) {
+    stopDefault(e);
+    alert("请使用Ctrl+D进行添加");
+ }
+
 /**
  *绑定浏览器窗口改变触发的事件
  */

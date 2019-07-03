@@ -10,11 +10,32 @@
     overflow: hidden;
 }
 .container .cur {
+    height: 30px;
     padding: 0 10px;
     border-bottom: 1px solid #bfe4ff;
     background-color: #f7f7f7;
-    line-height: 25px;
+    line-height: 30px;
     color:#333;
+}
+.container .cur .share{
+    margin-left: 20px;
+    color: #be1204;
+}
+.container .cur .copy{
+    padding: 0 4px;
+    color: #106492;
+    background-color:#eef;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.container .cur .copy:hover{
+    color: #be1204;
+}
+.container .m-detail .share-mb {
+    display: none;
 }
 .container .cur a {
     color:#106492;
@@ -22,7 +43,6 @@
 .container .cur a:hover{
     color:#be1204;
 }
-
 .container .m-text {
     overflow: hidden;
 }
@@ -58,6 +78,13 @@
 }
 .container .m-text .txt .label{
     margin-top: 25px;
+}
+.container .m-text .txt .copy{
+    color:#106492;
+}
+.container .m-text .txt .copy:hover{
+    cursor: pointer;
+    color: #be1204;
 }
 .container .txt img{
     display: block;
@@ -110,10 +137,20 @@
     border-bottom: 2px solid #d1dbe7;
     margin-bottom: 10px;
 }
+.container .m-text .down-tip {
+    margin-top: 6px;
+    color:#106492;
+} 
 @media only screen and (max-width:767px) {
     .container .m-text h1 {
         line-height: 20px;
         margin-top: 10px;
+    }
+    .container .m-detail .share-wp{
+        display:none;
+    }
+    .container .m-detail .share-mb{
+        display:inline-block;
     }
 }
 @media only screen and (max-width: 1199px) {

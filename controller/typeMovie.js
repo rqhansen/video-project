@@ -13,7 +13,7 @@ async function getTypeMovies(ctx) {
         page = index.split('_')[1] - 1;
     }
 
-    let result = await query(`select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
+    let result = await query(`select id,typeId,typeName,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
     let { length } = result;
     let { typeId } = result[0];
     let typeChar = Object.values(movieTypes.filter(type => type[`${typeId}`])[0])[0];
