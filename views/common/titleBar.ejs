@@ -2,6 +2,6 @@
 <div class="title-bar">
     <h2><%= title %></h2>
     <% if(hasMore) { %>
-    <a href="/html/more">更多...</a>
+    <a href=<%= type? `/html/${type}/index` : '/html/more' %>>更多...</a>
     <% } %>
 </div>

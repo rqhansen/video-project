@@ -1,4 +1,4 @@
-<%- include('common/header',{isDetail:false,programName:result[0].typeName}) %>
+<%- include('common/header',{isDetail:false,programName:result[0].typeName,isSearch:false}) %>
 <link rel="stylesheet" href="/public/stylesheets/index/index.css">
 <link rel="stylesheet" href="/public/stylesheets/typeMovie/index.css">
 <!-- 主内容 -->
@@ -23,7 +23,7 @@
                                     target="_self"><b><%- result[i].pureName%></b><em><%- result[i].sharpness %></em></a></b>
                             </div>
                             <div class="short-intro">
-                                <p class="ellipsis">@年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year.trim() %>(<%= result[i].country.trim() %>)
+                                <p class="ellipsis">@年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year %>(<%= result[i].country %>)
                                 </p>
                                 <p class="ellipsis">@主&nbsp;&nbsp;演&nbsp;&nbsp;<%= result[i].actor[0] %></p>
                                 <p class="intro">@简&nbsp;&nbsp;介&nbsp;&nbsp;<%= result[i].shortIntro %></p>

@@ -4,24 +4,29 @@
 <div class="main">
     <div class="wp">
         <div class="container">
-            <%- include('common/titleBar.ejs',{title:'近一周电影',hasMore:false});%>
-            <div class="media-list">
-                <ul>
-                    <% for(let i=0;i<results.length;i++) {%>
-                    <li>
-                        <a href="<%- `/html/${results[i].filmType}/${results[i].id}` %>" target="_self">
-                            <div>
-                                <img src="/public/<%= results[i].indexImgSrc %>">
-                            </div>
-                            <div>
-                                <h3 class="ellipsis"><%- results[i].fullName %></h3>
-                                <time class=<%= results[i].isNew ?'new':'' %>><%- results[i].pubDate%></time>
-                            </div>
-                        </a>
-                    </li>
-                    <% } %>
-                </ul>
+            <% for(let i=0,len=results.length;i<len;i++) { %>
+            <div class="movie-list">
+                <%- include('common/titleBar.ejs',{title:`最新${results[i][0].typeName}`,type:results[i][0].filmType,hasMore:true});%>
+                <div class="media-list">
+                    <ul>
+                        <% for(let j=0,len=results[i].length;j<len;j++) {%>
+                        <li>
+                            <a href="<%- `/html/${results[i][j].filmType}/${results[i][j].id}` %>" target="_self">
+                                <div>
+                                    <img src="/public/<%= results[i][j].indexImgSrc %>">
+                                </div>
+                                <div>
+                                    <h3 class="ellipsis"><%- results[i][j].fullName %></h3>
+                                    <time
+                                        class=<%= results[i][j].isNew ? 'new':'' %>><%- results[i][j].pubDate %></time>
+                                </div>
+                            </a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
             </div>
+            <% } %>
         </div>
     </div>
 </div>

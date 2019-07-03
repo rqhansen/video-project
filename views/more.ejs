@@ -4,7 +4,7 @@
 <div class="main">
     <div class="wp">
         <div class="container">
-            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐'});%>
+            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐',type:'',hasMore:false});%>
             <div class="media-list">
                 <ul>
                     <% for(let i=0;i<movies.length;i++) {%>
@@ -14,7 +14,8 @@
                                 <img src="/public/<%= movies[i].indexImgSrc %>">
                             </div>
                             <div>
-                                <h3><%- movies[i].fullName %></h3><time><%- movies[i].pubDate.toLocaleDateString() %></time>
+                                <h3 class="ellipsis"><%- movies[i].fullName %></h3><time
+                                    class="<%- movies[i].isNew?'new':'' %>"><%- movies[i].pubDate%></time>
                             </div>
                         </a>
                     </li>

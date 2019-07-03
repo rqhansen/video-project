@@ -20,8 +20,9 @@ function formatDate(date) {
 function handleMovieList(movies) {
     movies.forEach(item => {
         item.filmType = Object.values(movieTypes.filter(type => type[`${item.typeId}`])[0])[0];
-        item.pubDate = formatDate(item.pubDate);
+        item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.isNew = new Date() - new Date(item.pubDate) <= limitSeconds;
+        delete item['date_format(pubDate,"%Y-%m-%d")'];
     })
     return movies;
 }
