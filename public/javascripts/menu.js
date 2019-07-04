@@ -39,7 +39,7 @@ function handleTypeMovie(e) {
             break;
         case '灾难片':
             url += '/disaster/index';
-        case '灾难片':
+        case '伦理片':
             url += '/ethical/index';
         default:
             break;
