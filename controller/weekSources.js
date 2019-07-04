@@ -13,7 +13,6 @@ async function getWeekSources(ctx) {
     let war = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from war where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     let horror = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from horror where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     let disaster = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from disaster where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
-    console.log(action);
     if (action.length) {
         results.push(handleMovieList(action));
     }

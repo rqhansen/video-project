@@ -35,7 +35,6 @@ async function getSearchResult(ctx) {
         delete item['trim(fullName)'];
         delete item['left(shortIntro,90)'];
     })
-    console.log(result);
     await ctx.render('searchResult', { keyword, result, total: length });
 }
 
