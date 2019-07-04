@@ -19,5 +19,6 @@ module.exports.movieTypes = [ //电影类型
     { '6': 'suspense' },
     { '7': 'war' },
     { '8': 'horror' },
-    { '9': 'disaster' }
+    { '9': 'disaster' },
+    {'10': 'ethical'}
 ];

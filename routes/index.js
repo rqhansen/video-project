@@ -7,8 +7,8 @@ const { getMore } = require('../controller/more');
 const { getTypeMovies } = require('../controller/typeMovie');
 const { getSearchResult } = require('../controller/search');
 const { getNotFind } = require('../controller/notFind');
-const typeExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster)/(index|page_\\d+)';
-const detailExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster)/(\\d+)';
+const typeExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|ethical)/(index|page_\\d+)';
+const detailExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|ethical)/(\\d+)';
 
 /**
  * 首页
