@@ -2,8 +2,33 @@
 .header-wp{
     overflow: hidden;
     width: 100%;
-    height: 108px;
     background-color:#fff;
+}
+.header-wp .hot-wp {
+    height: 30px;
+    box-shadow: 0 1px 10px 0 #d9d9d9;
+    overflow: hidden;
+}
+.header-wp .hot-wp .fl {
+    width: 60%;
+}
+.header-wp .hot-wp .fr {
+    width: 40%;
+    text-align:right;
+}
+.header-wp .hot-wp a {
+    color: #999;
+    font-size: 13px;
+    margin: 0 1px;
+}
+.header-wp .hot-wp .hot {
+    line-height: 30px;
+}
+.header-wp .hot-wp a:hover{
+    color: #be1204;
+}
+.header-wp .head{
+    height: 108px;
 }
 .header-wp .logo{
     height: 108px;
@@ -52,7 +77,7 @@
 .header-wp .search input {
     width: 420px;
 }
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:776px) {
     .header-wp {
         position: fixed;
         left: 0;
@@ -64,6 +89,9 @@
         -moz-box-shadow: 0 0 8px #888;
         -ms-box-shadow: 0 0 8px #888;
         -o-box-shadow: 0 0 8px #888;
+    }
+    .header-wp .hot-wp {
+        display:none;
     }
     .header-wp .wp{
         height: 45px;
@@ -173,7 +201,7 @@
     display: none;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:776px) {
     .nav {
         position: fixed;
         height: 0;

@@ -28,6 +28,7 @@ async function getTypeMovies(ctx) {
         item.pureName = item['trim(pureName)'];
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.shortIntro = item['left(shortIntro,90)'];
+        item.shortIntro = item.shortIntro.split('$').join('');
         let fullName = item['trim(fullName)'];
         item.sharpness = fullName.split(item.pureName)[1];
         item.actor = item.actor.split('$').slice(0, 1);
