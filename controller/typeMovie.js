@@ -28,10 +28,10 @@ async function getTypeMovies(ctx) {
         item.pureName = item['trim(pureName)'];
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.shortIntro = item['left(shortIntro,90)'];
-        item.shortIntro = item.shortIntro.split('$').join('');
+        item.shortIntro = item.shortIntro ? item.shortIntro.split('$').join('') : '';
         let fullName = item['trim(fullName)'];
-        item.sharpness = fullName.split(item.pureName)[1];
-        item.actor = item.actor.split('$').slice(0, 1);
+        item.sharpness = fullName ? fullName.split(item.pureName)[1] : '';
+        item.actor = item.actor ? item.actor.split('$').slice(0, 1) : '';
         item.isNew = new Date() - new Date(item.pubDate) < limitSeconds;
         delete item.typeId;
         delete item['trim(country)'];

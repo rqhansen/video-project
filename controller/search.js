@@ -24,8 +24,8 @@ async function getSearchResult(ctx) {
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.shortIntro = item['left(shortIntro,90)'];
         let fullName = item['trim(fullName)'];
-        item.sharpness = fullName.split(item.pureName)[1];
-        item.actor = item.actor.split('$').slice(0, 1);
+        item.sharpness = fullName ? fullName.split(item.pureName)[1] : '';
+        item.actor = item.actor ? item.actor.split('$').slice(0, 1) : '';
         item.isNew = new Date() - new Date(item.pubDate) < limitSeconds;
         delete item.typeId;
         delete item['trim(country)'];
