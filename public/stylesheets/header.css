@@ -252,11 +252,11 @@
         -o-transition: margin-top .4s ease-out;
     }
     .nav .search input {
-        width: -webkit-calc(100% - 98px);
-        width: -mos-calc(100% - 98px);
-        width: -ms-calc(100% - 98px);
-        width: -o-calc(100% - 98px);
-        width: calc(100% - 98px);
+        width: -webkit-calc(100% - 112px);
+        width: -mos-calc(100% - 112px);
+        width: -ms-calc(100% - 112px);
+        width: -o-calc(100% - 112px);
+        width: calc(100% - 112px);
     }
     .nav ul {
         height: 350px;
