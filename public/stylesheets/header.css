@@ -197,9 +197,16 @@
     line-height: 40px;
     background: url('../images/bg-div.png') no-repeat 100% 2px;
 }
+.nav .wp li.title,.nav .wp li.hot {
+    display: none;
+}
+
 .nav .search {
     display: none;
 }
+.nav .wp .hot-movie {
+    display: none;
+} 
 
 @media only screen and (max-width:776px) {
     .nav {
@@ -240,10 +247,64 @@
         overflow-y: auto;
     }
     .nav .wp li {
-        width: 100%;
+        width: 25%;
         height: 35px;
         line-height: 35px;
         background: none;
+        
+    }
+    .nav .wp li a {
+        width: 100%;
+        color: #fff;
+    }
+    .nav .wp li.title {
+        width: 100%;
+        display: block;
+        margin-bottom: 5px;
+        text-align: left;
+        border-bottom: 1px dotted #fff;
+    }
+    .nav .wp li.title:hover{
+        cursor: auto;
+        color:#fff;
+    } 
+    .nav .wp li.hot-movie{
+        display: inline-block;
+        width: 100%;
+        height: initial;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: left;
+        font-size: 0;
+    }
+    .nav .wp li.hot-movie a {
+        float: left;
+        width: 25%;
+        height: 35px;
+        padding: 0 10px;
+        line-height: 35px;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+    }
+    .nav .wp li.hot-movie a:hover {
+        color: #be1204;
+    }
+    .nav .wp li.home{
+        display:none;
+    }
+    .nav .wp li.hot {
+        display: inline-block;
+        width: 25%;
+        overflow: hidden;
     }
     .sm-nav {
         height: 405px;
