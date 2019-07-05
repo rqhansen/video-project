@@ -65,7 +65,8 @@
     display: block;
     width: 100%;
     height: 100%;
-    padding: 2px;
+    /* padding: 2px 0 2px 0; */
+    /* padding: 0; */
     overflow:hidden;
 }
 .m-list-wp .m-list .txt {
@@ -167,11 +168,18 @@
     -o-transform:scale(1.15); 
 }
 @media only screen and (max-width: 1199px) {
-    .wp {
+    /* .wp {
         width: 95%;
-    }
+    } */
 }
 @media only screen and (max-width: 767px) {
+    .container{
+        width: initial;
+    }
+    .m-list-wp {
+        margin-left: 7px;
+        margin-right: 7px;
+    }
     .m-list-wp .m-list ul li {
         flex: 0 0 100%;
         -webkit-flex: 0 0 100%;

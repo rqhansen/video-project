@@ -21,7 +21,11 @@
     font-size: 13px;
     margin: 0 1px;
 }
+.header-wp .hot-wp a:last-child {
+    margin-right: 0;
+}
 .header-wp .hot-wp .hot {
+    /* padding: 0 10px; */
     line-height: 30px;
 }
 .header-wp .hot-wp a:hover{
@@ -29,6 +33,8 @@
 }
 .header-wp .head{
     height: 108px;
+    /* padding: 0 10px; */
+    padding: 0;
 }
 .header-wp .logo{
     height: 108px;
@@ -67,6 +73,9 @@
     -ms-transition: all .3s;
     -o-transition: all .3s;
 }
+.header-wp .right .fast-nav a:last-child {
+    margin-right: 0;
+}
 .header-wp .right .fast-nav a:hover{
     color: #be1204;
 }
@@ -75,7 +84,7 @@
     margin-top: 38px;
 }
 .header-wp .search input {
-    width: 420px;
+    width: 406px;
 }
 @media only screen and (max-width:776px) {
     .header-wp {
@@ -84,6 +93,8 @@
         top: 0;
         height: 45px;
         z-index: 9;
+        padding: 0 10px;
+        /* padding: 0 */
         box-shadow: 0 0 8px #888;
         -webkit-box-shadow: 0 0 8px #888;
         -moz-box-shadow: 0 0 8px #888;
@@ -93,8 +104,12 @@
     .header-wp .hot-wp {
         display:none;
     }
+    .header-wp .hot-wp .hot {
+        padding: 0 10px;
+    }
     .header-wp .wp{
         height: 45px;
+        /* padding: 0; */
         line-height: 45px;
     }
     .header-wp .right .fast-nav-wp {
@@ -123,9 +138,10 @@
    .header-wp .right .menu-icon {
        position: relative;
        display: block;
-       width: 40px;
-       height: 40px;
-       padding: 7px;
+       /* width: 40px; */
+       width: 26px;
+       height: 26px;
+       margin: 11px 0 7px 14px;
        z-index: 9;
        transition: opacity .3s;
        -webkit-transition: opacity .3s;
@@ -158,8 +174,8 @@
    }
    .header-wp .right .active b {
        position: absolute;
-       left: 10px;
-       top: 10px;
+       left: 2px;
+       top: 0;
        margin-top: 9px;
    }
    .header-wp .right .active b:first-child{
@@ -197,9 +213,16 @@
     line-height: 40px;
     background: url('../images/bg-div.png') no-repeat 100% 2px;
 }
+.nav .wp li.title,.nav .wp li.hot {
+    display: none;
+}
+
 .nav .search {
     display: none;
 }
+.nav .wp .hot-movie {
+    display: none;
+} 
 
 @media only screen and (max-width:776px) {
     .nav {
@@ -237,13 +260,68 @@
     }
     .nav ul {
         height: 350px;
+        padding: 0 8px;
         overflow-y: auto;
     }
     .nav .wp li {
-        width: 100%;
+        width: 25%;
         height: 35px;
         line-height: 35px;
         background: none;
+        
+    }
+    .nav .wp li a {
+        width: 100%;
+        color: #fff;
+    }
+    .nav .wp li.title {
+        width: 100%;
+        display: block;
+        margin-bottom: 5px;
+        text-align: left;
+        border-bottom: 1px dotted #fff;
+    }
+    .nav .wp li.title:hover{
+        cursor: auto;
+        color:#fff;
+    } 
+    .nav .wp li.hot-movie{
+        display: inline-block;
+        width: 100%;
+        height: initial;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: left;
+        font-size: 0;
+    }
+    .nav .wp li.hot-movie a {
+        float: left;
+        width: 25%;
+        height: 35px;
+        padding: 0 10px;
+        line-height: 35px;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+    }
+    .nav .wp li.hot-movie a:hover {
+        color: #be1204;
+    }
+    .nav .wp li.home{
+        display:none;
+    }
+    .nav .wp li.hot {
+        display: inline-block;
+        width: 25%;
+        overflow: hidden;
     }
     .sm-nav {
         height: 405px;

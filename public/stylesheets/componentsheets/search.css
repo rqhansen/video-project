@@ -2,12 +2,13 @@
 .search input {
     display: block;
     height: 38px;
-    line-height: 38px;
-    padding: 0 20px;
+    line-height: 22px;
+    padding: 8px 20px;
     border: 1px solid #d1dbe7;
     border-right: none;
     background-color:#f7f7f7;
     color:#666;
+    border-radius: 0;
 }
 .search button {
     display: block;
@@ -27,3 +28,11 @@
 .search button:hover{
     opacity: .8;
 } 
+@media only screen and (max-width: 776px) {
+    .search {
+        padding: 0 7px;
+    }
+    .search input {
+        border:none;
+    }
+}

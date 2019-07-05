@@ -6,7 +6,7 @@
 .container .m-detail {
     font-size: 12px;
     border: 1px #00f solid;
-    margin: 0 0 20px 1px;
+    margin: 0 0 20px 0;
     overflow: hidden;
 }
 .container .cur {
@@ -141,10 +141,13 @@
     margin-top: 6px;
     color:#106492;
 } 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:776px) {
     .container .m-text h1 {
         line-height: 20px;
         margin-top: 10px;
+    }
+    .container .m-detail {
+        margin: 0 7px;
     }
     .container .m-detail .share-wp{
         display:none;
@@ -154,7 +157,7 @@
     }
 }
 @media only screen and (max-width: 1199px) {
-    .wp {
+    /* .wp {
         width: 95%;
-    }
+    } */
 }
