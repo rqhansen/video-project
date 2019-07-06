@@ -8,11 +8,11 @@ async function getSearchResult(ctx) {
     let result = await connection.query(`select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from action where fullName like "%${keyword}%" 
                                         union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from comedy where fullName like "%${keyword}%"
                                         union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from romance where fullName like "%${keyword}%"
-                                        union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from drama where fullName like "%${keyword}%"
                                         union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from science where fullName like "%${keyword}%"
+                                        union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from drama where fullName like "%${keyword}%"
+                                        union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from suspense where fullName like "%${keyword}%"
                                         union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from war where fullName like "%${keyword}%"
                                         union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from horror where fullName like "%${keyword}%"
-                                        union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from suspense where fullName like "%${keyword}%"
                                         union select id,typeId,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from disaster where fullName like "%${keyword}%"`);
     let { length } = result;
     result = result.slice((page - 1) * 10, (page - 1) * 10 + 10);
