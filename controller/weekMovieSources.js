@@ -2,7 +2,7 @@
 const connection = require('../database/db');
 const { handleMovieList } = require('./utils');
 
-async function getWeekSources(ctx) {
+async function getWeekMovieSources(ctx) {
     let results = [];
     let action = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from action where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     let comedy = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from comedy where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
@@ -40,9 +40,9 @@ async function getWeekSources(ctx) {
     if (disaster.length) {
         results.push(handleMovieList(disaster));
     }
-    await (ctx.render('weekSources', { results }));
+    await (ctx.render('weekMovieSources', { results }));
 }
 
 module.exports = {
-    getWeekSources
+    getWeekMovieSources
 }

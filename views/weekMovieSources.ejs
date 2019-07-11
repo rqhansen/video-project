@@ -6,7 +6,7 @@
         <div class="container">
             <% for(let i=0,len=results.length;i<len;i++) { %>
             <div class="movie-list">
-                <%- include('common/titleBar.ejs',{title:`最新${results[i][0].typeName}`,type:results[i][0].filmType,hasMore:true});%>
+                <%- include('common/titleBar.ejs',{title:`最新${results[i][0].typeName}`,type:results[i][0].filmType,hasMore:true,url:'movie'});%>
                 <div class="media-list">
                     <ul>
                         <% for(let j=0,len=results[i].length;j<len;j++) {%>

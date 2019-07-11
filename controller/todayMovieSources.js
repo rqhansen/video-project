@@ -2,7 +2,7 @@
 const connection = require('../database/db');
 const { movieTypes } = require('../config/index');
 
-async function getTodaySources(ctx) {
+async function getTodayMovieSources(ctx) {
     let results = await connection.query(`select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from action where to_days(pubDate) = to_days(now())
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from comedy where to_days(pubDate) = to_days(now())
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from romance where to_days(pubDate) = to_days(now())
@@ -18,9 +18,9 @@ async function getTodaySources(ctx) {
         item.isNew = true;
         delete item['date_format(pubDate,"%Y-%m-%d")'];
     })
-    await (ctx.render('todaySources', { results }));
+    await (ctx.render('todayMovieSources', { results }));
 }
 
 module.exports = {
-    getTodaySources
+    getTodayMovieSources
 }

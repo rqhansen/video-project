@@ -6,7 +6,7 @@
         <div class="container">
             <div class="divider"></div>
             <div class="m-detail">
-                <div class="cur">
+                <div class="cur ellipsis">
                     当前位置 :&nbsp;&nbsp;<a href="/" target="_self">万寻电影&gt;</a>
                     <a href="/html/<%= filmType%>/index" target="_self"><%= typeName %></a>&gt;&nbsp;<%= pureName %>下载页面
                     <span class="share-wp">
@@ -14,7 +14,7 @@
                     </span>
                 </div>
                 <div class="m-text">
-                    <h1><%= fullName %></h1>
+                    <h1><%= filmType === 'tv' ? `${fullName}连载至${tvNum}集` : fullName %></h1>
                     <div class="info">
                         <span>片名&nbsp;:</span>&nbsp;&nbsp;&nbsp;<span><%= pureName %></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <span>发布时间&nbsp;:</span>&nbsp;&nbsp;&nbsp;<span id="pubDate"><%= pubDate%></span>
@@ -51,6 +51,9 @@
                         <p>
                             ◎上映日期</span>&nbsp;&nbsp;&nbsp;<span><%= onDate %></span>
                         </p>
+                        <% if(filmType === 'tv') {%>
+                        @集&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数&nbsp;&nbsp;&nbsp;<span><%= tvNum %>集</span>
+                        <% } %>
                         <p>
                             ◎IMDb评分</span>&nbsp;&nbsp;&nbsp;<span><%= imdbScore %></span>
                         </p>
@@ -125,7 +128,13 @@
                     <div class="bot">
                         <h3>下载地址列表:<i></i></h3>
                         <% for(let j=0;j<downUrl.length;j++) {%>
-                        <a class="ellipsis" href="<%= downUrl[j] %>" target="_self"><%= downUrl[j] %></a>
+                        <% if(filmType==='tv') {%>
+                        <a class="ellipsis" href="<%= downUrl[j] %>"
+                            target="_self"><%= pureName %>第<%= j+1 %>集[www.wx520.net]下载</a>
+                        <% } else {%>
+                        <a class="ellipsis" href="<%= downUrl[j] %>"
+                            target="_self"><%= downUrl[j] %>[www.wx520.net]下载</a>
+                        <% } %>
                         <% } %>
                         <!-- 温馨提示 -->
                         <div class="down-tip">

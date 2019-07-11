@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="/public/stylesheets/index/index.css">
 <!-- 主内容 -->
 <div class="main">
-    <div class="wp2" >
+    <div class="wp2">
         <div class="container">
-            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐',type:'',hasMore:true});%>
+            <%- include('common/titleBar.ejs',{title:'今日热门电影推荐',type:'',hasMore:true,url:'movie'});%>
             <div class="media-list">
                 <ul>
                     <% for(let i=0;i<movies.length;i++) {%>
@@ -17,6 +17,25 @@
                             <div>
                                 <h3 class="ellipsis"><%- movies[i].fullName %></h3>
                                 <time class=<%= movies[i].isNew ?'new':'' %>><%- movies[i].pubDate%></time>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <%- include('common/titleBar.ejs',{title:'今日欧美剧推荐',type:'',hasMore:true,url:"tv"});%>
+            <div class="media-list">
+                <ul>
+                    <% for(let i=0;i<tvs.length;i++) {%>
+                    <li>
+                        <a href="<%- `/html/${tvs[i].filmType}/${tvs[i].id}` %>" target="_self"
+                            title="<%= tvs.pureName %>">
+                            <div>
+                                <img src="/public/<%= tvs.indexImgSrc %>" alt="<%= tvs[i].pureName %>">
+                            </div>
+                            <div>
+                                <h3 class="ellipsis"><%- `${tvs[i].fullName}连载至${tvs[i].tvNum}集` %></h3>
+                                <time class=<%= tvs[i].isNew ?'new':'' %>><%- tvs[i].pubDate%></time>
                             </div>
                         </a>
                     </li>

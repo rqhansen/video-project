@@ -41,8 +41,8 @@
             case '灾难片':
                 url += '/disaster/index';
                 break;
-            case '伦理片':
-                url += '/ethical/index';
+            case "欧美剧":
+                url += '/tv/index';
             default:
                 break;
         }

@@ -1,14 +1,14 @@
 const router = require('koa-router')();
 const { getHome } = require('../controller/home');
-const { getTodaySources } = require('../controller/todaySources');
-const { getWeekSources } = require('../controller/weekSources');
+const { getTodayMovieSources } = require('../controller/todayMovieSources');
+const { getWeekMovieSources } = require('../controller/weekMovieSources');
 const { getMovieDetail } = require('../controller/mDetail');
 const { getMore } = require('../controller/more');
 const { getTypeMovies } = require('../controller/typeMovie');
 const { getSearchResult } = require('../controller/search');
 const { getNotFind } = require('../controller/notFind');
-const typeExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|ethical)/(index|page_\\d+)';
-const detailExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|ethical)/(\\d+)';
+const typeExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|tv)/(index|page_\\d+)';
+const detailExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|tv)/(\\d+)';
 
 /**
  * 首页
@@ -18,18 +18,18 @@ router.get('/', getHome);
 /**
  * 今日最新电影
  */
-router.get('/html/today', getTodaySources);
+router.get('/html/todaymovie', getTodayMovieSources);
 
 /**
  * 近一周最新电影
  */
-router.get('/html/week', getWeekSources);
+router.get('/html/weekmovie', getWeekMovieSources);
 
 /**
  * 更多
  */
 
-router.get('/html/more', getMore);
+router.get('/html/*/more', getMore);
 
 
 /**

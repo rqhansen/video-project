@@ -1,0 +1,36 @@
+<%- include('common/header',{isDetail:false,programName:'',isSearch:false}) %>
+<link rel="stylesheet" href="/public/stylesheets/index/index.css">
+<!-- 主内容 -->
+<div class="main">
+    <div class="wp">
+        <div class="container">
+            <%- include('common/titleBar.ejs',{title:'今日最新电影',type:'',hasMore:true,url:'movie'})%>
+            <div class="media-list">
+                <ul>
+                    <% for(let i=0;i<results.length;i++) {%>
+                    <li>
+                        <a href="<%- `/html/${results[i].filmType}/${results[i].id}` %>" target="_self"
+                            title="<%= results[i].pureName %>">
+                            <div>
+                                <img src="/public/<%= results[i].indexImgSrc %>" alt="<%= results[i].pureName %>">
+                            </div>
+                            <div>
+                                <h3 class="ellipsis"><%- results[i].fullName %></h3>
+                                <time class=<%= results[i].isNew ?'new':'' %>><%- results[i].pubDate%></time>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+<!-- 底部 -->
+<%- include('common/footer.ejs') %>
+<!-- 底部结束 -->
+<script src="/public/javascripts/index.js"></script>
+</body>
+
+</html>

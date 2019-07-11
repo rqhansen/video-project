@@ -6,17 +6,24 @@ async function getTypeMovies(ctx) {
     let { url } = ctx;
     let urlSplit = url.split('/');
     let [type, index] = [urlSplit[2], urlSplit[3]];
-    let page;
+    let page, result, typeChar;
     if (index === 'index') {
         page = 0;
     } else {
         page = index.split('_')[1] - 1;
     }
-
-    let result = await query(`select id,typeId,typeName,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),pureName,actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
+    if (type !== 'tv') {
+        result = await query(`select id,typeId,typeName,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),pureName,actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
+    } else {
+        result = await query(`select id,typeId,typeName,indexImgSrc,tvNum,trim(year),trim(country),trim(pureName),trim(fullName),pureName,actor,downUrl,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
+    }
     let { length } = result;
     let { typeId } = result[0];
-    let typeChar = Object.values(movieTypes.filter(type => type[`${typeId}`])[0])[0];
+    if (type !== 'tv') {
+        typeChar = Object.values(movieTypes.filter(type => type[`${typeId}`])[0])[0];
+    } else {
+        typeChar = 'tv'
+    }
     result = result.slice(page * 14, page * 14 + 14);
     if (!result.length) {
         await ctx.render('notFind', { title: '您找的资源不存在' });
@@ -29,8 +36,18 @@ async function getTypeMovies(ctx) {
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.shortIntro = item['left(shortIntro,90)'];
         item.shortIntro = item.shortIntro ? item.shortIntro.split('$').join('') : '';
-        let fullName = item['trim(fullName)'];
-        item.sharpness = fullName ? fullName.split(item.pureName)[1] : '';
+        let fullName;
+        item.fullName = item['trim(fullName)'];
+        if (type === 'tv') {
+            // item.fullName = item.fullName.replace('$', item.downUrl.split('$').length);
+            // delete item['downUrl'];
+            delete item['fullName'];
+        }
+        if (type !== 'tv') {
+            item.sharpness = fullName ? fullName.split(item.pureName)[1] : '';
+        } else {
+            item.sharpness = `连载至第${item.downUrl.split(',').length}集`;
+        }
         item.actor = item.actor ? item.actor.split('$').slice(0, 1) : '';
         item.isNew = new Date() - new Date(item.pubDate) < limitSeconds;
         delete item.typeId;
@@ -39,8 +56,9 @@ async function getTypeMovies(ctx) {
         delete item['trim(pureName)'];
         delete item['date_format(pubDate,"%Y-%m-%d")'];
         delete item['trim(fullName)'];
-        delete item['left(shortIntro,80)'];
+        delete item['left(shortIntro,90)'];
     })
+    console.log(result);
     await ctx.render('typeMovie', { typeChar, result, total: length });
 }
 

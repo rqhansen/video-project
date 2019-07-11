@@ -4,19 +4,19 @@
 <div class="main">
     <div class="wp">
         <div class="container">
-            <%- include('common/titleBar.ejs',{title:'今日最新电影',type:'',hasMore:true})%>
+            <%- include('common/titleBar.ejs',{title:'今日欧美剧推荐',type:'',hasMore:false,url:''});%>
             <div class="media-list">
                 <ul>
-                    <% for(let i=0;i<results.length;i++) {%>
+                    <% for(let i=0;i<tvs.length;i++) {%>
                     <li>
-                        <a href="<%- `/html/${results[i].filmType}/${results[i].id}` %>" target="_self"
-                            title="<%= results[i].pureName %>">
+                        <a href="<%- `/html/${tvs[i].filmType}/${tvs[i].id}` %>" target="_self"
+                            title="<%= tvs.pureName %>">
                             <div>
-                                <img src="/public/<%= results[i].indexImgSrc %>" alt="<%= results[i].pureName %>">
+                                <img src="/public/<%= tvs.indexImgSrc %>" alt="<%= tvs[i].pureName %>">
                             </div>
                             <div>
-                                <h3 class="ellipsis"><%- results[i].fullName %></h3>
-                                <time class=<%= results[i].isNew ?'new':'' %>><%- results[i].pubDate%></time>
+                                <h3 class="ellipsis"><%- `${tvs[i].fullName}连载至${tvs[i].tvNum}` %></h3>
+                                <time class=<%= tvs[i].isNew ?'new':'' %>><%- tvs[i].pubDate%></time>
                             </div>
                         </a>
                     </li>

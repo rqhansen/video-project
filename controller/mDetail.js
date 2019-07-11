@@ -1,6 +1,6 @@
 
 const { query } = require('../database/db');
-const {movieTypes}  =require('../config/index');
+const { movieTypes } = require('../config/index');
 const { formatDate } = require('./utils');
 /**
  * 获取电影详情
@@ -10,8 +10,8 @@ async function getMovieDetail(ctx) {
     let [type, id] = [urlSplit[2], urlSplit[3]];
     let result = await query(`select * from ${type} where id=${id}`); //查询出来的是一个数组
     result = result[0];
-    if(!result) {
-        await ctx.render('notFind',{title:'您要找的资源不存在'});
+    if (!result) {
+        await ctx.render('notFind', { title: '您要找的资源不存在' });
         return;
     }
     let downUrl = result.downUrl;
@@ -36,7 +36,11 @@ async function getMovieDetail(ctx) {
     if (pubDate) {
         result.pubDate = formatDate(pubDate);
     }
-    result.filmType = Object.values(movieTypes.filter(type =>type[`${result.typeId}`])[0])[0];
+    if (type !== 'tv') {
+        result.filmType = Object.values(movieTypes.filter(type => type[`${result.typeId}`])[0])[0];
+    } else {
+        result.filmType = 'tv';
+    }
     await ctx.render('mDetail', result);
 }
 
