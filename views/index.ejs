@@ -29,7 +29,7 @@
                     <% for(let i=0;i<tvs.length;i++) {%>
                     <li>
                         <a href="<%- `/html/${tvs[i].filmType}/${tvs[i].id}` %>" target="_self"
-                            title="<%= tvs.pureName %>">
+                            title="<%= tvs[i].pureName %>">
                             <div>
                                 <img src="/public/<%= tvs[i].indexImgSrc %>" alt="<%= tvs[i].pureName %>">
                             </div>
