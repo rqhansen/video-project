@@ -1,5 +1,5 @@
 .no-find {
-    height: 667px;
+    height: 395px;
     padding-top: 50px;
     text-align: center;
 }
@@ -19,4 +19,10 @@
 }
 .no-find .tip+p a{
     color: #5193c7;
+}
+@media only screen and (max-width:776px) {
+    .no-find {
+        height: 500px;
+        padding-top: 90px;
+    }
 }

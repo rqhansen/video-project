@@ -13,9 +13,9 @@ async function getTypeMovies(ctx) {
         page = index.split('_')[1] - 1;
     }
     if (type !== 'tv') {
-        result = await query(`select id,typeId,typeName,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),pureName,actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
+        result = await query(`select id,typeId,typeName,indexImgSrc,trim(year),trim(country),trim(pureName),trim(fullName),actor,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
     } else {
-        result = await query(`select id,typeId,typeName,indexImgSrc,tvNum,trim(year),trim(country),trim(pureName),trim(fullName),pureName,actor,downUrl,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
+        result = await query(`select id,typeId,typeName,indexImgSrc,tvNum,trim(year),trim(country),trim(pureName),trim(fullName),actor,downUrl,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
     }
     let { length } = result;
     let { typeId } = result[0];
@@ -36,8 +36,8 @@ async function getTypeMovies(ctx) {
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.shortIntro = item['left(shortIntro,90)'];
         item.shortIntro = item.shortIntro ? item.shortIntro.split('$').join('') : '';
-        let fullName;
-        item.fullName = item['trim(fullName)'];
+        // let fullName;
+        let fullName = item['trim(fullName)'];
         if (type === 'tv') {
             // item.fullName = item.fullName.replace('$', item.downUrl.split('$').length);
             // delete item['downUrl'];
@@ -58,7 +58,7 @@ async function getTypeMovies(ctx) {
         delete item['trim(fullName)'];
         delete item['left(shortIntro,90)'];
     })
-    console.log(result);
+    // console.log(result);
     await ctx.render('typeMovie', { typeChar, result, total: length });
 }
 
