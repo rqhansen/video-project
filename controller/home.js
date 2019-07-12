@@ -27,6 +27,7 @@ async function getHome(ctx) {
         item.filmType = 'tv';
         item.pubDate = item['date_format(pubDate,"%Y-%m-%d")'];
         item.isNew = new Date() - new Date(item.pubDate) <= limitSeconds;
+        item.nowNum = item['downUrl'].split(',').length;
         delete item['date_format(pubDate,"%Y-%m-%d")'];
         delete item['downUrl'];
     })
