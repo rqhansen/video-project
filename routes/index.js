@@ -1,5 +1,6 @@
 const router = require('koa-router')();
 const { getHome } = require('../controller/home');
+const { downLoadThurder } = require('../controller/downLoadThurder');
 const { getTodayMovieSources } = require('../controller/todayMovieSources');
 const { getWeekMovieSources } = require('../controller/weekMovieSources');
 const { getMovieDetail } = require('../controller/mDetail');
@@ -10,11 +11,16 @@ const { getNotFind } = require('../controller/notFind');
 const typeExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|tv)/(index|page_\\d+)';
 const detailExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|tv)/(\\d+)';
 
+
 /**
  * 首页
  */
 router.get('/', getHome);
 
+/**
+ * 下载无限制版迅雷
+ */
+router.get('/html/downThurder', downLoadThurder);
 /**
  * 今日最新电影
  */
