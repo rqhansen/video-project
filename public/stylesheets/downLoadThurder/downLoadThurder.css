@@ -13,6 +13,14 @@
 .title img {
     vertical-align: top;
 }
+.title a {
+    margin-left: 10px;
+    color:#106492;
+    font-size: 16px;
+}
+.title a:hover {
+    color: #be1204;
+}
 .down-load-wp {
     margin: 0 auto;
     padding: 0 15px;

@@ -28,11 +28,7 @@
 .search button:hover{
     opacity: .8;
 } 
-.search .tip {
-    color: #be1204;
-    font-size: 13px;
-    line-height: 24px;
-}
+
 @media only screen and (max-width: 776px) {
     .search {
         padding: 0 7px;

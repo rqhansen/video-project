@@ -1,6 +1,7 @@
 const router = require('koa-router')();
 const { getHome } = require('../controller/home');
 const { downLoadThurder } = require('../controller/downLoadThurder');
+const { downLoadTxt } = require('../controller/downLoadTxt');
 const { getTodayMovieSources } = require('../controller/todayMovieSources');
 const { getWeekMovieSources } = require('../controller/weekMovieSources');
 const { getMovieDetail } = require('../controller/mDetail');
@@ -21,6 +22,11 @@ router.get('/', getHome);
  * 下载无限制版迅雷
  */
 router.get('/html/downThurder', downLoadThurder);
+
+/**
+ * 查看下载教程
+ */
+router.get('/html/downTxt', downLoadTxt);
 /**
  * 今日最新电影
  */

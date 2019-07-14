@@ -110,7 +110,7 @@
     margin-top: -2px;
     margin-left: 5px;
 }
-.container .m-text .bot a {
+.container .m-text .bot a.down {
     display: block;
     padding: 5px;
     line-height: 18px;
@@ -140,6 +140,7 @@
 .container .m-text .down-tip {
     margin-top: 6px;
     color:#106492;
+    font-size: 14px;
 } 
 @media only screen and (max-width:776px) {
     .container .m-text h1 {

@@ -6,13 +6,14 @@
     <title>万寻资源网_万寻迅雷电影下载网_最新电影_高清电影_迅雷免费电影下载_无注册下载电影</title>
     <meta name="keywords" content="电影下载,最新电影,电影网,迅雷电影,高清电影下载">
     <meta name="description" content="万寻电影网－最新电影,迅雷电影下载-每天搜集最新迅雷免费电影下载。为使用迅雷软件的用户提供最新的免费电影下载、小电影下载、高清电影下载等服务。" />
-    <%- include('common/meta')%>
+    <%- include('common/meta') %>
     <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/public/stylesheets/reset.css">
     <link rel="stylesheet" href="/public/stylesheets/common.css">
     <link rel="stylesheet" href="/public/stylesheets/header.css">
     <link rel="stylesheet" href="/public/stylesheets/componentsheets/titleBar.css">
     <link rel="stylesheet" href="/public/stylesheets/index/index.css">
+    <link rel="stylesheet" href="/public/stylesheets/downLoadTxt/downLoadTxt.css">
     <link rel="stylesheet" href="/public/stylesheets/footer.css">
     <script src="/public/javascripts/baiduAnalysis.js"></script>
 </head>
@@ -69,38 +70,23 @@
             <%- include('common/menu')%>
         </div>
     </div>
+    <!-- 导航结束 -->
     <!-- 主内容 -->
     <div class="main">
-        <div class="wp">
-            <div class="container">
-                <% for(let i=0,len=results.length;i<len;i++) { %>
-                <div class="movie-list">
-                    <div class="title-bar">
-                        <h2><%- `最新${results[i][0].typeName}` %></h2>
-                        <a href=<%= `/html/${results[i][0].filmType}/index` %>>更多... </a>
-                    </div>
-                    <div class="media-list">
-                        <ul>
-                            <% for(let j=0,len=results[i].length;j<len;j++) {%>
-                            <li>
-                                <a href="<%- `/html/${results[i][j].filmType}/${results[i][j].id}` %>" target="_self"
-                                    title="<%= results[i][j].pureName %>">
-                                    <div>
-                                        <img src="/public/<%= results[i][j].indexImgSrc %>"
-                                            alt="<%= results[i][j].pureName %>">
-                                    </div>
-                                    <div>
-                                        <h3 class="ellipsis"><%- results[i][j].fullName %></h3>
-                                        <time
-                                            class=<%= results[i][j].isNew ? 'new':'' %>><%- results[i][j].pubDate %></time>
-                                    </div>
-                                </a>
-                            </li>
-                            <% } %>
-                        </ul>
-                    </div>
-                </div>
-                <% } %>
+        <div class="container down-load-txt-wp">
+            <div class="title">
+                <a href="/html/downTxt">迅雷5下载教程</a>
+            </div>
+            <div class="down-load-txt">
+                <p class="tip ellipsis">1. 新版迅雷中,右键点击出错的下载文件,弹出菜单中选择将种子文件另存为.torrent的文件</p>
+                <p style="padding-left: 20px;"><img src="/public/images/step_01.png"></p>
+                <p style="padding-left: 20px;margin-top: 10px;"><img src="/public/images/step_02.png"></p>
+                <p class="tip ellipsis">2.打开下载的迅雷5.exe文件</p>
+                <p style="padding-left: 20px;"><img src="/public/images/step_03.png"></p>
+                <p class="tip ellipsis">3.选择文件--打开BT种子文件,选择种子文件</p>
+                <p style="padding-left: 20px;"><img src="/public/images/step_04.png"></p>
+                <p class="tip ellipsis">4.可输入种子标题,点击确定按钮，开始下载</p>
+                <p style="padding-left: 20px;"><img src="/public/images/step_05.png"></p>
             </div>
         </div>
     </div>
@@ -111,7 +97,6 @@
     <script src="/public/javascripts/utils.js"></script>
     <script src="/public/javascripts/header.js"></script>
     <script src="/public/javascripts/menu.js"></script>
-    <script src="/public/javascripts/index.js"></script>
 </body>
 
 </html>

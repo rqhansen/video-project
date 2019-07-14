@@ -86,6 +86,7 @@
 .header-wp .search input {
     width: 406px;
 }
+
 @media only screen and (max-width:776px) {
     .header-wp {
         position: fixed;
