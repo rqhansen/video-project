@@ -1,0 +1,62 @@
+
+.container {
+    height: 720px;
+}
+.title {
+    width: 100%;
+    margin: 20px 0 15px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 22px;
+    border-bottom: 1px solid #ececec;
+}
+.title img {
+    vertical-align: top;
+}
+.down-load-wp {
+    margin: 0 auto;
+    padding: 0 15px;
+    color: #333;
+}
+.icon-wp {
+    margin-right: 10px;
+}
+.icon-wp + h1 {
+    display: inline-block;
+}
+
+.down-load li {
+    display: inline-block;
+}
+.down-load a{
+    display: block;
+    width: 266px;
+    height: 62px;
+    padding: 0 20px;
+    line-height: 62px;
+    font-size: 22px;
+    color: #fff;
+    background-color: #5193c7;
+    overflow: hidden;
+    font-weight: normal;
+    transition: opacity .3s;
+}
+.down-load a:hover {
+    opacity: .95;
+}
+.down-load a i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 33px;
+    height: 33px;
+    margin-right: 15px;
+    background: url('/public/images/download.png') no-repeat;
+}
+
+@media only screen and (max-width: 776px) {
+    .down-load-wp {
+        padding: 45px 0 0;
+        margin: 0 7px;
+    }
+}
+

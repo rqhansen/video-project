@@ -9,7 +9,7 @@ async function downLoadThurder(ctx) {
     // ctx.attachment(fileName);
     // await send(ctx, fileName, { root: thurderUrl });
     // await ctx
-    await ctx.render('downLoadThurder');
+    await ctx.render('downLoadThurder.ejs');
 }
 
 module.exports = {
