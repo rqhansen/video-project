@@ -140,7 +140,7 @@
 .container .m-text .down-tip {
     margin-top: 6px;
     color:#106492;
-    font-size: 14px;
+    font-size: 12px;
 } 
 @media only screen and (max-width:776px) {
     .container .m-text h1 {
@@ -156,9 +156,4 @@
     .container .m-detail .share-mb{
         display:inline-block;
     }
-}
-@media only screen and (max-width: 1199px) {
-    /* .wp {
-        width: 95%;
-    } */
 }

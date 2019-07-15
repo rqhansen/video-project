@@ -29,7 +29,6 @@ async function getTypeMovies(ctx) {
         await ctx.render('notFind', { title: '您找的资源不存在' });
         return;
     }
-    console.log(result);
     result.forEach(item => {
         item.year = item['trim(year)'];
         item.country = item['trim(country)'];
