@@ -1,152 +1,77 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-
-<head>
-    <meta charset="UTF-8">
-    <title><%= result[0].typeName %>_迅雷下载_免费下载_万寻电影网</title>
-    <meta name="keywords" content="<%= result[0].typeName  %>迅雷下载,免费下载，Gvod高清在线播放" />
-    <meta name="description"
-        content="<%= result[0].typeName  %>迅雷下载、免费下载，<%= result[0].typeName  %>Gvod高清在线播放，剧情介绍等>" />
-    <%- include('common/meta')%>
-    <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/public/stylesheets/reset.css">
-    <link rel="stylesheet" href="/public/stylesheets/common.css">
-    <link rel="stylesheet" href="/public/stylesheets/header.css">
-    <link rel="stylesheet" href="/public/stylesheets/componentsheets/titleBar.css">
-    <link rel="stylesheet" href="/public/stylesheets/typeMovie/index.css">
-    <link rel="stylesheet" href="/public/stylesheets/footer.css">
-    <script src="/public/javascripts/baiduAnalysis.js"></script>
-</head>
-
-<body>
-    <!-- 头部 -->
-    <div class="header-wp">
-        <!-- 快速入口 -->
-        <div class="hot-wp">
-            <div class="wp hot clearfix">
-                <div class="fl">
-                    <span>热门电影: </span>
-                    <%- include('common/hotMovie')%>
-                </div>
-                <div class="fr">
-                    <span>热门专题: </span>
-                    <%- include('common/hotTheme')%>
-                </div>
+<%- include("common/header",{flag:"type",movieName:result[0].typeName}) %>
+<!-- 主内容 -->
+<div class="main">
+    <div class="wp">
+        <div class="container m-list-wp">
+            <div class="cur">
+                当前位置 :&nbsp;&nbsp;<a href="/" target="_self">万寻电影&gt;</a>
+                <a href="<%- `/html/${typeChar}/index` %>" target="_self"><%= result[0].typeName %></a>&gt;&gt;迅雷下载页面
             </div>
-        </div>
-        <div class="wp head">
-            <!-- logo -->
-            <div class="fl logo">
-                <h1>
-                    <a href="/" traget="_self">
-                        <img src="/public/images/logo.png" alt="万寻资源网">
-                    </a>
-                </h1>
-
-            </div>
-            <div class="fr right" id="rightSearch">
-                <div class="fast-nav-wp">
-                    <div class="fast-nav">
-                        <a href="/html/todaymovie" target="_self">今日最新电影</a>
-                        <a href="/html/weekmovie" target="_self">近一周最新电影</a>
-                        <a href="/" id="addSave" rel="sidebar">收藏本站</a>
-                    </div>
-                </div>
-                <%- include('common/search')%>
-                <!-- 小屏下的图标 -->
-                <div id="menuIcon" class="menu-icon">
-                    <b></b>
-                    <b></b>
-                    <b></b>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 头部结束 -->
-    <!-- 导航 -->
-    <div id="indexNav" class="nav">
-        <div class="wp">
-            <%- include('common/search')%>
-            <%- include('common/menu')%>
-        </div>
-    </div>
-    <!-- 主内容 -->
-    <div class="main">
-        <div class="wp">
-            <div class="container m-list-wp">
-                <div class="cur">
-                    当前位置 :&nbsp;&nbsp;<a href="/" target="_self">万寻电影&gt;</a>
-                    <a href="<%- `/html/${typeChar}/index` %>"
-                        target="_self"><%= result[0].typeName %></a>&gt;&gt;迅雷下载页面
-                </div>
-                <div class="m-list">
-                    <ul>
-                        <% for(let i=0;i<result.length;i++) {%>
-                        <li>
-                            <div class="pic">
-                                <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self"
-                                    title="<%= result[i].pureName %>">
-                                    <img src="/public/<%= result[i].indexImgSrc %>" alt="<%= result[i].pureName %>">
-                                </a>
+            <div class="m-list">
+                <ul>
+                    <% for(let i=0;i<result.length;i++) {%>
+                    <li>
+                        <div class="pic">
+                            <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self"
+                                title="<%= result[i].pureName %>">
+                                <img src="/public/<%= result[i].indexImgSrc %>" alt="<%= result[i].pureName %>">
+                            </a>
+                        </div>
+                        <div class="txt">
+                            <div class="title ellipsis"><a href="<%- `/html/${typeChar}/${result[i].id}` %>"
+                                    target="_self"><b><%- result[i].pureName%></b><em><%- result[i].sharpness %></em></a></b>
                             </div>
-                            <div class="txt">
-                                <div class="title ellipsis"><a href="<%- `/html/${typeChar}/${result[i].id}` %>"
-                                        target="_self"><b><%- result[i].pureName%></b><em><%- result[i].sharpness %></em></a></b>
-                                </div>
-                                <div class="short-intro">
-                                    <p class="ellipsis">
-                                        @年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year %>(<%= result[i].country %>)
-                                    </p>
-                                    <p class="ellipsis">@主&nbsp;&nbsp;演&nbsp;&nbsp;<%= result[i].actor[0] %></p>
-                                    <p class="intro">@简&nbsp;&nbsp;介&nbsp;&nbsp;<%= result[i].shortIntro %></p>
-                                    <p class="update ellipsis">
-                                        更新时间&nbsp;:&nbsp;&nbsp;
-                                        <% if(result[i].isNew) { %>
-                                        <span class="recommend"><time><%= result[i].pubDate %></time>(今日推荐)</span>
-                                        <% } else { %>
-                                        <time><%= result[i].pubDate %></time>
-                                        <% } %>
-                                        <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self">点击下载</a>
-                                    </p>
-                                </div>
+                            <div class="short-intro">
+                                <p class="ellipsis">
+                                    @年&nbsp;&nbsp;代&nbsp;&nbsp;<%= result[i].year %>(<%= result[i].country %>)
+                                </p>
+                                <p class="ellipsis">@主&nbsp;&nbsp;演&nbsp;&nbsp;<%= result[i].actor[0] %></p>
+                                <p class="intro">@简&nbsp;&nbsp;介&nbsp;&nbsp;<%= result[i].shortIntro %></p>
+                                <p class="update ellipsis">
+                                    更新时间&nbsp;:&nbsp;&nbsp;
+                                    <% if(result[i].isNew) { %>
+                                    <span class="recommend"><time><%= result[i].pubDate %></time>(今日推荐)</span>
+                                    <% } else { %>
+                                    <time><%= result[i].pubDate %></time>
+                                    <% } %>
+                                    <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self">点击下载</a>
+                                </p>
                             </div>
-                        </li>
-                        <% } %>
-                    </ul>
-                </div>
-                <div class="pages">
-                    <ul id="pageIndexWp">
-                        <li class="first"><a href="index" target="_self">首页</a></li>
-                        <li class="page-pre"><a href="" target="_self">上一页</a></li>
-                        <li class="page"><a href="" target="_self">1</a></li>
-                        <li class="page"><a href="" target="_self">2</a></li>
-                        <li class="page"><a href="" target="_self">3</a></li>
-                        <li class="page"><a href="" target="_self">4</a></li>
-                        <li class="page"><a href="" target="_self">5</a></li>
-                        <li class="page"><a href="" target="_self">6</a></li>
-                        <li class="page"><a href="" target="_self">7</a></li>
-                        <li class="page"><a href="" target="_self">8</a></li>
-                        <li class="page"><a href="" target="_self">9</a></li>
-                        <li class="page"><a href="" target="_self">10</a></li>
-                        <li class="page"><a href="" target="_self">11</a></li>
-                        <li class="page-next"><a href="" target="_self">下一页</a></li>
-                        <li class="end"><a href="" target="_self">末页</a></li>
-                        <li class="total-wp">共<span id="totalPages"
-                                class="page-pad"><%= Math.ceil(total/14) %></span>页<span id="totalItems"
-                                class="page-pad"><%= total %></span>条</li>
-                    </ul>
-                </div>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="pages">
+                <ul id="pageIndexWp">
+                    <li class="first"><a href="index" target="_self">首页</a></li>
+                    <li class="page-pre"><a href="" target="_self">上一页</a></li>
+                    <li class="page"><a href="" target="_self">1</a></li>
+                    <li class="page"><a href="" target="_self">2</a></li>
+                    <li class="page"><a href="" target="_self">3</a></li>
+                    <li class="page"><a href="" target="_self">4</a></li>
+                    <li class="page"><a href="" target="_self">5</a></li>
+                    <li class="page"><a href="" target="_self">6</a></li>
+                    <li class="page"><a href="" target="_self">7</a></li>
+                    <li class="page"><a href="" target="_self">8</a></li>
+                    <li class="page"><a href="" target="_self">9</a></li>
+                    <li class="page"><a href="" target="_self">10</a></li>
+                    <li class="page"><a href="" target="_self">11</a></li>
+                    <li class="page-next"><a href="" target="_self">下一页</a></li>
+                    <li class="end"><a href="" target="_self">末页</a></li>
+                    <li class="total-wp">共<span id="totalPages" class="page-pad"><%= Math.ceil(total/14) %></span>页<span
+                            id="totalItems" class="page-pad"><%= total %></span>条</li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- 主内容结束 -->
-    <!-- 底部 -->
-    <%- include('common/footer.ejs') %>
-    <!-- 底部结束 -->
-    <script src="/public/javascripts/utils.js"></script>
-    <script src="/public/javascripts/header.js"></script>
-    <script src="/public/javascripts/menu.js"></script>
-    <script src="/public/javascripts/typeMovie.js"></script>
+</div>
+<!-- 主内容结束 -->
+<!-- 底部 -->
+<%- include('common/footer.ejs') %>
+<!-- 底部结束 -->
+<%- include('common/script.ejs') %>
+<script src="/public/javascripts/typeMovie.js"></script>
 </body>
 
 </html>

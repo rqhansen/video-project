@@ -1,9 +1,4 @@
-.container{
-    width: 100%;
-    /* max-width: 960px; */
-    max-width: 1000px;
-    margin: 0 auto;
-}
+
 .container .media-list ul {
     display: flex;
     -webkit-display: flex;
