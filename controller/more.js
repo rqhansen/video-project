@@ -4,7 +4,6 @@ const { movieTypes, limitSeconds } = require('../config/index');
 
 async function getMore(ctx) {
     let { url } = ctx;
-    // let type = url.split('/').join('').trim(' ').split('')[1];
     let type = url.slice(1).split('/')[1];
     if (type === 'movie') {
         let movies = await connection.query(`select id,typeId,indexImgSrc,fullName, pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from action where date_sub(curdate(),interval 30 day) <= date(pubDate)
@@ -24,7 +23,7 @@ async function getMore(ctx) {
         })
         await ctx.render('moreMovie', { movies });
     } else {
-        let tvs = await connection.query(`select id,typeId,indexImgSrc,fullName, pureName,tvNum,downUrl,date_format(pubDate,"%Y-%m-%d"),pubDate from tv where date_sub(curdate(),interval 30 day) <= date(pubDate) order by pubDate desc`);
+        let tvs = await connection.query(`select id,typeId,indexImgSrc,fullName, pureName,tvNum,downUrl,date_format(pubDate,"%Y-%m-%d"),pubDate from tv where date_sub(curdate(),interval 45 day) <= date(pubDate) order by pubDate desc`);
         tvs.forEach(item => {
             item.filmType = 'tv';
             item.fullName = item.fullName.replace('$', item.downUrl.split('$').length);
