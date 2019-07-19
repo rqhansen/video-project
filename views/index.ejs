@@ -14,7 +14,7 @@
                         <a href="<%- `/html/${movies[i].filmType}/${movies[i].id}` %>" target="_self"
                             title="<%= movies[i].pureName %>">
                             <div>
-                                <img src="/public/<%= movies[i].indexImgSrc %>" alt="<%= movies[i].pureName %>">
+                                <img src="/public/<%= movies[i].detailImgSrc %>" alt="<%= movies[i].pureName %>">
                             </div>
                             <div>
                                 <h3 class="ellipsis"><%- movies[i].fullName %></h3>
@@ -35,7 +35,7 @@
                     <li>
                         <a href="<%- `/html/${tvs[i].filmType}/${tvs[i].id}` %>" target="_self"
                             title="<%= tvs[i].pureName %>">
-                            <div>
+                            <div id="indexPosterWp">
                                 <img src="/public/<%= tvs[i].indexImgSrc %>" alt="<%= tvs[i].pureName %>">
                             </div>
                             <div>
