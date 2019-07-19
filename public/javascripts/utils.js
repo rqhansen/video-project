@@ -24,6 +24,13 @@ function getClientSize() {
 }
 
 /**
+ * 获取页面滚动的距离
+ */
+function getScrollTop() {
+    return document.documentElement.scrollTop || document.body.scrollTop;
+}
+
+/**
  * 浏览器resize事件
  * @param {function} callback
  */
@@ -163,6 +170,45 @@ function copyText(text) {
     return succeeded
 }
 
+/**
+ * 节流函数
+ */
+
+function throttle(fn, delay = 200) {
+
+    let timer, current, past, context, args;
+
+    function execute() {
+        fn.call(context, args);
+        past = current;
+    }
+
+    return function () {
+
+        context = this;
+        args = arguments;
+
+        if (timer) { //清除上一次的定时任务
+            clearTimeout(timer);
+            timer = null;
+        }
+
+        current = +new Date();
+
+        if (!past) { //一开始执行一次
+            execute()
+        } else {
+            let diff = delay - (current - past);
+            if (diff <= 0) {
+                execute();
+            } else {
+                timer = setTimeout(function () {
+                    execute();
+                }, diff)
+            }
+        }
+    }
+}
 
 
 

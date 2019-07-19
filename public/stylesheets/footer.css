@@ -5,5 +5,5 @@
     color:#666;
     line-height: 22px;
     font-size: 12px;
-    background: url('/public/images/footer-bg.png') repeat-x;
+    border-top:2px solid #5193c7;
 }

@@ -26,6 +26,7 @@
       '宋体', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smothing: grayscale;
+        overflow-y:scroll;
   }
   td,th,caption {
     font-size: 14px;
