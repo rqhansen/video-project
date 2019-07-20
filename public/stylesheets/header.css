@@ -342,7 +342,7 @@
 /* 回顶部 */
 #goTop {
     position: fixed;
-    bottom: 40px;
+    bottom:60px;
     right: 30px;
     opacity:0;
     transition: opacity .3s;
