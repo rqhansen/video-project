@@ -350,6 +350,7 @@
     -ms-transition: opacity .3s;
     -moz-transition: opacity .3s;
     -o-transition: opacity .3s;
+    z-index: 999;
 }
 #goTop.show {
     display: block;
