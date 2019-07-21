@@ -51,12 +51,15 @@
     -ms-transition: transform .3s;
     -o-transition: transform .3s;
 }
-.container .media-list li:hover img{
+.container .media-list li div:first-child:hover img{
     transform:scale(1.15);
     -webkit-transform:scale(1.15);
     -moz-transform:scale(1.15);
     -ms-transform:scale(1.15);
     -o-transform:scale(1.15); 
+}
+.container .media-list li:hover img{
+
 }
 .container .media-list li h3 {
     margin-top: 2px;
