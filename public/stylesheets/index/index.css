@@ -51,7 +51,7 @@
     -ms-transition: transform .3s;
     -o-transition: transform .3s;
 }
-.container .media-list li img:hover{
+.container .media-list li:hover img{
     transform:scale(1.15);
     -webkit-transform:scale(1.15);
     -moz-transform:scale(1.15);
