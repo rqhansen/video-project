@@ -38,16 +38,18 @@
     height: 108px;
     line-height: 108px;
 }
+.header-wp h1 {
+    height: 100%;
+}
 .header-wp .logo a {
     display: block;
     width: 203px;
-    margin-top: 8px;
 }
 .header-wp .logo img{
     max-width: 100%;
-    max-height: 100%;
+    max-height: 80%;
     display: inline-block;
-    vertical-align: top; 
+    vertical-align: middle; 
 }
 .header-wp .right {
     position: relative;
@@ -122,10 +124,10 @@
     .header-wp .logo a {
         max-width: 60%;
         height: 100%;
-        margin-top: 0;
+        margin-top: 2px;
     }
    .header-wp .logo img {
-        margin-top: -5px;
+        margin-top: -7px;
         vertical-align: middle;
    }
    .header-wp .right {
