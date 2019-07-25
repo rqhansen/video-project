@@ -95,7 +95,6 @@
     }
     let obj = document.documentElement || document.body;
     window.goTopTimer = setInterval(() => {
-      console.log(1);
       obj.scrollTop -= 100;
       if (obj.scrollTop <= 0) {
         clearInterval(window.goTopTimer);
