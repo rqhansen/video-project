@@ -10,14 +10,55 @@
     toggleClassName(menuIcon, 'active');
   }
 
-  // setActiveNav();
-  // function setActiveNav() {
-  //   let url = window.location.href;
-
-  //   console.log(url);
-  // }
-
-
+  // active的menu
+  setActiveNav();
+  function setActiveNav() {
+    let url = window.location.href;
+    let wp = selectEleById('menuWp');
+    if (!url.includes('html')) { //首页
+      let target = selectElesByClassName('home', wp)[0];
+      addClassName(target, 'active');
+      return;
+    }
+    let movieType = url.split('/')[4];
+    let menus = selectElesByClassName('work', wp);
+    let activeIndex;
+    switch (movieType) {
+      case 'action':
+        activeIndex = 1;
+        break;
+      case 'comedy':
+        activeIndex = 2;
+        break;
+      case 'romance':
+        activeIndex = 3;
+        break;
+      case 'science':
+        activeIndex = 4;
+        break;
+      case 'drama':
+        activeIndex = 5;
+        break;
+      case 'suspense':
+        activeIndex = 6;
+        break;
+      case 'war':
+        activeIndex = 7;
+        break;
+      case 'horror':
+        activeIndex = 8;
+        break;
+      case 'disaster':
+        activeIndex = 9;
+        break;
+      case 'tv':
+        activeIndex = 10;
+        break;
+      default:
+        break;
+    }
+    addClassName(menus[activeIndex], 'active');
+  }
   /**
    * 添加收藏
    */
