@@ -12,10 +12,10 @@
 .header-wp .hot-wp .fl {
     width: 60%;
 }
-.header-wp .hot-wp .fr {
+/* .header-wp .hot-wp .fr {
     width: 40%;
     text-align:right;
-}
+} */
 .header-wp .hot-wp a {
     color: #999;
     font-size: 13px;
