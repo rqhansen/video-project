@@ -55,6 +55,7 @@
         activeIndex = 10;
         break;
       default:
+        activeIndex = 0;
         break;
     }
     addClassName(menus[activeIndex], 'active');

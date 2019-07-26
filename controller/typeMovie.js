@@ -18,6 +18,9 @@ async function getTypeMovies(ctx) {
         result = await query(`select id,typeId,typeName,indexImgSrc,tvNum,trim(year),trim(country),trim(pureName),trim(fullName),actor,downUrl,date_format(pubDate,"%Y-%m-%d"),left(shortIntro,90) from ${type} order by pubDate desc`);
     }
     let { length } = result;
+    if (!length) {
+        await ctx.render('notFind', { title: '您要找的资源不存在' });
+    }
     let { typeId } = result[0];
     if (type !== 'tv') {
         typeChar = Object.values(movieTypes.filter(type => type[`${typeId}`])[0])[0];
