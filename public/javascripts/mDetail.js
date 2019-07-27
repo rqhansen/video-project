@@ -15,7 +15,9 @@
         let { isPc } = userAgent();
         if (!isPc) {
             let loadWp = selectEleById('loadWp');
-            addClassName(loadWp, 'show');
+            if (!hasClassName(loadWp, 'show')) {
+                addClassName(loadWp, 'show');
+            }
         }
     }
 
@@ -30,8 +32,6 @@
     function hideLoad() {
         let loadWp = selectEleById('loadWp');
         removeClassName(loadWp, 'show');
-        img.removeEventListener('load', hideLoad);
-        img.removeEventListener('error', hideLoad);
     }
 
     //复制影片链接(pc和移动端)
