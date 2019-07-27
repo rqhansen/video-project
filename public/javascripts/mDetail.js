@@ -20,9 +20,9 @@
     }
 
     //图片加载触发的事件
+    let img = selectEleById('detailImg');
     imgOnLoad();
     function imgOnLoad() {
-        let img = selectEleById('detailImg');
         img.addEventListener('load', hideLoad, false);
         img.addEventListener('error', hideLoad, false);
     }
@@ -30,6 +30,8 @@
     function hideLoad() {
         let loadWp = selectEleById('loadWp');
         removeClassName(loadWp, 'show');
+        img.removeEventListener('load', hideLoad);
+        img.removeEventListener('error', hideLoad);
     }
 
     //复制影片链接(pc和移动端)
