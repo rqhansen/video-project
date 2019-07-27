@@ -10,6 +10,7 @@
 .container{
     width: 100%;
     max-width: 1000px;
+    min-height: 705px;
     margin: 0 auto;
 }
 @media only screen and (max-width:1192px) {
