@@ -86,6 +86,11 @@
     cursor: pointer;
     color: #be1204;
 }
+.container .m-text .txt .title {
+    display:inline-block;
+    width: 64px;
+    margin-right: 12px;
+}
 .container .txt img{
     display: block;
     max-width: 100%;

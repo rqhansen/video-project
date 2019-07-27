@@ -34,98 +34,114 @@
                             alt="<%= pureName %>" />
                         <br>
                         <p>
-                            ◎译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;<span><%= transName %></span>
+                            <span
+                                class="title">◎译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span><span><%= transName %></span>
                         </p>
                         <p>
-                            ◎片&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;<span><%= subPureName %></span>
+                            <span
+                                class="title">◎片&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span><span><%= subPureName %></span>
                         </p>
                         <p>
-                            ◎年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代&nbsp;&nbsp;&nbsp;<span><%= year %></span>
+                            <span
+                                class="title">◎年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代</span><span><%= year %></span>
                         </p>
                         <p>
-                            ◎产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地&nbsp;&nbsp;&nbsp;<span><%= country %></span>
+                            <span
+                                class="title">◎产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地</span><span><%= country %></span>
                         </p>
                         <p>
-                            ◎类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;&nbsp;<span><%= types %></span>
+                            <span
+                                class="title">◎类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型</span><span><%= types %></span>
                         </p>
                         <p>
-                            ◎语&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言&nbsp;&nbsp;&nbsp;<span><%= language %></span>
+                            <span
+                                class="title">◎语&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言</span><span><%= language %></span>
                         </p>
                         <p>
-                            ◎字&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;幕&nbsp;&nbsp;&nbsp;<span><%= caption %></span>
+                            <span
+                                class="title">◎字&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;幕</span><span><%= caption %></span>
                         </p>
                         <p>
-                            ◎上映日期</span>&nbsp;&nbsp;&nbsp;<span><%= onDate %></span>
+                            <span class="title">◎上映日期</span><span><%= onDate %></span>
                         </p>
                         <% if(filmType === 'tv') {%>
-                        ◎集&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数&nbsp;&nbsp;&nbsp;<span><%= tvNum %>集</span>
+                        <p>
+                            <span
+                                class="title">◎集&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数</span><span><%= tvNum %>集</span>
+                        </p>
                         <% } %>
                         <p>
-                            ◎IMDb评分</span>&nbsp;&nbsp;&nbsp;<span><%= imdbScore %></span>
+                            <span class="title">◎IMDb评分</span><span><%= imdbScore %></span></span>
                         </p>
                         <p>
-                            ◎IMDb链接</span>&nbsp;&nbsp;&nbsp;<span><%= imdbLink %></span>
+                            <span class="title">◎IMDb链接</span><span><%= imdbLink %></span>
                         </p>
                         <p>
-                            ◎格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;式&nbsp;&nbsp;&nbsp;<span><%= format %></span>
+                            <span
+                                class="title">◎格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;式</span><span><%= format %></span>
                         </p>
                         <p>
-                            ◎文件大小</span>&nbsp;&nbsp;&nbsp;<span><%= fileSize %></span>
+                            <span class="title">◎文件大小</span><span><%= fileSize %></span>
                         </p>
                         <p>
-                            ◎视频尺寸</span>&nbsp;&nbsp;&nbsp;<span><%= videoSize %></span>
+                            <span class="title">◎视频尺寸</span><span><%= videoSize %></span>
                         </p>
                         <p>
-                            ◎片&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长&nbsp;&nbsp;&nbsp;<span><%= filmLength %></span>
+                            <span
+                                class="title">◎片&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长</span><span><%= filmLength %></span>
                         </p>
                         <p>
-                            ◎豆瓣评分</span>&nbsp;&nbsp;&nbsp;<span><%= doubanScore %></span>
+                            <span class="title">◎豆瓣评分</span><span><%= doubanScore %></span>
                         </p>
                         <p>
-                            ◎豆瓣链接</span>&nbsp;&nbsp;&nbsp;<span><%= doubanLink %></span>
+                            <span class="title">◎豆瓣链接</span><span><%= doubanLink %></span>
                         </p>
                         <p>
-                            ◎导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演&nbsp;&nbsp;&nbsp;<span><%= director %></span>
+                            <span
+                                class="title">◎导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演</span><span><%= director %></span>
                         </p>
                         <p>
-                            ◎编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剧&nbsp;&nbsp;&nbsp;<span><%= editor %></span>
+                            <span
+                                class="title">◎编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剧</span><span><%= editor %></span>
                         </p>
                         <% if(actor && actor.length) { %>
                         <% actor.forEach(function(item,idx) { %>
                         <% if (idx === 0) {%>
                         <p>
-                            ◎主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                            <span
+                                class="title">◎主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演</span><span><%= item %></span>
                         </p>
                         <% } else { %>
                         <p>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                            <span class="title"></span><span><%= item %></span>
                         </p>
                         <% } %>
                         <% }) %>
                         <% } %>
                         <p class="margin label">
-                            ◎标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签&nbsp;&nbsp;&nbsp;<span><%= label %></span>
+                            <span
+                                class="title">◎标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签</span><span><%= label %></span>
                         </p>
                         <% if(shortIntro) { %>
                         <div class="margin">
-                            ◎简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介&nbsp;&nbsp;&nbsp;
+                            <span class="title">◎简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介</span>
                         </div>
                         <% if(shortIntro.length)  {%>
                         <% shortIntro.forEach(function(item) { %>
                         <p>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                            <span class="title" style="width: 32px;"></span><span><%= item %></span>
                         </p>
                         <% }) %>
                         <% } %>
                         <% } %>
                         <% if(getAward) { %>
                         <div class="margin">
-                            ◎获&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;奖&nbsp;&nbsp;&nbsp;
+                            <span class="title">◎获&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;奖</span>
                         </div>
                         <% if(getAward.length) { %>
                         <% getAward.forEach(function(item,idx) { %>
                         <p>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= item %></span>
+                            <span class="title"></span><span><%= item %></span>
                         </p>
                         <% }) %>
                         <% } %>

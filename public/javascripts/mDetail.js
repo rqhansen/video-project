@@ -3,7 +3,7 @@
     let detail = selectEleById('detailContent');
     let ps = detail.getElementsByTagName('p');
     Array.from(ps).forEach(el => {
-        let span = el.children[0];
+        let span = el.children[1];
         if (!span.innerText) {
             addClassName(span.parentNode, 'hide');
         }
