@@ -86,6 +86,11 @@
     cursor: pointer;
     color: #be1204;
 }
+.container .m-text .txt .title {
+    display:inline-block;
+    width: 68px;
+    margin-right: 6px;
+}
 .container .txt img{
     display: block;
     max-width: 100%;
@@ -120,7 +125,7 @@
 }
 .container .m-text .tip {
     text-align: center;
-    line-height: 35px;
+    padding: 5px 0;
     font-size: 13px;
     color: #f00;
     font-weight: bold;
@@ -133,6 +138,94 @@
     color:#106492;
     font-size: 12px;
 } 
+.container .load-wp {
+    position: fixed;
+    left:50%;
+    top:50%; 
+    width: 60px;
+    height: 60px;
+    padding: 4px 0;
+    display: none;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+@keyframes loading-spin {
+     from { 
+         transform: rotate(0deg);
+    }
+    50%  { 
+        transform: rotate(180deg);
+    }
+    to   { 
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes loading-spin {
+     from { 
+         transform: rotate(0deg);
+    }
+    50%  { 
+        transform: rotate(180deg);
+    }
+    to   { 
+        transform: rotate(360deg);
+    }
+}
+@-moz-keyframes loading-spin {
+     from { 
+         transform: rotate(0deg);
+    }
+    50%  { 
+        transform: rotate(180deg);
+    }
+    to   { 
+        transform: rotate(360deg);
+    }
+}
+@-ms-keyframes loading-spin {
+     from { 
+         transform: rotate(0deg);
+    }
+    50%  { 
+        transform: rotate(180deg);
+    }
+    to   { 
+        transform: rotate(360deg);
+    }
+}
+@-o-keyframes loading-spin {
+     from { 
+         transform: rotate(0deg);
+    }
+    50%  { 
+        transform: rotate(180deg);
+    }
+    to   { 
+        transform: rotate(360deg);
+    }
+}
+.container .load-wp .loading {
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    animation: loading-spin 1s linear infinite;
+    -webkit-animation: loading-spin 1s linear infinite;
+    -ms-animation: loading-spin 1s linear infinite; 
+    -moz-animation: loading-spin 1s linear infinite;
+    -o-animation: loading-spin 1s linear infinite;
+}
+.container .load-wp.show {
+    display: block;
+}
+.container .load-wp .load-txt {
+    font-size: 12px;
+}
 @media only screen and (max-width:776px) {
     .container .m-text h1 {
         line-height: 20px;

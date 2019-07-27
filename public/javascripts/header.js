@@ -55,6 +55,7 @@
         activeIndex = 10;
         break;
       default:
+        activeIndex = 0;
         break;
     }
     addClassName(menus[activeIndex], 'active');
@@ -97,6 +98,20 @@
 
     rightBtn.addEventListener('click', handleRightSearch, false);
     navBtn.addEventListener('click', handleNavSearch, false);
+  }
+
+  iptKeyUp();
+
+  //大屏下搜索框回车事件
+  function iptKeyUp() {
+    let ipt = selectElesByClassName('ipt', rightSearch)[0];
+    ipt.addEventListener('keyup', (e) => {
+      let event = e || window.e;
+      let key = event.which || event.keyCode || event.charCode;
+      if (key === 13) {
+        handleRightSearch();
+      }
+    }, false);
   }
 
   //大屏下搜索框绑定事件

@@ -15,6 +15,7 @@
 /* .header-wp .hot-wp .fr {
     width: 40%;
     text-align:right;
+    
 } */
 .header-wp .hot-wp a {
     color: #999;
@@ -325,7 +326,7 @@
         color: #be1204;
     }
     .nav .wp li.home{
-        display:none;
+        /* display:none; */
     }
     .nav .wp li.hot {
         display: inline-block;
