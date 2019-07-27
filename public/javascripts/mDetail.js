@@ -15,9 +15,11 @@
         let { isPc } = userAgent();
         if (!isPc) {
             let loadWp = selectEleById('loadWp');
-            if (!hasClassName(loadWp, 'show')) {
-                addClassName(loadWp, 'show');
+            if (hasClassName(loadWp, 'show')) {
+                removeClassName(loadWp, 'show');
+                return;
             }
+            addClassName(loadWp, 'show');
         }
     }
 
