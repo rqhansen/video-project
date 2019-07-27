@@ -14,13 +14,12 @@
     function handleIsShowLoad() {
         let { isPc } = userAgent();
         if (!isPc) {
-            let loadWp = selectEleById('loadWp');
-            if (hasClassName(loadWp, 'show')) {
-                removeClassName(loadWp, 'show');
+            let img = selectEleById('detailImg');
+            if (img.complete) { //如果图片加载完成了
                 return;
             }
+            let loadWp = selectEleById('loadWp');
             addClassName(loadWp, 'show');
-            let img = selectEleById('detailImg');
             img.addEventListener('load', hideLoad, false);
             img.addEventListener('error', hideLoad, false);
         }
