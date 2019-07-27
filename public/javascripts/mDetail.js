@@ -8,6 +8,30 @@
             addClassName(span.parentNode, 'hide');
         }
     })
+
+    //是否显示加载中
+    handleIsShowLoad();
+    function handleIsShowLoad() {
+        let { isPc } = userAgent();
+        if (!isPc) {
+            let loadWp = selectEleById('loadWp');
+            addClassName(loadWp, 'show');
+        }
+    }
+
+    //图片加载触发的事件
+    imgOnLoad();
+    function imgOnLoad() {
+        let img = selectEleById('detailImg');
+        img.addEventListener('load', hideLoad, false);
+        img.addEventListener('error', hideLoad, false);
+    }
+    //隐藏加载中
+    function hideLoad() {
+        let loadWp = selectEleById('loadWp');
+        removeClassName(loadWp, 'show');
+    }
+
     //复制影片链接(pc和移动端)
     let { width } = getClientSize();
     if (width > 767) {

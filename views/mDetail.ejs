@@ -5,6 +5,12 @@
     <div class="wp">
         <div class="container">
             <div class="divider"></div>
+            <div class="load-wp" id="loadWp">
+                <div class="loading">
+                    <span class="iconfont iconloading"></span>
+                </div>
+                <div class="loading-txt">加载中...</div>
+            </div>
             <div class="m-detail">
                 <div class="cur ellipsis">
                     当前位置 :&nbsp;&nbsp;<a href="/" target="_self">万寻电影&gt;</a>
@@ -24,7 +30,7 @@
                             <%= pureName %><span>迅雷下载地址和剧情：</span>
                             <span class="share-mb copy" id="mbCopyMDetail">点此分享本影片</span>
                         </p>
-                        <img src="/public/<%= detailImgSrc %>" style="width:600px;max-height:800px;"
+                        <img id="detailImg" src="/public/<%= detailImgSrc %>" style="width:600px;max-height:800px;"
                             alt="<%= pureName %>" />
                         <br>
                         <p>
