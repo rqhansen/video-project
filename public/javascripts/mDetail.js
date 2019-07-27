@@ -20,12 +20,12 @@
                 return;
             }
             addClassName(loadWp, 'show');
+            imgOnLoad();
         }
     }
 
     //图片加载触发的事件
     let img = selectEleById('detailImg');
-    imgOnLoad();
     function imgOnLoad() {
         img.addEventListener('load', hideLoad, false);
         img.addEventListener('error', hideLoad, false);
