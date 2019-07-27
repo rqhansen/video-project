@@ -120,7 +120,8 @@
 }
 .container .m-text .tip {
     text-align: center;
-    line-height: 35px;
+    /* line-height: 20px; */
+    padding: 6px 0;
     font-size: 13px;
     color: #f00;
     font-weight: bold;
