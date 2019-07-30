@@ -30,13 +30,16 @@
   setActiveNav();
   function setActiveNav() {
     let url = window.location.href;
+    let movieType = url.split('/')[4];
+    let menus = selectElesByClassName('work', wp);
     if (!url.includes('html')) { //首页
+      if(url.includes('search')) { //首页
+        return;
+      } 
       let target = selectElesByClassName('home', wp)[0];
       addClassName(target, 'active');
       return;
     }
-    let movieType = url.split('/')[4];
-    let menus = selectElesByClassName('work', wp);
     let activeIndex;
     switch (movieType) {
       case 'action':
@@ -69,9 +72,14 @@
       case 'tv':
         activeIndex = 10;
         break;
-      default:
+      case undefined:
         activeIndex = 0;
         break;
+      default:
+        activeIndex = -1;
+    }
+    if(activeIndex === -1) {
+      return;
     }
     addClassName(menus[activeIndex], 'active');
   }
