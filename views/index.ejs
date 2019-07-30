@@ -13,7 +13,7 @@
                     <a href="<%- `/html/${movies[i].filmType}/${movies[i].id}` %>" target="_self"
                         title="<%= movies[i].pureName %>">
                         <div>
-                            <img src="/public/<%= movies[i].indexImgSrc %>" alt="<%= movies[i].pureName %>">
+                            <img class="lazyImg" src="/public/images/lazy-load.jpg" data-src="/public/<%= movies[i].indexImgSrc %>" alt="<%= movies[i].pureName %>">
                         </div>
                         <div>
                             <h3 class="ellipsis"><%- movies[i].fullName %></h3>

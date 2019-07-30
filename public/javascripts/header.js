@@ -1,7 +1,6 @@
 
 (function () {
   
-  let isPc = userAgent().isPc; //判断是否为Pc
   let wp = selectEleById('menuWp');
   let menuIcon = selectEleById('menuIcon');
   let indexNav = selectEleById('indexNav');
@@ -12,6 +11,9 @@
   let goTop = selectEleById("goTop");
   let mainEle = selectEleById('main');
   let footer = selectEleById('footer');
+  let lazyImgs = Array.from(selectElesByClassName('lazyImg',mainEle));
+  let isPc = userAgent().isPc; //判断是否为Pc
+  let {height:clientHeight} = getClientSize();
 
   if(!isPc) {
     footer.style.display='none';
@@ -161,6 +163,7 @@
   if(!isPc) { //手机端
     mainEle.style.height='100vh';
     mainEle.style.webkitOverflowScrolling='touch';
+    loadImgs();
     mainEle.addEventListener('scroll', throttle(isShowGoTop), false);
     function isShowGoTop() {
       let scrollTop = mainEle.scrollTop;
@@ -169,6 +172,10 @@
       } else {
         removeClassName(goTop, 'show');
       }
+      //处理加载图片
+      loadImgs();
+      //初始化后过滤已经加载的图片
+      lazyImgs = lazyImgs.filter(item =>item.hasAttribute('data-src'));
     }
   } else { //PC端
     document.addEventListener('scroll',throttle(issShowPcGoTop),false);
@@ -182,4 +189,20 @@
     }
   }
 
+  //判断图片位置
+  function loadImgs() {
+    for(let i = 0,len = lazyImgs.length; i<len; i++) {
+        let img = lazyImgs[i];
+        let isLoad = isLoadImg(img);
+        if(!isLoad) continue;
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+    }
+  }
+  //是否加载图片
+  function isLoadImg(img) {
+    if(!img.hasAttribute('data-src')) return false;
+    let {top} = img.getBoundingClientRect();
+    if(top <= clientHeight) return true;
+  }
 })();
