@@ -43,7 +43,7 @@
             let url = window.location.href;
             let flag = copyText(url);
             if (flag) {
-                alert('网址已复制，分享给好友了!');
+                alert('网址已复制，可以分享给好友了!');
             }
         }, false);
     }

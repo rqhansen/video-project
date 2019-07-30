@@ -27,7 +27,7 @@ function getClientSize() {
  * 获取页面滚动的距离
  */
 function getScrollTop() {
-    return document.documentElement.scrollTop || document.body.scrollTop;
+    return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
 }
 
 /**

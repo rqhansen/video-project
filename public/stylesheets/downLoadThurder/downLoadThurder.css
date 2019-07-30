@@ -1,7 +1,7 @@
 
 .title {
     width: 100%;
-    margin: 20px 0 15px;
+    margin-bottom: 15px;
     height: 42px;
     line-height: 42px;
     font-size: 22px;
@@ -20,7 +20,7 @@
 }
 .down-load-wp {
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 10px 15px 0;
     color: #333;
 }
 .icon-wp {
