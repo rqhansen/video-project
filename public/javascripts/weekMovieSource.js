@@ -1,20 +1,19 @@
-(function () {
-
+(function() {
     let isPc = isPcAgent();
     let goTop = selectEleById("goTop");
     if(isPc) {
         addEvent(document,'scroll',throttle(issShowPcGoTop));
         function issShowPcGoTop() {
-        let scrollTop = getScrollTop();
-        if (scrollTop >= 300) {
-            addClassName(goTop, 'show');
-        } else {
-            removeClassName(goTop, 'show');
-        }
+            let scrollTop = getScrollTop();
+            if (scrollTop >= 300) {
+                addClassName(goTop, 'show');
+            } else {
+                removeClassName(goTop, 'show');
+            }
         }
         return;
     } 
-
+   
     let {height:clientHeight} = getClientSize();
     let mainEle = selectEleById('main');
     let lazyImgs = Array.from(selectElesByClassName('lazyImg',mainEle));

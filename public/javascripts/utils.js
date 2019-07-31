@@ -31,6 +31,14 @@ function getScrollTop() {
 }
 
 /**
+ * 获取文档对象
+ * 
+ */
+function getDocument() {
+    return document.documentElement || document.body || window;
+}
+
+/**
  * 浏览器resize事件
  * @param {function} callback
  */
@@ -116,19 +124,6 @@ function hasClassName(el, className) {
 }
 
 /**
- * 阻止默认事件
- * @param {Event} e 事件对象
- */
-
-function stopDefault(e) {
-    if (e && e.preventDefault) {
-        e.preventDefault();
-        return;
-    }
-    window.event.returnValue = false;
-}
-
-/**
  * 复制文本
  */
 function copyText(text) {
@@ -211,25 +206,73 @@ function throttle(fn, delay = 200) {
 }
 
 /**
- * 检测客户端是PC还是手机其它型号
+ * 检测客户端是PC还是手机
  */
-function userAgent() {
-    var ua = navigator.userAgent,
-        isWindowsPhone = /(?:Windows Phone)/.test(ua),
-        isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
-        isAndroid = /(?:Android)/.test(ua),
-        isFireFox = /(?:Firefox)/.test(ua),
-        isChrome = /(?:Chrome|CriOS)/.test(ua),
-        isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
-        isPhone = /(?:iPhone)/.test(ua) && !isTablet,
-        isPc = !isPhone && !isAndroid && !isSymbian;
-    return {
-        isTablet: isTablet,
-        isPhone: isPhone,
-        isAndroid: isAndroid,
-        isPc: isPc
-    };
+function isPcAgent() {
+    let userAgentInfo = navigator.userAgent;
+    let Agents = ["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod"];
+    let flag = true;
+    for (let v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
 }
+
+/**
+ * 阻止默认事件
+ * @param {Event} e 事件对象
+ */
+
+function stopDefault(event) {
+    let e = getEvent(event);
+    if (e.preventDefault) {
+        e.preventDefault();
+        return;
+    }
+    e.returnValue = false;
+}
+
+/**
+ * 获取事件对象
+ * @param {Event} e 原始事件对象
+ */
+function getEvent(event) {
+    return event || window.event;
+}
+
+/**
+ * 获取keyCode
+ */
+function getKeyCode(e) {
+    return e.which || e.keyCode || e.charCode;
+}
+
+/**
+ * 添加事件
+ */
+function addEvent(obj,type,fn) {
+    if(typeof obj.addEventListener !== 'undefined') { //W3C标准
+        obj.addEventListener(type,fn,false);
+    } else if(typeof obj.attachEvent !== 'undefined') { //IE
+        obj.attachEvent(`on${type}`,fn);
+        fn.call(obj,window.event);
+    }
+}
+
+/**
+ * 删除事件
+ */
+function removeEvent(obj,type,fn) {
+    if(typeof obj.removeEventListener !== 'undefined') {
+        obj.removeEventListener(type,fn,false);
+    } else if(typeof obj.attachEvent !== 'undefined'){
+        obj.detachEvent(`on${type}`);
+    }
+}
+
 
 
 
