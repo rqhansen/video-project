@@ -4,22 +4,21 @@
  */
 function getClientSize() {
     if (window.innerWidth != null) { // ie9+ 最新浏览器
-        let { innerWidth, innerHeight } = window;
         return {
-            width: innerWidth,
-            height: innerHeight
+            width: window.innerWidth,
+            height: window.innerHeight
         }
     } else if (document.compatMode === 'CSS1Compat') { //标准浏览器
-        let { clientWidth, clientHeight } = document.documentElement;
+        let documentElement = document.documentElement;
         return {
-            width: clientWidth,
-            height: clientHeight
+            width: documentElement.clientWidth,
+            height: documentElemet.clientHeight
         }
     }
-    let { clientWidth, clientHeight } = document.body;
+    let body = document.body;
     return { //怪异浏览器
-        width: clientWidth,
-        height: clientHeight
+        width: body.clientWidth,
+        height: body.clientHeight
     }
 }
 
@@ -27,7 +26,7 @@ function getClientSize() {
  * 获取页面滚动的距离
  */
 function getScrollTop() {
-    return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    return document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
 }
 
 /**
@@ -35,7 +34,7 @@ function getScrollTop() {
  * 
  */
 function getDocument() {
-    return document.documentElement || document.body || window;
+    return document.documentElement || document.body || window  ;
 }
 
 /**
@@ -78,7 +77,7 @@ function selectElesByClassName(className, el) {
  */
 function toggleClassName(el, className) {
     if (!el) return;
-    let { classList } = el;
+    let classList  = el.classList;
     if (classList.contains(className)) {
         classList.remove(className);
     } else {
@@ -95,7 +94,7 @@ function toggleClassName(el, className) {
 function addClassName(el, className) {
     if (!el) throw new Error('dom cant be empty');
     if (!className) throw new Error('className cant be empty');
-    let { classList } = el;
+    let classList  = el.classList;
     if (!classList.contains(className)) classList.add(className);
 }
 
@@ -107,7 +106,7 @@ function addClassName(el, className) {
 function removeClassName(el, className) {
     if (!el) throw new Error('dom cant be empty');
     if (!className) throw new Error('className cant be empty');
-    let { classList } = el;
+    let classList = el.classList;
     if (classList.contains(className)) classList.remove(className);
 }
 
@@ -119,7 +118,7 @@ function removeClassName(el, className) {
 function hasClassName(el, className) {
     if (!el) throw new Error('dom cant be empty');
     if (!className) throw new Error('className cant be empty');
-    let { classList } = el;
+    let classList = el.classList;
     return classList.contains(className);
 }
 
@@ -169,8 +168,8 @@ function copyText(text) {
  * 节流函数
  */
 
-function throttle(fn, delay = 200) {
-
+function throttle(fn,delay) {
+    delay = delay || 200;
     let timer, current, past, context, args;
 
     function execute() {

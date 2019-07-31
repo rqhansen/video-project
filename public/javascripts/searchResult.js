@@ -40,6 +40,7 @@
     let last = selectElesByClassName('end', pageWp)[0];
     //获取当前页数
     let [keyword, currPage] = getCurrPage();
+    let 
     //初始化
     if (currPage === 1) { //首页
         initOtherPage();

@@ -18,7 +18,7 @@ if(isPc) {
     }
     }
 } else {
-    let {height:clientHeight} = getClientSize();
+    let clientHeight = getClientSize().height;
     mainEle.style.height='100vh';
     mainEle.style.webkitOverflowScrolling='touch';
     //首次加载页面判断哪些图片可以加载
@@ -52,7 +52,7 @@ if(isPc) {
         if(!img.hasAttribute('data-src')) {
           return false;
         }
-        let {top} = img.getBoundingClientRect();
+        let top = img.getBoundingClientRect().top;
         if(top >= clientHeight) {
           return false;
         }

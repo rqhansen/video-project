@@ -21,15 +21,13 @@
         return;
     } 
 
-    let {height:clientHeight} = getClientSize();
+    let clientHeight = getClientSize().height;
     mainEle.style.height='100vh';
     mainEle.style.webkitOverflowScrolling='touch';
     //首次加载页面判断哪些图片可以加载
     loadImgs();
     addEvent(mainEle,'scroll',throttle(isShowGoTop));
     function isShowGoTop() {
-        // let event = getEvent(e);
-        // stopDefault(event);
         let scrollTop = mainEle.scrollTop;
         if (scrollTop >= 300) {
             addClassName(goTop, 'show');
@@ -57,7 +55,7 @@
         if(!img.hasAttribute('data-src')) {
           return false;
         }
-        let {top} = img.getBoundingClientRect();
+        let top = img.getBoundingClientRect().top;
         if(top >= clientHeight) {
           return false;
         }

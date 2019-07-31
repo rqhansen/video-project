@@ -13,7 +13,7 @@
   let rightBtn = selectElesByClassName('btn', rightSearch)[0];
   let navBtn = selectElesByClassName('btn', indexNav)[0];
   let isPc = isPcAgent(); //判断是否为Pc
-  let docuObj = getDocument();
+  // let docuObj = getDocument();
 
   if(!isPc) { //Pc端展示页脚
     footer.style.display='none';
@@ -103,7 +103,7 @@
    *绑定浏览器窗口改变触发的事件
    */
   windowResizeEvent(() => {
-    let { width } = getClientSize(); //获取浏览器文档区域的宽度
+    let width = getClientSize().width; //获取浏览器文档区域的宽度
     if (width > 767) {
       removeClassName(indexNav, 'sm-nav');
       removeClassName(menuIcon, 'active');
@@ -139,7 +139,7 @@
 
   //搜索框触发的事件
   function openSearch(ele) {
-    let {value} = ele;
+    let value = ele.value;
     if (!value) return;
     window.open(`/plus/search?keyword=${value}&page=1`);
   }
@@ -150,12 +150,31 @@
     if (window.goTopTimer) {
       clearInterval(window.goTopTimer);
     }
-    let obj = isPc ? docuObj : mainEle;
-    window.goTopTimer = setInterval(() => {
-      obj.scrollTop -= 100;
-      if (obj.scrollTop <= 0) {
-        clearInterval(window.goTopTimer);
-      }
-    }, 18)
+    if(isPc) {
+      window.goTopTimer = setInterval(() => {
+        let documentTop = document.documentElement.scrollTop;
+        if(documentTop) { //兼容IE
+          document.documentElement.scrollTop = documentTop - 100;
+          if (document.documentElement.scrollTop <= 0) {
+            clearInterval(window.goTopTimer);
+          }
+        } else{
+          let bodyTop = document.body.scrollTop;
+          if(bodyTop) {
+            document.body.scrollTop = bodyTop - 100;
+            if (document.body.scrollTop <= 0) {
+              clearInterval(window.goTopTimer);
+            }
+          }
+        }
+      },18);
+    } else {
+      window.goTopTimer = setInterval(() => {
+        mainEle.scrollTop -= 100;
+        if (mainEle.scrollTop <= 0) {
+          clearInterval(window.goTopTimer);
+        }
+      }, 18)
+    }
   }
 })();
