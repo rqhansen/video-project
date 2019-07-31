@@ -147,27 +147,41 @@
   //回顶部事件
   addEvent(goTop,'click',scrollToTop);
   function scrollToTop() {
-    if (window.goTopTimer) {
-      clearInterval(window.goTopTimer);
-    }
     if(isPc) {
-      window.goTopTimer = setInterval(() => {
-        let documentTop = document.documentElement.scrollTop;
-        if(documentTop) { //兼容IE
+      if(document.documentElement.scrollTop) { //兼容IE
+        window.goTopTimer = setInterval(() => {
+          let documentTop = document.documentElement.scrollTop;
           document.documentElement.scrollTop = documentTop - 100;
           if (document.documentElement.scrollTop <= 0) {
             clearInterval(window.goTopTimer);
           }
-        } else{
+        },18);
+      } else if(document.body.scrollTop){
+        window.goTopTimer = setInterval(() => {
           let bodyTop = document.body.scrollTop;
-          if(bodyTop) {
-            document.body.scrollTop = bodyTop - 100;
-            if (document.body.scrollTop <= 0) {
-              clearInterval(window.goTopTimer);
-            }
+          document.body.scrollTop = bodyTop - 100;
+          if (document.body.scrollTop <= 0) {
+            clearInterval(window.goTopTimer);
           }
-        }
-      },18);
+        },18)
+      }
+      // window.goTopTimer = setInterval(() => {
+      //   let documentTop = document.documentElement.scrollTop;
+      //   if(documentTop) { //兼容IE
+      //     document.documentElement.scrollTop = documentTop - 100;
+      //     if (document.documentElement.scrollTop <= 0) {
+      //       clearInterval(window.goTopTimer);
+      //     }
+      //   } else{
+      //     let bodyTop = document.body.scrollTop;
+      //     if(bodyTop) {
+      //       document.body.scrollTop = bodyTop - 100;
+      //       if (document.body.scrollTop <= 0) {
+      //         clearInterval(window.goTopTimer);
+      //       }
+      //     }
+      //   }
+      // },18);
     } else {
       window.goTopTimer = setInterval(() => {
         mainEle.scrollTop -= 100;
