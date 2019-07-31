@@ -1,5 +1,28 @@
 
 (function () {
+    let isPc = isPcAgent();
+    let mainEle = selectEleById('main');
+    if(isPc) {
+        addEvent(document,'scroll',throttle(issShowPcGoTop));
+        function issShowPcGoTop() {
+        let scrollTop = getScrollTop();
+        if (scrollTop >= 300) {
+            addClassName(goTop, 'show');
+        } else {
+            removeClassName(goTop, 'show');
+        }
+        }
+    } else {
+        addEvent(mainEle,'scroll',throttle(isShowGoTop));
+        function isShowGoTop() {
+            let scrollTop = mainEle.scrollTop;
+            if (scrollTop >= 300) {
+                addClassName(goTop, 'show');
+            } else {
+                removeClassName(goTop, 'show');
+            }
+        } 
+    }
     //总页数
     let total = Math.ceil(+selectEleById('totalPage').innerHTML / 10);
     if(!total) return;
@@ -17,6 +40,7 @@
     let last = selectElesByClassName('end', pageWp)[0];
     //获取当前页数
     let [keyword, currPage] = getCurrPage();
+    let 
     //初始化
     if (currPage === 1) { //首页
         initOtherPage();

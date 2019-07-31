@@ -1,26 +1,37 @@
 
 (function () {
   
-  let isPc = userAgent().isPc; //判断是否为Pc
   let wp = selectEleById('menuWp');
   let menuIcon = selectEleById('menuIcon');
   let indexNav = selectEleById('indexNav');
   let addSave =  selectEleById('addSave');
   let rightSearch = selectEleById('rightSearch');
-  let rightBtn = selectElesByClassName('btn', rightSearch)[0];
-  let navBtn = selectElesByClassName('btn', indexNav)[0];
   let goTop = selectEleById("goTop");
   let mainEle = selectEleById('main');
   let footer = selectEleById('footer');
+  let menus = selectElesByClassName('work', wp);
+  let rightBtn = selectElesByClassName('btn', rightSearch)[0];
+  let navBtn = selectElesByClassName('btn', indexNav)[0];
+  let isPc = isPcAgent(); //判断是否为Pc
+  // let docuObj = getDocument();
 
-  if(!isPc) {
+  if(!isPc) { //Pc端展示页脚
     footer.style.display='none';
+  } 
+
+  /**
+   * 添加收藏
+   */
+  addEvent(addSave,'click',addSaveEvent);
+  function addSaveEvent(e) {
+    stopDefault(e);
+    alert("请使用Ctrl+D进行添加");
   }
 
   /**
    * 小屏下切换显示下拉导航
    */
-  menuIcon.addEventListener('click', setNavDisplay, false);
+  addEvent(menuIcon,'click',setNavDisplay);
   function setNavDisplay() {
     toggleClassName(indexNav, 'sm-nav');
     toggleClassName(menuIcon, 'active');
@@ -30,16 +41,20 @@
   setActiveNav();
   function setActiveNav() {
     let url = window.location.href;
-    let movieType = url.split('/')[4];
-    let menus = selectElesByClassName('work', wp);
-    if (!url.includes('html')) { //首页
-      if(url.includes('search')) { //首页
+    if (!url.includes('html')) {
+      if(url.includes('search')) { //搜索页
         return;
       } 
-      let target = selectElesByClassName('home', wp)[0];
+      let target = selectElesByClassName('home', wp)[0]; //首页
       addClassName(target, 'active');
       return;
+    } 
+    let splitUrl = url.split('/');
+    let lastUrlSplit = splitUrl[5];
+    if(lastUrlSplit !== 'index') { //电影详情页
+      return;
     }
+    let movieType = splitUrl[4];
     let activeIndex;
     switch (movieType) {
       case 'action':
@@ -83,103 +98,97 @@
     }
     addClassName(menus[activeIndex], 'active');
   }
-  /**
-   * 添加收藏
-   */
-  addSave.addEventListener('click', addSaveEvent, false);
-  function addSaveEvent(e) {
-    stopDefault(e);
-    alert("请使用Ctrl+D进行添加");
-  }
 
   /**
    *绑定浏览器窗口改变触发的事件
    */
   windowResizeEvent(() => {
-    let { width } = getClientSize(); //获取浏览器文档区域的宽度
+    let width = getClientSize().width; //获取浏览器文档区域的宽度
     if (width > 767) {
       removeClassName(indexNav, 'sm-nav');
       removeClassName(menuIcon, 'active');
     }
   });
 
-  //绑定搜索事件
-  bandSearchEvent();
-  function bandSearchEvent() {
-    rightBtn.addEventListener('click', handleRightSearch, false);
-  }
-
-  //大屏下搜索框回车事件
-  if(isPc) {
+  if(isPc) {  //PC搜索框回车事件
     iptKeyUp();
     function iptKeyUp() {
       let ipt = selectElesByClassName('ipt', rightSearch)[0];
-      ipt.addEventListener('keyup', (e) => {
-        let event = e || window.e;
-        let key = event.which || event.keyCode || event.charCode;
-        if (key === 13) {
-          handleRightSearch();
-        }
-      }, false);
+      addEvent(ipt,'keyup',keyUpEvent);
     }
-    //大屏下搜索框绑定事件
-    rightBtn.addEventListener('click',handleRightSearch,false);
+    function keyUpEvent(e) {
+      let event = getEvent(e);
+      let key = getKeyCode(event);
+      if (key === 13) {
+        handleRightSearch();
+      }
+    }
+    //点击搜索事件
+    addEvent(rightBtn,'click',handleRightSearch);
     function handleRightSearch() {
       let normalIpt = selectElesByClassName('ipt', rightSearch)[0];
-      let value = normalIpt.value;
-      if (!value) return;
-      window.open(`/plus/search?keyword=${value}&page=1`);
+      openSearch(normalIpt);
     }
   } else {
-    // 小屏下搜索按钮绑定事件
-    navBtn.addEventListener('click', handleNavSearch, false);
+    addEvent(navBtn,'click',handleNavSearch);
     function handleNavSearch() {
       let smIpt = selectElesByClassName('ipt', indexNav)[0]
-      let value = smIpt.value;
-      if (!value) return;
-      window.open(`/plus/search?keyword=${value}&page=1`);
+      openSearch(smIpt);
     }
   }
 
-  //注册回顶部事件
-  selectEleById('goTop').addEventListener('click', scrollToTop, false);
-    //回顶部事件
+  //搜索框触发的事件
+  function openSearch(ele) {
+    let value = ele.value;
+    if (!value) return;
+    window.open(`/plus/search?keyword=${value}&page=1`);
+  }
+  
+  //回顶部事件
+  addEvent(goTop,'click',scrollToTop);
   function scrollToTop() {
-    if (window.goTopTimer) {
-      clearInterval(window.goTopTimer);
-    }
-    let obj = isPc ? document.documentElement || document.body || window : mainEle;
-    window.goTopTimer = setInterval(() => {
-      obj.scrollTop -= 100;
-      if (obj.scrollTop <= 0) {
-        clearInterval(window.goTopTimer);
+    if(isPc) {
+      if(document.documentElement.scrollTop) { //兼容IE
+        window.goTopTimer = setInterval(() => {
+          let documentTop = document.documentElement.scrollTop;
+          document.documentElement.scrollTop = documentTop - 100;
+          if (document.documentElement.scrollTop <= 0) {
+            clearInterval(window.goTopTimer);
+          }
+        },18);
+      } else if(document.body.scrollTop){
+        window.goTopTimer = setInterval(() => {
+          let bodyTop = document.body.scrollTop;
+          document.body.scrollTop = bodyTop - 100;
+          if (document.body.scrollTop <= 0) {
+            clearInterval(window.goTopTimer);
+          }
+        },18)
       }
-    }, 18)
+      // window.goTopTimer = setInterval(() => {
+      //   let documentTop = document.documentElement.scrollTop;
+      //   if(documentTop) { //兼容IE
+      //     document.documentElement.scrollTop = documentTop - 100;
+      //     if (document.documentElement.scrollTop <= 0) {
+      //       clearInterval(window.goTopTimer);
+      //     }
+      //   } else{
+      //     let bodyTop = document.body.scrollTop;
+      //     if(bodyTop) {
+      //       document.body.scrollTop = bodyTop - 100;
+      //       if (document.body.scrollTop <= 0) {
+      //         clearInterval(window.goTopTimer);
+      //       }
+      //     }
+      //   }
+      // },18);
+    } else {
+      window.goTopTimer = setInterval(() => {
+        mainEle.scrollTop -= 100;
+        if (mainEle.scrollTop <= 0) {
+          clearInterval(window.goTopTimer);
+        }
+      }, 18)
+    }
   }
-
-  //监听页面滚动
-  if(!isPc) { //手机端
-    mainEle.style.height='100vh';
-    mainEle.style.webkitOverflowScrolling='touch';
-    mainEle.addEventListener('scroll', throttle(isShowGoTop), false);
-    function isShowGoTop() {
-      let scrollTop = mainEle.scrollTop;
-      if (scrollTop >= 300) {
-        addClassName(goTop, 'show');
-      } else {
-        removeClassName(goTop, 'show');
-      }
-    }
-  } else { //PC端
-    document.addEventListener('scroll',throttle(issShowPcGoTop),false);
-    function issShowPcGoTop() {
-      let scrollTop = getScrollTop();
-      if (scrollTop >= 300) {
-        addClassName(goTop, 'show');
-      } else {
-        removeClassName(goTop, 'show');
-      }
-    }
-  }
-
 })();

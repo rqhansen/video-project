@@ -14,7 +14,7 @@
                         <div class="pic">
                             <a href="<%- `/html/${typeChar}/${result[i].id}` %>" target="_self"
                                 title="<%= result[i].pureName %>">
-                                <img src="/public/<%= result[i].indexImgSrc %>" alt="<%= result[i].pureName %>">
+                                <img class="lazyImg" src="/public/images/lazy-load.jpg" data-src="/public/<%= result[i].indexImgSrc %>" alt="<%= result[i].pureName %>">
                             </a>
                         </div>
                         <div class="txt">

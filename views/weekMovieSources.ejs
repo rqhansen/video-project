@@ -16,7 +16,7 @@
                             <a href="<%- `/html/${results[i][j].filmType}/${results[i][j].id}` %>" target="_self"
                                 title="<%= results[i][j].pureName %>">
                                 <div>
-                                    <img src="/public/<%= results[i][j].indexImgSrc %>"
+                                    <img class="lazyImg" src="/public/images/lazy-load.jpg" data-src="/public/<%= results[i][j].indexImgSrc %>"
                                         alt="<%= results[i][j].pureName %>">
                                 </div>
                                 <div>
@@ -39,6 +39,7 @@
 <%- include('common/footer.ejs') %>
 <!-- 底部结束 -->
 <%- include('common/script.ejs') %>
+<script src="/public/javascripts/weekMovieSource.js"></script>
 </body>
 
 </html>

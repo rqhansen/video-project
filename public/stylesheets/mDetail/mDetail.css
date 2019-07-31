@@ -123,7 +123,7 @@
 .container .m-text .bot a:hover{
     color:#be1204;
 }
-.container .m-text .tip {
+/* .container .m-text .tip {
     text-align: center;
     padding: 5px 0;
     font-size: 13px;
@@ -132,7 +132,7 @@
     border-top: 2px solid #d1dbe7;
     border-bottom: 2px solid #d1dbe7;
     margin-bottom: 10px;
-}
+} */
 .container .m-text .down-tip {
     margin-top: 6px;
     color:#106492;

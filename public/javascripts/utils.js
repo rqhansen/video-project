@@ -3,22 +3,21 @@
  */
 function getClientSize() {
     if (window.innerWidth != null) { // ie9+ 最新浏览器
-        let { innerWidth, innerHeight } = window;
         return {
-            width: innerWidth,
-            height: innerHeight
+            width: window.innerWidth,
+            height: window.innerHeight
         }
     } else if (document.compatMode === 'CSS1Compat') { //标准浏览器
-        let { clientWidth, clientHeight } = document.documentElement;
+        let documentElement = document.documentElement;
         return {
-            width: clientWidth,
-            height: clientHeight
+            width: documentElement.clientWidth,
+            height: documentElemet.clientHeight
         }
     }
-    let { clientWidth, clientHeight } = document.body;
+    let body = document.body;
     return { //怪异浏览器
-        width: clientWidth,
-        height: clientHeight
+        width: body.clientWidth,
+        height: body.clientHeight
     }
 }
 
@@ -26,7 +25,15 @@ function getClientSize() {
  * 获取页面滚动的距离
  */
 function getScrollTop() {
-    return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    return document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+}
+
+/**
+ * 获取文档对象
+ * 
+ */
+function getDocument() {
+    return document.documentElement || document.body || window  ;
 }
 
 /**
@@ -69,7 +76,7 @@ function selectElesByClassName(className, el) {
  */
 function toggleClassName(el, className) {
     if (!el) return;
-    let { classList } = el;
+    let classList  = el.classList;
     if (classList.contains(className)) {
         classList.remove(className);
     } else {
@@ -86,7 +93,7 @@ function toggleClassName(el, className) {
 function addClassName(el, className) {
     if (!el) throw new Error('dom cant be empty');
     if (!className) throw new Error('className cant be empty');
-    let { classList } = el;
+    let classList  = el.classList;
     if (!classList.contains(className)) classList.add(className);
 }
 
@@ -98,7 +105,7 @@ function addClassName(el, className) {
 function removeClassName(el, className) {
     if (!el) throw new Error('dom cant be empty');
     if (!className) throw new Error('className cant be empty');
-    let { classList } = el;
+    let classList = el.classList;
     if (classList.contains(className)) classList.remove(className);
 }
 
@@ -110,21 +117,8 @@ function removeClassName(el, className) {
 function hasClassName(el, className) {
     if (!el) throw new Error('dom cant be empty');
     if (!className) throw new Error('className cant be empty');
-    let { classList } = el;
+    let classList = el.classList;
     return classList.contains(className);
-}
-
-/**
- * 阻止默认事件
- * @param {Event} e 事件对象
- */
-
-function stopDefault(e) {
-    if (e && e.preventDefault) {
-        e.preventDefault();
-        return;
-    }
-    window.event.returnValue = false;
 }
 
 /**
@@ -173,8 +167,8 @@ function copyText(text) {
  * 节流函数
  */
 
-function throttle(fn, delay = 200) {
-
+function throttle(fn,delay) {
+    delay = delay || 200;
     let timer, current, past, context, args;
 
     function execute() {
@@ -210,25 +204,73 @@ function throttle(fn, delay = 200) {
 }
 
 /**
- * 检测客户端是PC还是手机其它型号
+ * 检测客户端是PC还是手机
  */
-function userAgent() {
-    var ua = navigator.userAgent,
-        isWindowsPhone = /(?:Windows Phone)/.test(ua),
-        isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
-        isAndroid = /(?:Android)/.test(ua),
-        isFireFox = /(?:Firefox)/.test(ua),
-        isChrome = /(?:Chrome|CriOS)/.test(ua),
-        isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
-        isPhone = /(?:iPhone)/.test(ua) && !isTablet,
-        isPc = !isPhone && !isAndroid && !isSymbian;
-    return {
-        isTablet: isTablet,
-        isPhone: isPhone,
-        isAndroid: isAndroid,
-        isPc: isPc
-    };
+function isPcAgent() {
+    let userAgentInfo = navigator.userAgent;
+    let Agents = ["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod"];
+    let flag = true;
+    for (let v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
 }
+
+/**
+ * 阻止默认事件
+ * @param {Event} e 事件对象
+ */
+
+function stopDefault(event) {
+    let e = getEvent(event);
+    if (e.preventDefault) {
+        e.preventDefault();
+        return;
+    }
+    e.returnValue = false;
+}
+
+/**
+ * 获取事件对象
+ * @param {Event} e 原始事件对象
+ */
+function getEvent(event) {
+    return event || window.event;
+}
+
+/**
+ * 获取keyCode
+ */
+function getKeyCode(e) {
+    return e.which || e.keyCode || e.charCode;
+}
+
+/**
+ * 添加事件
+ */
+function addEvent(obj,type,fn) {
+    if(typeof obj.addEventListener !== 'undefined') { //W3C标准
+        obj.addEventListener(type,fn,false);
+    } else if(typeof obj.attachEvent !== 'undefined') { //IE
+        obj.attachEvent(`on${type}`,fn);
+        fn.call(obj,window.event);
+    }
+}
+
+/**
+ * 删除事件
+ */
+function removeEvent(obj,type,fn) {
+    if(typeof obj.removeEventListener !== 'undefined') {
+        obj.removeEventListener(type,fn,false);
+    } else if(typeof obj.attachEvent !== 'undefined'){
+        obj.detachEvent(`on${type}`);
+    }
+}
+
 
 
 

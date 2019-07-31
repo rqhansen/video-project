@@ -1,5 +1,4 @@
-(function () {
-
+(function() {
     let isPc = isPcAgent();
     let goTop = selectEleById("goTop");
     let mainEle = selectEleById('main');
@@ -11,17 +10,17 @@
         })
         addEvent(document,'scroll',throttle(issShowPcGoTop));
         function issShowPcGoTop() {
-        let scrollTop = getScrollTop();
-        if (scrollTop >= 300) {
-            addClassName(goTop, 'show');
-        } else {
-            removeClassName(goTop, 'show');
-        }
+            let scrollTop = getScrollTop();
+            if (scrollTop >= 300) {
+                addClassName(goTop, 'show');
+            } else {
+                removeClassName(goTop, 'show');
+            }
         }
         return;
     } 
-
-    let clientHeight = getClientSize().height;
+   
+    let {height:clientHeight} = getClientSize();
     mainEle.style.height='100vh';
     mainEle.style.webkitOverflowScrolling='touch';
     //首次加载页面判断哪些图片可以加载
@@ -55,7 +54,7 @@
         if(!img.hasAttribute('data-src')) {
           return false;
         }
-        let top = img.getBoundingClientRect().top;
+        let {top} = img.getBoundingClientRect();
         if(top >= clientHeight) {
           return false;
         }

@@ -19,6 +19,7 @@ async function getTypeMovies(ctx) {
     }
     let { length } = result;
     if (!length) {
+        ///
         await ctx.render('notFind', { title: '您要找的资源不存在' });
         return;
     }

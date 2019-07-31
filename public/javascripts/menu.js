@@ -1,15 +1,20 @@
 
 (function () {
     let menuWp = selectEleById('menuWp');
-    menuWp.addEventListener('click', (e) => {
-        if (!hasClassName(e.target, 'work')) return;
+    addEvent(menuWp,'click',clickMenu);
+    function clickMenu(e) {
+        if (!hasClassName(e.target, 'work')) {
+            return;
+        }
         handleTypeMovie(e);
-    }, false);
+    }   
     /**
      * 处理不同的电影类型事件
      */
     function handleTypeMovie(e) {
-        let [val, url] = [e.target.innerHTML, '/html'];
+        // let [val, url] = [e.target.innerHTML, '/html'];
+        let val = e.target.innerHTML;
+        let url = '/html';
         switch (val) {
             case '首页':
                 url = '/';
