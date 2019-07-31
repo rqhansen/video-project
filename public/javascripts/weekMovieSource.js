@@ -1,7 +1,13 @@
 (function() {
     let isPc = isPcAgent();
     let goTop = selectEleById("goTop");
+    let mainEle = selectEleById('main');
+    let lazyImgs = Array.from(selectElesByClassName('lazyImg',mainEle));
     if(isPc) {
+        lazyImgs.forEach(item =>{
+            item.src = item.getAttribute('data-src');
+            item.removeAttribute('data-src');
+        })
         addEvent(document,'scroll',throttle(issShowPcGoTop));
         function issShowPcGoTop() {
             let scrollTop = getScrollTop();
@@ -15,8 +21,6 @@
     } 
    
     let {height:clientHeight} = getClientSize();
-    let mainEle = selectEleById('main');
-    let lazyImgs = Array.from(selectElesByClassName('lazyImg',mainEle));
     mainEle.style.height='100vh';
     mainEle.style.webkitOverflowScrolling='touch';
     //首次加载页面判断哪些图片可以加载
