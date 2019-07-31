@@ -2,6 +2,7 @@
 (function () {
     let detail = selectEleById('detailContent');
     let ps = detail.getElementsByTagName('p');
+    let goTop = selectEleById("goTop");
     let mainEle = selectEleById('main');
     let isPc = isPcAgent();
     Array.from(ps).forEach(el => {
@@ -11,16 +12,18 @@
         }
     })
     if(isPc) {
-        addEvent(document,'scroll',throttle(issShowPcGoTop));
-        function issShowPcGoTop() {
-        let scrollTop = getScrollTop();
-        if (scrollTop >= 300) {
-            addClassName(goTop, 'show');
-        } else {
-            removeClassName(goTop, 'show');
-        }
+        addEvent(document,'scroll',throttle(isShowPcGoTop));
+        function isShowPcGoTop() {
+            let scrollTop = getScrollTop();
+            if (scrollTop >= 300) {
+                addClassName(goTop, 'show');
+            } else {
+                removeClassName(goTop, 'show');
+            }
         }
     } else {
+        mainEle.style.height='100vh';
+        mainEle.style.webkitOverflowScrolling='touch';
         addEvent(mainEle,'scroll',throttle(isShowGoTop));
         function isShowGoTop() {
             let scrollTop = mainEle.scrollTop;
