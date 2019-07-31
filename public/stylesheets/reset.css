@@ -41,9 +41,12 @@
   }
   a {
     color: #555;
-    text-decoration: none;
   }
-  a:hover {
+  a,a:hover,a:active,a:visited,a:link,a:focus {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background: none;
     text-decoration: none;
   }
   img {

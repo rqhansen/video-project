@@ -22,8 +22,10 @@
     mainEle.style.webkitOverflowScrolling='touch';
     //首次加载页面判断哪些图片可以加载
     loadImgs();
-    addEvent(mainEle,'scroll',throttle(isShowGoTop));
+    addEvent(mainEle,'scroll',throttle(isShowGoTop()));
     function isShowGoTop() {
+        // let event = getEvent(e);
+        // stopDefault(event);
         let scrollTop = mainEle.scrollTop;
         if (scrollTop >= 300) {
             addClassName(goTop, 'show');
