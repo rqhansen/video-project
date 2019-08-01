@@ -30,14 +30,6 @@ function getScrollTop() {
 }
 
 /**
- * 获取文档对象
- * 
- */
-function getDocument() {
-    return document.documentElement || document.body || window  ;
-}
-
-/**
  * 浏览器resize事件
  * @param {function} callback
  */
