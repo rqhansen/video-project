@@ -13,7 +13,6 @@
   let rightBtn = selectElesByClassName('btn', rightSearch)[0];
   let navBtn = selectElesByClassName('btn', indexNav)[0];
   let isPc = isPcAgent(); //判断是否为Pc
-  // let docuObj = getDocument();
 
   if (!isPc) { //Pc端展示页脚
     footer.style.display = 'none';
@@ -168,23 +167,6 @@
           }
         }, 18)
       }
-      // window.goTopTimer = setInterval(() => {
-      //   let documentTop = document.documentElement.scrollTop;
-      //   if(documentTop) { //兼容IE
-      //     document.documentElement.scrollTop = documentTop - 100;
-      //     if (document.documentElement.scrollTop <= 0) {
-      //       clearInterval(window.goTopTimer);
-      //     }
-      //   } else{
-      //     let bodyTop = document.body.scrollTop;
-      //     if(bodyTop) {
-      //       document.body.scrollTop = bodyTop - 100;
-      //       if (document.body.scrollTop <= 0) {
-      //         clearInterval(window.goTopTimer);
-      //       }
-      //     }
-      //   }
-      // },18);
     } else {
       window.goTopTimer = setInterval(() => {
         mainEle.scrollTop -= 100;
