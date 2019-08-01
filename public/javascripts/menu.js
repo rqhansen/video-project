@@ -1,13 +1,13 @@
 
 (function () {
     let menuWp = selectEleById('menuWp');
-    addEvent(menuWp,'click',clickMenu);
+    addEvent(menuWp, 'click', clickMenu);
     function clickMenu(e) {
         if (!hasClassName(e.target, 'work')) {
             return;
         }
         handleTypeMovie(e);
-    }   
+    }
     /**
      * 处理不同的电影类型事件
      */
@@ -45,6 +45,9 @@
                 break;
             case '灾难片':
                 url += '/disaster/index';
+                break;
+            case '动画片':
+                url += '/cartoon/index';
                 break;
             case "欧美剧":
                 url += '/tv/index';

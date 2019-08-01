@@ -15,7 +15,8 @@ async function getHome(ctx) {
                                         union select id,typeId,indexImgSrc,fullName, pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from suspense where date_sub(curdate(),interval 30 day) <= date(pubDate)
                                         union select id,typeId,indexImgSrc,fullName, pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from war where date_sub(curdate(),interval 30 day) <= date(pubDate)
                                         union select id,typeId,indexImgSrc,fullName, pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from horror where date_sub(curdate(),interval 30 day) <= date(pubDate)
-                                        union select id,typeId,indexImgSrc,fullName, pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from disaster where date_sub(curdate(),interval 30 day) <= date(pubDate) order by pubDate desc limit 24 offset 0`);
+                                        union select id,typeId,indexImgSrc,fullName, pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from disaster where date_sub(curdate(),interval 30 day) <= date(pubDate)
+                                        union select id,typeId,indexImgSrc,fullName, pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from cartoon where date_sub(curdate(),interval 30 day) <= date(pubDate) order by pubDate desc limit 24 offset 0`);
     let tvs = await connection.query(`select id,typeId,indexImgSrc,fullName, pureName,tvNum,downUrl,date_format(pubDate,"%Y-%m-%d"),pubDate from tv where date_sub(curdate(),interval 60 day) <= date(pubDate) order by pubDate desc limit 12 offset 0`);
     movies.forEach(item => {
         item.filmType = Object.values(movieTypes.filter(type => type[`${item.typeId}`])[0])[0];

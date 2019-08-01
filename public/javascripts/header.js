@@ -1,10 +1,10 @@
 
 (function () {
-  
+
   let wp = selectEleById('menuWp');
   let menuIcon = selectEleById('menuIcon');
   let indexNav = selectEleById('indexNav');
-  let addSave =  selectEleById('addSave');
+  let addSave = selectEleById('addSave');
   let rightSearch = selectEleById('rightSearch');
   let goTop = selectEleById("goTop");
   let mainEle = selectEleById('main');
@@ -15,14 +15,14 @@
   let isPc = isPcAgent(); //判断是否为Pc
   // let docuObj = getDocument();
 
-  if(!isPc) { //Pc端展示页脚
-    footer.style.display='none';
-  } 
+  if (!isPc) { //Pc端展示页脚
+    footer.style.display = 'none';
+  }
 
   /**
    * 添加收藏
    */
-  addEvent(addSave,'click',addSaveEvent);
+  addEvent(addSave, 'click', addSaveEvent);
   function addSaveEvent(e) {
     stopDefault(e);
     alert("请使用Ctrl+D进行添加");
@@ -31,7 +31,7 @@
   /**
    * 小屏下切换显示下拉导航
    */
-  addEvent(menuIcon,'click',setNavDisplay);
+  addEvent(menuIcon, 'click', setNavDisplay);
   function setNavDisplay() {
     toggleClassName(indexNav, 'sm-nav');
     toggleClassName(menuIcon, 'active');
@@ -42,16 +42,16 @@
   function setActiveNav() {
     let url = window.location.href;
     if (!url.includes('html')) {
-      if(url.includes('search')) { //搜索页
+      if (url.includes('search')) { //搜索页
         return;
-      } 
+      }
       let target = selectElesByClassName('home', wp)[0]; //首页
       addClassName(target, 'active');
       return;
-    } 
+    }
     let splitUrl = url.split('/');
     let lastUrlSplit = splitUrl[5];
-    if(lastUrlSplit !== 'index') { //电影详情页
+    if (lastUrlSplit !== 'index') { //电影详情页
       return;
     }
     let movieType = splitUrl[4];
@@ -84,8 +84,11 @@
       case 'disaster':
         activeIndex = 9;
         break;
-      case 'tv':
+      case 'cartoon':
         activeIndex = 10;
+        break;
+      case 'tv':
+        activeIndex = 11;
         break;
       case undefined:
         activeIndex = 0;
@@ -93,7 +96,7 @@
       default:
         activeIndex = -1;
     }
-    if(activeIndex === -1) {
+    if (activeIndex === -1) {
       return;
     }
     addClassName(menus[activeIndex], 'active');
@@ -110,11 +113,11 @@
     }
   });
 
-  if(isPc) {  //PC搜索框回车事件
+  if (isPc) {  //PC搜索框回车事件
     iptKeyUp();
     function iptKeyUp() {
       let ipt = selectElesByClassName('ipt', rightSearch)[0];
-      addEvent(ipt,'keyup',keyUpEvent);
+      addEvent(ipt, 'keyup', keyUpEvent);
     }
     function keyUpEvent(e) {
       let event = getEvent(e);
@@ -124,13 +127,13 @@
       }
     }
     //点击搜索事件
-    addEvent(rightBtn,'click',handleRightSearch);
+    addEvent(rightBtn, 'click', handleRightSearch);
     function handleRightSearch() {
       let normalIpt = selectElesByClassName('ipt', rightSearch)[0];
       openSearch(normalIpt);
     }
   } else {
-    addEvent(navBtn,'click',handleNavSearch);
+    addEvent(navBtn, 'click', handleNavSearch);
     function handleNavSearch() {
       let smIpt = selectElesByClassName('ipt', indexNav)[0]
       openSearch(smIpt);
@@ -143,27 +146,27 @@
     if (!value) return;
     window.open(`/plus/search?keyword=${value}&page=1`);
   }
-  
+
   //回顶部事件
-  addEvent(goTop,'click',scrollToTop);
+  addEvent(goTop, 'click', scrollToTop);
   function scrollToTop() {
-    if(isPc) {
-      if(document.documentElement.scrollTop) { //兼容IE
+    if (isPc) {
+      if (document.documentElement.scrollTop) { //兼容IE
         window.goTopTimer = setInterval(() => {
           let documentTop = document.documentElement.scrollTop;
           document.documentElement.scrollTop = documentTop - 100;
           if (document.documentElement.scrollTop <= 0) {
             clearInterval(window.goTopTimer);
           }
-        },18);
-      } else if(document.body.scrollTop){
+        }, 18);
+      } else if (document.body.scrollTop) {
         window.goTopTimer = setInterval(() => {
           let bodyTop = document.body.scrollTop;
           document.body.scrollTop = bodyTop - 100;
           if (document.body.scrollTop <= 0) {
             clearInterval(window.goTopTimer);
           }
-        },18)
+        }, 18)
       }
       // window.goTopTimer = setInterval(() => {
       //   let documentTop = document.documentElement.scrollTop;
