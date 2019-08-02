@@ -206,7 +206,7 @@
 .nav .wp li {
     display: inline-block;
     height: 40px;
-    padding: 0 8px;
+    padding: 0 7px;
     font-size: 14px;
     line-height: 40px;
 }
@@ -271,7 +271,7 @@
     .nav ul {
         /* height: 350px; */
         /* height: 425px; */
-        padding: 0 7px;
+        padding: 0 8px;
         overflow-y: auto;
     }
     .nav .wp li {
