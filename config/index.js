@@ -19,7 +19,21 @@ module.exports.movieTypes = [ //电影类型
     { '5': 'drama' },
     { '6': 'suspense' },
     { '7': 'war' },
-    { '8': 'horror' },
-    { '9': 'disaster' },
-    { '10': 'cartoon' }
+    { '8': 'thrill' },
+    { '9': 'horror' },
+    { '10': 'disaster' },
+    { '11': 'cartoon' }
 ];
+
+// module.exports.movieTypes = [ //电影类型
+//     { '1': 'action' },
+//     { '2': 'comedy' },
+//     { '3': 'romance' },
+//     { '4': 'science' },
+//     { '5': 'drama' },
+//     { '6': 'suspense' },
+//     { '7': 'war' },
+//     { '8': 'horror' },
+//     { '9': 'disaster' },
+//     { '10': 'cartoon' }
+// ];
