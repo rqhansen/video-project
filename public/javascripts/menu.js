@@ -40,6 +40,9 @@
             case '战争片':
                 url += '/war/index';
                 break;
+            case '惊悚片':
+                url += '/thrill/index';
+                break;
             case '恐怖片':
                 url += '/horror/index';
                 break;

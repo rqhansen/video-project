@@ -9,8 +9,8 @@ const { getMore } = require('../controller/more');
 const { getTypeMovies } = require('../controller/typeMovie');
 const { getSearchResult } = require('../controller/search');
 const { getNotFind } = require('../controller/notFind');
-const typeExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|cartoon|tv)/(index|page_\\d+)';
-const detailExp = '(action|comedy|romance|science|drama|suspense|horror|war|horror|disaster|cartoon|tv)/(\\d+)';
+const typeExp = '(action|comedy|romance|science|drama|suspense|horror|war|thrill|horror|disaster|cartoon|tv)/(index|page_\\d+)';
+const detailExp = '(action|comedy|romance|science|drama|suspense|horror|war|thrill|horror|disaster|cartoon|tv)/(\\d+)';
 
 
 /**

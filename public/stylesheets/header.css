@@ -206,7 +206,7 @@
 .nav .wp li {
     display: inline-block;
     height: 40px;
-    padding: 0 12px;
+    padding: 0 8px;
     font-size: 14px;
     line-height: 40px;
 }
@@ -269,7 +269,8 @@
         width: calc(100% - 112px);
     }
     .nav ul {
-        height: 350px;
+        /* height: 350px; */
+        /* height: 425px; */
         padding: 0 8px;
         overflow-y: auto;
     }
@@ -334,7 +335,7 @@
         overflow: hidden;
     }
     .sm-nav {
-        height: 405px;
+        height: 425px;
         box-shadow: 1px 2px 5px #888;
     }
     .sm-nav .search {

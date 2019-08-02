@@ -77,17 +77,20 @@
       case 'war':
         activeIndex = 7;
         break;
-      case 'horror':
+      case 'thrill':
         activeIndex = 8;
         break;
-      case 'disaster':
+      case 'horror':
         activeIndex = 9;
         break;
-      case 'cartoon':
+      case 'disaster':
         activeIndex = 10;
         break;
-      case 'tv':
+      case 'cartoon':
         activeIndex = 11;
+        break;
+      case 'tv':
+        activeIndex = 12;
         break;
       case undefined:
         activeIndex = 0;

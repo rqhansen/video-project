@@ -10,6 +10,7 @@ async function getTodayMovieSources(ctx) {
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from drama where to_days(pubDate) = to_days(now())
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from suspense where to_days(pubDate) = to_days(now())
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from war where to_days(pubDate) = to_days(now())
+                                        union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from thrill where to_days(pubDate) = to_days(now())
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from horror where to_days(pubDate) = to_days(now())
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from disaster where to_days(pubDate) = to_days(now())
                                         union select id,typeId,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d"),pubDate from cartoon where to_days(pubDate) = to_days(now()) order by pubDate desc`);
