@@ -1,7 +1,6 @@
 'use strict';
 const connection = require('../database/db');
 const { movieTypes, limitSeconds } = require('../config/index');
-// const { formatDate } = require('./utils');
 
 async function getSearchResult(ctx) {
     let { keyword, page } = ctx.query;

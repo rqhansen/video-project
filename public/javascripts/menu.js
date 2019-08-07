@@ -52,8 +52,6 @@
             case '动画片':
                 url += '/cartoon/index';
                 break;
-            case "欧美剧":
-                url += '/tv/index';
             default:
                 break;
         }

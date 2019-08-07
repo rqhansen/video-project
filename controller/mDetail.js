@@ -36,11 +36,7 @@ async function getMovieDetail(ctx) {
     if (pubDate) {
         result.pubDate = formatDate(pubDate);
     }
-    if (type !== 'tv') {
-        result.filmType = Object.values(movieTypes.filter(type => type[`${result.typeId}`])[0])[0];
-    } else {
-        result.filmType = 'tv';
-    }
+    result.filmType = Object.values(movieTypes.filter(type => type[`${result.typeId}`])[0])[0];
     await ctx.render('mDetail', result);
 }
 
