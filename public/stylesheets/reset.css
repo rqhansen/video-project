@@ -41,9 +41,11 @@
   }
   a {
     color: #555;
-    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-focus: none;
     -moz-user-focus: none;
     -ms-user-select: none;
+    -moz-user-select: none;
   }
   a,a:hover,a:active,a:visited,a:link,a:focus {
     -webkit-tap-highlight-color: transparent;
