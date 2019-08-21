@@ -1,5 +1,5 @@
 <%- include("common/header",{flag:"index",movieName:""}) %>
-<!-- 主内容 -->
+<!-- 主内容,hhe -->
 <div class="main" id="main">
     <div class="container">
         <div class="title-bar">
@@ -13,33 +13,12 @@
                     <a href="<%- `/html/${movies[i].filmType}/${movies[i].id}` %>" target="_self"
                         title="<%= movies[i].pureName %>">
                         <div>
-                            <img class="lazyImg" src="/public/images/lazy-load.jpg" data-src="/public/<%= movies[i].indexImgSrc %>" alt="<%= movies[i].pureName %>">
+                            <img class="lazyImg" src="/public/images/lazy-load.jpg"
+                                data-src="/public/<%= movies[i].indexImgSrc %>" alt="<%= movies[i].pureName %>">
                         </div>
                         <div>
                             <h3 class="ellipsis"><%- movies[i].fullName %></h3>
                             <time class=<%= movies[i].isNew ?'new':'' %>><%- movies[i].pubDate%></time>
-                        </div>
-                    </a>
-                </li>
-                <% } %>
-            </ul>
-        </div>
-        <div class="title-bar">
-            <h2>今日欧美剧推荐</h2>
-            <a href="/html/tv/more">更多...</a>
-        </div>
-        <div class="media-list">
-            <ul>
-                <% for(let i=0;i<tvs.length;i++) {%>
-                <li>
-                    <a href="<%- `/html/${tvs[i].filmType}/${tvs[i].id}` %>" target="_self"
-                        title="<%= tvs[i].pureName %>">
-                        <div id="indexPosterWp">
-                            <img class="lazyImg" src="/public/images/lazy-load.jpg" data-src="/public/<%= tvs[i].indexImgSrc %>" alt="<%= tvs[i].pureName %>">
-                        </div>
-                        <div>
-                            <h3 class="ellipsis"><%- `${tvs[i].fullName}连载至${tvs[i].nowNum}集` %></h3>
-                            <time class=<%= tvs[i].isNew ?'new':'' %>><%- tvs[i].pubDate%></time>
                         </div>
                     </a>
                 </li>

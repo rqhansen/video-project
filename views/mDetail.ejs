@@ -20,7 +20,7 @@
                     </span>
                 </div>
                 <div class="m-text">
-                    <h1><%= filmType === 'tv' ? `${fullName}连载至${downUrl.length}集` : fullName %></h1>
+                    <h1><%= fullName %></h1>
                     <div class="info">
                         <span>片名&nbsp;:</span>&nbsp;&nbsp;&nbsp;<span><%= pureName %></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <span>发布时间&nbsp;:</span>&nbsp;&nbsp;&nbsp;<span id="pubDate"><%= pubDate%></span>
@@ -64,12 +64,6 @@
                         <p>
                             <span class="title">◎上映日期</span><span><%= onDate %></span>
                         </p>
-                        <% if(filmType === 'tv') {%>
-                        <p>
-                            <span
-                                class="title">◎集&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数</span><span><%= tvNum %>集</span>
-                        </p>
-                        <% } %>
                         <p>
                             <span class="title">◎IMDb评分</span><span><%= imdbScore %></span>
                         </p>
@@ -150,13 +144,8 @@
                     <div class="bot">
                         <h3>下载地址列表:</h3>
                         <% for(let j=0;j<downUrl.length;j++) {%>
-                        <% if(filmType==='tv') {%>
-                        <a class="down ellipsis" href="<%= downUrl[j] %>"
-                            target="_self"><%= pureName %>第<%= j+1 %>集[www.wx520.net]下载</a>
-                        <% } else {%>
                         <a class="down ellipsis" href="<%= downUrl[j] %>"
                             target="_self"><%= downUrl[j] %>[www.wx520.net]下载</a>
-                        <% } %>
                         <% } %>
                         <!-- 温馨提示 -->
                         <div class="down-tip">

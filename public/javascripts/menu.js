@@ -1,13 +1,13 @@
 
 (function () {
     let menuWp = selectEleById('menuWp');
-    addEvent(menuWp,'click',clickMenu);
+    addEvent(menuWp, 'click', clickMenu);
     function clickMenu(e) {
         if (!hasClassName(e.target, 'work')) {
             return;
         }
         handleTypeMovie(e);
-    }   
+    }
     /**
      * 处理不同的电影类型事件
      */
@@ -40,14 +40,18 @@
             case '战争片':
                 url += '/war/index';
                 break;
+            case '惊悚片':
+                url += '/thrill/index';
+                break;
             case '恐怖片':
                 url += '/horror/index';
                 break;
             case '灾难片':
                 url += '/disaster/index';
                 break;
-            case "欧美剧":
-                url += '/tv/index';
+            case '动画片':
+                url += '/cartoon/index';
+                break;
             default:
                 break;
         }

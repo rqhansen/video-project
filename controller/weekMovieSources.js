@@ -11,8 +11,10 @@ async function getWeekMovieSources(ctx) {
     let drama = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from drama where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     let suspense = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from suspense where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     let war = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from war where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let thrill = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from thrill where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     let horror = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from horror where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     let disaster = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from disaster where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
+    let cartoon = await connection.query(`select id,typeId,typeName,indexImgSrc,fullName,pureName,date_format(pubDate,"%Y-%m-%d") from cartoon where date_sub(curdate(),interval 7 day) <= date(pubDate) order by pubDate desc`);
     if (action.length) {
         results.push(handleMovieList(action));
     }
@@ -34,11 +36,17 @@ async function getWeekMovieSources(ctx) {
     if (war.length) {
         results.push(handleMovieList(war));
     }
+    if (thrill.length) {
+        results.push(handleMovieList(thrill));
+    }
     if (horror.length) {
         results.push(handleMovieList(horror));
     }
     if (disaster.length) {
         results.push(handleMovieList(disaster));
+    }
+    if (cartoon.length) {
+        results.push(handleMovieList(cartoon));
     }
     await (ctx.render('weekMovieSources', { results }));
 }
